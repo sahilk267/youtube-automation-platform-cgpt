@@ -2,7 +2,7 @@
 
 > **Status: active CPU-first engineering prototype. NOT a finished autonomous publishing platform.**
 
-**Latest verified GitHub snapshot:** [CURRENT_CHECKPOINT](docs/CURRENT_CHECKPOINT.md) — full source import MERGED, 586 files, GitHub Actions **83 tests passed** on main; user Windows, natural voices and live YouTube acceptance remain pending.
+**Latest verified GitHub snapshot:** [CURRENT_CHECKPOINT](docs/CURRENT_CHECKPOINT.md) — full source import MERGED, 587 files, GitHub Actions **83 tests passed** on main; user Windows, natural voices and live YouTube acceptance remain pending.
 
 **Start here:** [Project recovery guide](docs/START_HERE.md) · [Architecture](docs/ARCHITECTURE.md) · [Current verified status](docs/IMPLEMENTATION_STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Security](docs/SECURITY_AND_RIGHTS.md).
 
@@ -51,4 +51,4 @@ The v0.7 handoff ZIP `ViralOS_Launch_M2_4_M3_2_v0_7_Working_Source.zip` was crea
 
 ### Recover the original Ultimate v3 edition
 
-The [exact Ultimate v3 reconstruction guide](docs/ULTIMATE_REFERENCE.md) rebuilds all 250 original Ultimate specification files from the Combined v3 snapshot plus a tiny edition delta, checking 250 SHA-256 hashes. It is a design reference, not a second application. Current full GitHub source tree has 586 files, and the latest Ultimate PR [#12](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/12) passed 83 offline CI tests.
+The [exact Ultimate v3 reconstruction guide](docs/ULTIMATE_REFERENCE.md) rebuilds all 250 original Ultimate specification files from the Combined v3 snapshot plus a tiny edition delta, checking 250 SHA-256 hashes. It is a design reference, not a second application. Current full GitHub source tree has 587 files, and the latest Ultimate PR [#12](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/12) passed 83 offline CI tests.
