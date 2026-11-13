@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "productivity",
+  "director_document": "creative/directors/productivity.md",
+  "allowed_format_ids": [
+    "DEMO_REVIEW",
+    "STEP_LESSON",
+    "CASE_STUDY",
+    "SHORT_EXPLAINER"
+  ],
+  "distinct_visual_methods": [
+    "Original screen-recorded workflow with personal information redacted",
+    "Before/after timer and source notes",
+    "Flow diagram of manual vs automated decisions",
+    "Reproducible checklist and exception path"
+  ],
+  "distinct_audio_methods": [
+    "Pragmatic, calm and precise tool instructions",
+    "Avoid claims of miraculous productivity without actual measurement"
+  ],
+  "factual_visual_review_rules": [
+    "Data privacy, unreliable automation and access permission scope",
+    "No invented time saved or fake stopwatch"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

@@ -1,0 +1,25 @@
+{
+  "contract_version": "3.0.0",
+  "overlay_id": "overlay-one",
+  "shot_id": "shot-one",
+  "locale": "hi-IN",
+  "kind": "LABEL",
+  "text": "Illustrative pitch",
+  "source_claim_ids": [],
+  "start_ms": 200,
+  "end_ms": 1900,
+  "safe_box": {
+    "x": 0.1,
+    "y": 0.1,
+    "width": 0.65,
+    "height": 0.2
+  },
+  "font_families": [
+    "Noto Sans Devanagari",
+    "Arial"
+  ],
+  "entry": "FADE",
+  "exit": "FADE",
+  "contrast_check": "PENDING",
+  "readability_review": "PENDING"
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/SourceCoverageReport.schema.json",
+  "title": "SourceCoverageReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "domain_id",
+    "query_digest",
+    "attempts",
+    "unavailable_providers",
+    "unanswered_questions",
+    "coverage_statement",
+    "generated_at"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "domain_id": {
+      "type": "string",
+      "enum": [
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "sports",
+        "career",
+        "productivity",
+        "culture"
+      ]
+    },
+    "query_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "provider_id",
+          "status"
+        ],
+        "properties": {
+          "provider_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "OK",
+              "EMPTY",
+              "ERROR",
+              "RESTRICTED",
+              "QUOTA",
+              "STALE"
+            ]
+          },
+          "result_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "unavailable_providers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unanswered_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "coverage_statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "confidence_level": {
+      "type": "string",
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "UNKNOWN"
+      ]
+    }
+  }
+}

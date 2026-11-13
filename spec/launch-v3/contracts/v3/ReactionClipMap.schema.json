@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/ReactionClipMap.schema.json",
+  "title": "ReactionClipMap",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "clip_map_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "story_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "source_category": {
+      "type": "string",
+      "enum": [
+        "OWNER_OWNED",
+        "EXPLICIT_LICENSE",
+        "PLATFORM_NATIVE_REMIX",
+        "LEGAL_EXCEPTION_REVIEW",
+        "UNKNOWN_OR_DENIED"
+      ]
+    },
+    "full_source_context_checked": {
+      "type": "boolean"
+    },
+    "source_rights_decision_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "excerpts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "clip_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_in_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "source_out_ms": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "commentary_segment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "new_analysis": {
+            "type": "string",
+            "minLength": 15
+          },
+          "rights_decision_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "context_review": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "PASS",
+              "FAIL"
+            ]
+          }
+        },
+        "required": [
+          "clip_id",
+          "source_in_ms",
+          "source_out_ms",
+          "commentary_segment_id",
+          "new_analysis",
+          "rights_decision_id",
+          "context_review"
+        ]
+      }
+    },
+    "legal_or_editorial_approval": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "APPROVED",
+        "REJECTED"
+      ]
+    },
+    "creation_mode": {
+      "type": "string",
+      "enum": [
+        "INDEPENDENT_EDIT",
+        "PLATFORM_NATIVE_HANDOFF",
+        "NO_SOURCE_FOOTAGE"
+      ]
+    },
+    "auto_download_allowed": {
+      "type": "boolean"
+    },
+    "reuse_originality_review": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "clip_map_id",
+    "story_id",
+    "source_url",
+    "source_category",
+    "full_source_context_checked",
+    "source_rights_decision_id",
+    "excerpts",
+    "legal_or_editorial_approval",
+    "creation_mode",
+    "auto_download_allowed",
+    "reuse_originality_review"
+  ]
+}

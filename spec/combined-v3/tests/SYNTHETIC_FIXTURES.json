@@ -1,0 +1,33 @@
+{
+  "synthetic_test_fixture": true,
+  "warning": "These are testing inputs. Do NOT use as observed real sports/results or YouTube metrics.",
+  "contract_version": "2.0.0",
+  "samples": {
+    "cricket_overs": {
+      "notation": "17.3",
+      "legal_balls": 105,
+      "runs": 174,
+      "run_rate": 9.942857142857143
+    },
+    "source_independence": {
+      "headline_copies": 20,
+      "original_reporting_families": 1
+    },
+    "channel": {
+      "market": "IN",
+      "locale": "hi-IN",
+      "domain_id": "sports",
+      "sport_id": "cricket"
+    },
+    "gpu": {
+      "dedicated_gpu_present": false,
+      "requested_compute_mode": "CUDA_ONLY",
+      "expected_state": "WAITING_FOR_CAPABILITY"
+    },
+    "youtube": {
+      "oauth_connected": false,
+      "expected_publish": "BLOCKED",
+      "manual_export_allowed": true
+    }
+  }
+}

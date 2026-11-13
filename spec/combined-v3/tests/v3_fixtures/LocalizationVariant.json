@@ -1,0 +1,19 @@
+{
+  "contract_version": "3.0.0",
+  "variant_id": "variant-test",
+  "story_id": "test-story",
+  "master_claim_set_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "source_locale": "hi-IN",
+  "target_locale": "en-US",
+  "target_market": "US",
+  "translated_script_asset_id": "test-translation",
+  "voice_profile_id": "voice-test-en",
+  "locale_glossary_revision": "glossary-v1",
+  "overlay_revision": "overlay-v1",
+  "caption_revision": "caption-v1",
+  "timeline_id": null,
+  "claim_semantics_review": "PENDING",
+  "proper_name_review": "PENDING",
+  "regional_visual_review": "PENDING",
+  "status": "DRAFT"
+}

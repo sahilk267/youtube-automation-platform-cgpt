@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/ExperimentCreateRequest.schema.json",
+  "title": "ExperimentCreateRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "channel_id",
+    "hypothesis",
+    "variant_ids",
+    "measurement_plan"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "channel_id": {
+      "type": "string"
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variant_ids": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string"
+      }
+    },
+    "measurement_plan": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

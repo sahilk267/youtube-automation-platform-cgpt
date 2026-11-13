@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/JobSpec.schema.json",
+  "title": "JobSpec",
+  "description": "Durable resource and error-aware job spec.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "job_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "channel_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "domain_id": {
+      "enum": [
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "sports",
+        "career",
+        "productivity",
+        "culture"
+      ]
+    },
+    "job_type": {
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "RETRY_WAIT",
+        "BLOCKED",
+        "WAITING_FOR_APPROVAL",
+        "WAITING_FOR_CAPABILITY",
+        "SUCCEEDED",
+        "FAILED",
+        "CANCELLED"
+      ]
+    },
+    "input_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "idempotency_key": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "capability_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "estimated_ram_mb": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "estimated_vram_mb": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "estimated_disk_mb": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "retry_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "error_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "job_id",
+    "domain_id",
+    "job_type",
+    "state",
+    "input_sha256",
+    "idempotency_key",
+    "priority",
+    "capability_requirements",
+    "estimated_ram_mb",
+    "estimated_vram_mb",
+    "estimated_disk_mb",
+    "retry_count",
+    "created_at"
+  ]
+}

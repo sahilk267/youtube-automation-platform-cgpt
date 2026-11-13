@@ -1,0 +1,1202 @@
+[
+  {
+    "domain": "Sports",
+    "channel": "Cricket Aakash",
+    "archetype": "Former-player cricket analysis and previews",
+    "hook": "Begin with a selection or match-decision question; establish match situation before judgment",
+    "visuals_audio": "Presenter commentary, statistics, team lists and tactical discussion; Hindi/Hinglish terminology",
+    "why_it_works": "Fans return for expertise, continuity across matches and timely interpretation",
+    "viral_os_implementation": "Build role-specific match-state reasoning, batter/bowler comparisons and original field diagrams",
+    "limits": "Never infer insider information or assume broadcaster footage rights"
+  },
+  {
+    "domain": "Sports",
+    "channel": "Cricbuzz",
+    "archetype": "Cricket panel, score context and interviews",
+    "hook": "Timely match or player debate with competing expert views",
+    "visuals_audio": "Hosts and guests, scoreboards, quote cards, pre/post-match conversation",
+    "why_it_works": "Different expert interpretations sustain interest after a result is known",
+    "viral_os_implementation": "Create structured argument-counterargument debate outlines and sourced score overlays",
+    "limits": "No reproduction of proprietary studio video or scores from prohibited data feeds"
+  },
+  {
+    "domain": "Sports",
+    "channel": "Sports Tak",
+    "archetype": "High-frequency Hindi cricket reporting and debate",
+    "hook": "Urgent update or consequential selection claim",
+    "visuals_audio": "Presenter-led rapid updates, interviews and headline graphics",
+    "why_it_works": "Strong event cadence, familiar anchors and vernacular community engagement",
+    "viral_os_implementation": "Separate speed-to-publish desk from slower evidence-checking; freshness badges required",
+    "limits": "High-frequency format risks rumor amplification; check changes and corrections"
+  },
+  {
+    "domain": "Sports",
+    "channel": "ESPNcricinfo",
+    "archetype": "Statistical and editorial cricket coverage",
+    "hook": "Interesting performance, matchup or record contextualized with stats",
+    "visuals_audio": "Player records, tables, statistical charts and editorial analysis",
+    "why_it_works": "Audience benefits from well-explained numbers over generic score repetition",
+    "viral_os_implementation": "Design cricket statistics ontology, verifiable query provenance and comparison charts",
+    "limits": "Statistics and database access may have licensing restrictions"
+  },
+  {
+    "domain": "Sports",
+    "channel": "Ashwin",
+    "archetype": "Firsthand player-perspective cricket conversations",
+    "hook": "A player decision or experience fans cannot see from scoreboards",
+    "visuals_audio": "Conversation/interview, on-camera explanation, positional/tactical context",
+    "why_it_works": "Unique lived expertise creates differentiated value",
+    "viral_os_implementation": "Use clearly qualified expert quotes and tactical diagrams; do not simulate firsthand experience",
+    "limits": "Cannot claim access to locker-room or private team information"
+  },
+  {
+    "domain": "Sports",
+    "channel": "NFL",
+    "archetype": "League-owned NFL programming and highlights",
+    "hook": "Game-changing moment, player reaction, result or access",
+    "visuals_audio": "Licensed game footage, production crews, original interviews, branded graphics",
+    "why_it_works": "Exclusive access and rights distinguish league output from independent creators",
+    "viral_os_implementation": "Study event packaging and weekly content taxonomy; create original diagrams instead of reuploads",
+    "limits": "NFL broadcast/license access not inherited by ViralOS"
+  },
+  {
+    "domain": "Sports",
+    "channel": "Brett Kollmann",
+    "archetype": "American football film and analytic breakdown",
+    "hook": "Explain a surprising scheme, personnel choice or play outcome",
+    "visuals_audio": "Film analysis, route/coverage marking, statistics and paced narration",
+    "why_it_works": "Expert decoding of hidden strategic logic makes games more rewarding",
+    "viral_os_implementation": "Build formation ontology, route animations, pre/post-snap evidence-linked analysis",
+    "limits": "Game film licensing, stats access and analyst conclusions require review"
+  },
+  {
+    "domain": "Sports",
+    "channel": "The QB School",
+    "archetype": "Former quarterback technical teaching",
+    "hook": "How a quarterback read or missed a coverage in a specific play",
+    "visuals_audio": "Slowed play discussion, route diagrams, first-person strategic explanation",
+    "why_it_works": "Instructional depth creates trust among enthusiasts",
+    "viral_os_implementation": "Differentiate pre-snap from post-snap state, highlight choices and alternative plays",
+    "limits": "Do not fabricate actual player intentions or copy film without rights"
+  },
+  {
+    "domain": "Sports",
+    "channel": "Jomboy Media",
+    "archetype": "Baseball incident breakdown and conversational commentary",
+    "hook": "A confusing or funny on-field incident followed by why it happened",
+    "visuals_audio": "Replays with annotations where cleared, speech/lip-reading commentary and original explanation",
+    "why_it_works": "Micro-story framing gives unusual sports moments a beginning, conflict and payoff",
+    "viral_os_implementation": "Create incident explainer with sourced rules, decision timeline and original annotations",
+    "limits": "Do not present speculative lip reading as certain; footage rights matter"
+  },
+  {
+    "domain": "Sports",
+    "channel": "Foolish Baseball",
+    "archetype": "Data-rich baseball video essays with retro graphics",
+    "hook": "Statistical paradox, myth or forgotten career pattern",
+    "visuals_audio": "Retro pixel-art look, quantitative charts, narrative numbers and visual metaphors",
+    "why_it_works": "Strong distinct brand and evidence-based surprise make evergreen sports content",
+    "viral_os_implementation": "Build reproducible baseball stat queries, historical comparisons and stylistic original charts",
+    "limits": "Avoid copying trademark-like signature visual identity and unlicensed footage"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "Ravish Kumar Official",
+    "archetype": "Independent Hindi public-affairs commentary",
+    "hook": "A consequential citizen-focused public question",
+    "visuals_audio": "Presenter, document/quote display, current-event context and long-form explanation",
+    "why_it_works": "Clear editorial voice and repeated audience trust support depth",
+    "viral_os_implementation": "Build public-impact question generator, primary-source review and measured delivery",
+    "limits": "Commentary may have a viewpoint; evidence and interpretation must be separated"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "Ajit Anjum",
+    "archetype": "Independent Hindi field and political reporting",
+    "hook": "Ground-report question or what an interview reveals",
+    "visuals_audio": "On-location reporting, interviews and direct questioning",
+    "why_it_works": "Firsthand access and public conversations supply material absent from press releases",
+    "viral_os_implementation": "Support original interviews, consent logs, source identity and multiple stakeholder voices",
+    "limits": "Cannot invent field visits or interviews; sensitive allegations require review"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "Newslaundry",
+    "archetype": "Independent media accountability and field reporting",
+    "hook": "Ask whether news coverage itself is accurate, incomplete or misleading",
+    "visuals_audio": "Source excerpts, journalistic interviews, documentary material and media comparison",
+    "why_it_works": "Media-watch lens differentiates its reporting",
+    "viral_os_implementation": "Implement coverage comparison with original source lineage and correction mechanism",
+    "limits": "Do not equate different headlines with deliberate manipulation without evidence"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "The Wire",
+    "archetype": "Digital journalism and interviews",
+    "hook": "News claim set against documents and affected parties",
+    "visuals_audio": "Interview segments, explainers, public documents and analysis",
+    "why_it_works": "Competing viewpoints and subject-matter interviews provide context",
+    "viral_os_implementation": "Build right-of-reply, quotation provenance, allegation status and expert-review workflows",
+    "limits": "Do not copy interviews; source reliability varies per story"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "Dhruv Rathee",
+    "archetype": "Hindi research-led public issue explainers",
+    "hook": "A simple consequential question framed around larger issue",
+    "visuals_audio": "Talking-head narration, explainer graphics, timelines and openly linked research resources",
+    "why_it_works": "Accessible narrative and source documentation are transferable strengths",
+    "viral_os_implementation": "Version every source PDF, claim, correction and visual; simplify without altering truth",
+    "limits": "Never copy script, voice identity, graphics or editorial viewpoint"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "Johnny Harris",
+    "archetype": "Visual investigative geography and current-affairs essays",
+    "hook": "A visually concrete surprising question about systems or geopolitics",
+    "visuals_audio": "Custom maps, on-location shots, graphic annotations and personal narration",
+    "why_it_works": "Spatial explanations turn complex events into legible cause and effect",
+    "viral_os_implementation": "Create evidence-linked map layers and geotemporal storyboarding",
+    "limits": "Avoid compelling visuals overstating disputed interpretation"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "Vox",
+    "archetype": "Explanatory journalism across domains",
+    "hook": "Show the mechanism behind a familiar news phenomenon",
+    "visuals_audio": "Motion graphics, diagrams, data, archival sources, cutaway explainers",
+    "why_it_works": "Mechanism-first explanation can outperform daily headline repetition",
+    "viral_os_implementation": "Design claim-to-diagram engine and explanatory beat library",
+    "limits": "Archival footage, chart assets and licensed music are not automatically reusable"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "DW Documentary",
+    "archetype": "Long-form documentary and field reporting",
+    "hook": "An investigation shaped by lived experience or a global systems question",
+    "visuals_audio": "Interviews, field footage, timelines, documentary pacing and context",
+    "why_it_works": "Human evidence and scene progression sustain long-form attention",
+    "viral_os_implementation": "Use documented interview/provenance pipeline and source diversity",
+    "limits": "Large crew access cannot be simulated as original evidence"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "FRONTLINE PBS",
+    "archetype": "Deep evidence-led investigative documentaries",
+    "hook": "A central high-stakes accountability question",
+    "visuals_audio": "Original interviews, documents, archival excerpts, chronology and authoritative narration",
+    "why_it_works": "Extended evidence accumulation delivers depth and public value",
+    "viral_os_implementation": "Institutionalize adversarial review, source archive and correction tracking",
+    "limits": "Investigations require human editorial/legal review and independent verification"
+  },
+  {
+    "domain": "Newsroom",
+    "channel": "Al Jazeera English",
+    "archetype": "Global breaking news and deep regional reports",
+    "hook": "Developing event or underreported viewpoint",
+    "visuals_audio": "Field correspondents, direct testimonies, maps and sourced footage",
+    "why_it_works": "Global context and reporting access add unique audience value",
+    "viral_os_implementation": "Build regional source diversification and location-sensitive safety review",
+    "limits": "Do not confuse a wire feed with independent confirmation"
+  },
+  {
+    "domain": "Science",
+    "channel": "Veritasium",
+    "archetype": "Counterintuitive experimental science",
+    "hook": "Challenge a confident viewer intuition with testable question",
+    "visuals_audio": "On-camera experiment, expert interview, explanatory animation, delayed reveal",
+    "why_it_works": "Prediction versus observed evidence makes the payoff meaningful",
+    "viral_os_implementation": "Design misconception-test-reveal structure with experiment provenance",
+    "limits": "No fabricated demonstrations or cherry-picked outcomes"
+  },
+  {
+    "domain": "Science",
+    "channel": "Kurzgesagt – In a Nutshell",
+    "archetype": "Polished animated scientific overviews",
+    "hook": "Large-scale what-if question with clear stakes",
+    "visuals_audio": "Custom vector animation, unified iconography, narrated mechanisms and sound",
+    "why_it_works": "Coherent animation helps abstract phenomena become memorable",
+    "viral_os_implementation": "Build original visual grammar and rigorous source/caveat map",
+    "limits": "Do not replicate distinctive artwork, assets or overstate simplification"
+  },
+  {
+    "domain": "Science",
+    "channel": "Mark Rober",
+    "archetype": "Engineering experiments and challenges",
+    "hook": "A physical challenge whose outcome must be discovered",
+    "visuals_audio": "Real prototypes, test footage, large-scale experiments and dramatic reveal",
+    "why_it_works": "Real-world constraints and escalating attempts create narrative tension",
+    "viral_os_implementation": "Create engineering plan-test-result templates and authentic footage requirements",
+    "limits": "CPU animation cannot masquerade as a completed real experiment"
+  },
+  {
+    "domain": "Science",
+    "channel": "SmarterEveryDay",
+    "archetype": "Slow-motion and curiosity-led engineering investigation",
+    "hook": "Ask how an everyday or surprising mechanism really works",
+    "visuals_audio": "High-speed footage, lab or field demonstrations, camera-led learning",
+    "why_it_works": "Visual proof and the process of discovery beat generic exposition",
+    "viral_os_implementation": "Plan observed-versus-hypothesized evidence shots and slow-motion explanations",
+    "limits": "Special camera access and experiments cannot be assumed"
+  },
+  {
+    "domain": "Science",
+    "channel": "NileRed",
+    "archetype": "Chemistry build and lab narrative",
+    "hook": "A difficult transformation or seemingly impossible chemical outcome",
+    "visuals_audio": "Original lab setup, stepwise reaction footage, safety context and measured results",
+    "why_it_works": "Multi-stage uncertainty gives laboratory work story tension",
+    "viral_os_implementation": "Use verified experiment logs and substance-specific safety reviews",
+    "limits": "No unsafe replicable synthesis advice; no fake lab footage"
+  },
+  {
+    "domain": "Science",
+    "channel": "SciShow",
+    "archetype": "Frequent accessible science explainers",
+    "hook": "A timely discovery or simple question",
+    "visuals_audio": "Presenter, charts, concise B-roll and science context",
+    "why_it_works": "Broad topical coverage with consistent explanatory voice",
+    "viral_os_implementation": "Build quick-science format with paper-check and uncertainty template",
+    "limits": "Fast cadence must not flatten weak studies into consensus"
+  },
+  {
+    "domain": "Science",
+    "channel": "Vsauce",
+    "archetype": "Curiosity-led philosophical-science essays",
+    "hook": "Start with an apparently simple question, expand through surprising connections",
+    "visuals_audio": "Presenter, conceptual demonstrations, graphics and playful intellectual detours",
+    "why_it_works": "Narrative discovery and cross-domain synthesis create evergreen interest",
+    "viral_os_implementation": "Use question dependency graph and carefully earned conceptual pivots",
+    "limits": "Detours must preserve evidence and clear central question"
+  },
+  {
+    "domain": "Science",
+    "channel": "Steve Mould",
+    "archetype": "Everyday physical mechanism demonstrations",
+    "hook": "Puzzling physical effect that can be shown in a simple test",
+    "visuals_audio": "Close-up real mechanism, repeat demonstrations, simple overlays",
+    "why_it_works": "Direct observation plus explanation yields comprehension",
+    "viral_os_implementation": "Invent low-cost original experiment and motion-annotation plans",
+    "limits": "Do not present staging as unbiased experimental evidence"
+  },
+  {
+    "domain": "Science",
+    "channel": "MinutePhysics",
+    "archetype": "Concise drawn physics explanations",
+    "hook": "One precise physics puzzle or misconception",
+    "visuals_audio": "Hand-drawn diagrams, arrows, short narration and equations",
+    "why_it_works": "Visual minimalism keeps a single concept digestible",
+    "viral_os_implementation": "Generate precise vector diagrams with validated units and physics",
+    "limits": "High simplification can obscure assumptions; list them"
+  },
+  {
+    "domain": "Science",
+    "channel": "The Action Lab",
+    "archetype": "Demonstration-first physical experiments",
+    "hook": "Show a surprising thing under a changed condition",
+    "visuals_audio": "Close-up controlled tests, simple narration and repeat setups",
+    "why_it_works": "Immediate visible experiment gives viewer a reason to keep watching",
+    "viral_os_implementation": "Use reproducible methods, conditions and safety cues",
+    "limits": "No potentially hazardous unsupervised experimentation"
+  },
+  {
+    "domain": "Technology",
+    "channel": "Marques Brownlee (MKBHD)",
+    "archetype": "Polished product reviews and measured opinions",
+    "hook": "Explain whether a product actually helps and why",
+    "visuals_audio": "Original product footage, attractive close-ups, comparisons and calibrated narration",
+    "why_it_works": "Visual quality and credible hands-on experience reinforce trust",
+    "viral_os_implementation": "Create repeatable hardware testing script and honest verdict structure",
+    "limits": "No invented device handling or manufacturer footage permission"
+  },
+  {
+    "domain": "Technology",
+    "channel": "Mrwhosetheboss",
+    "archetype": "High-energy consumer technology comparisons",
+    "hook": "Strong consumer decision or surprising feature question",
+    "visuals_audio": "Fast visual comparisons, precise gadget shots, graphical rankings",
+    "why_it_works": "Clear choice architecture makes broad tech entertaining",
+    "viral_os_implementation": "Build comparison test matrix, high-density transitions and strong payoff",
+    "limits": "Avoid overclaiming exhaustive tests based on demos"
+  },
+  {
+    "domain": "Technology",
+    "channel": "Linus Tech Tips",
+    "archetype": "PC hardware builds and tests",
+    "hook": "A high-stakes hardware question, challenge or price-value dilemma",
+    "visuals_audio": "Workbench footage, benchmarks, hosts, teardown and experiments",
+    "why_it_works": "Authentic tests and imperfections offer entertainment plus utility",
+    "viral_os_implementation": "Log hardware, driver, version, test environment and retests",
+    "limits": "No pretending unowned machines were benchmarked"
+  },
+  {
+    "domain": "Technology",
+    "channel": "Gamers Nexus",
+    "archetype": "Technical hardware investigations",
+    "hook": "Specific anomalous result or engineering discrepancy",
+    "visuals_audio": "Test data, thermal/performance charts, detailed methodology and critique",
+    "why_it_works": "Methodological transparency is a competitive differentiator",
+    "viral_os_implementation": "Build reproducible benchmark runner and error bars; publish limitations",
+    "limits": "Do not convert a single metric into unsupported scandal"
+  },
+  {
+    "domain": "Technology",
+    "channel": "Fireship",
+    "archetype": "Ultra-compact developer explainers",
+    "hook": "Rapid, humorous question about a framework or tech shift",
+    "visuals_audio": "Code snippets, UI flashes, memes and concise narrator",
+    "why_it_works": "High information density plus jokes matches expert viewers",
+    "viral_os_implementation": "Design 100-second fast tech script with syntactically correct code snippets",
+    "limits": "Fast jokes cannot replace accurate technical demonstrations"
+  },
+  {
+    "domain": "Technology",
+    "channel": "Two Minute Papers",
+    "archetype": "AI research-paper visualization",
+    "hook": "An exciting research result interpreted through visible outputs",
+    "visuals_audio": "Paper clips, research imagery, side-by-side model results and explanation",
+    "why_it_works": "Showing result first gives immediate relevance to papers",
+    "viral_os_implementation": "Create paper-to-demo traceability and explicit baseline comparison",
+    "limits": "Original paper demo usage licenses and limitations vary"
+  },
+  {
+    "domain": "Technology",
+    "channel": "AI Explained",
+    "archetype": "AI model and research evaluation",
+    "hook": "New model claim evaluated against evidence or benchmark",
+    "visuals_audio": "Results tables, screenshots, paper excerpts, structured critique",
+    "why_it_works": "Disciplined evaluation distinguishes useful updates from hype",
+    "viral_os_implementation": "Build benchmark provenance and capability caveat protocol",
+    "limits": "Model release claims and prices can change rapidly"
+  },
+  {
+    "domain": "Technology",
+    "channel": "Dave2D",
+    "archetype": "Clean laptop and gadget reviews",
+    "hook": "Simple buying question; what matters in daily use",
+    "visuals_audio": "Minimal desk visuals, focused product detail, calm comparison",
+    "why_it_works": "Low clutter and concise judgment improve signal-to-noise",
+    "viral_os_implementation": "Apply clean visual theme and shortlist of actual tests",
+    "limits": "Hands-on reliability cannot be faked from spec sheet"
+  },
+  {
+    "domain": "Technology",
+    "channel": "Geekyranjit",
+    "archetype": "Indian-context practical device testing",
+    "hook": "Local price/value question or realistic use case",
+    "visuals_audio": "Hands-on phone footage, practical conditions, clear talking-head notes",
+    "why_it_works": "Local market fit and relatable criteria improve decisions",
+    "viral_os_implementation": "Generate India-specific price, service and availability comparisons",
+    "limits": "Prices and warranty conditions must be checked live"
+  },
+  {
+    "domain": "Technology",
+    "channel": "NetworkChuck",
+    "archetype": "Hands-on IT/cybersecurity tutorials",
+    "hook": "Practical challenge followed by working demo",
+    "visuals_audio": "Terminal captures, lab setup, chapter checkpoints and energetic delivery",
+    "why_it_works": "Viewer learns through doing, not simply hearing jargon",
+    "viral_os_implementation": "Produce safe sandboxed walkthroughs with commands and expected output",
+    "limits": "Do not execute harmful commands or imply a tested setup when untested"
+  },
+  {
+    "domain": "Business",
+    "channel": "Modern MBA",
+    "archetype": "Long-form industry economics case studies",
+    "hook": "Why a seemingly successful business model struggles",
+    "visuals_audio": "Company comparisons, economics diagrams, market evidence and case arc",
+    "why_it_works": "Industry-level mechanisms produce durable evergreen insight",
+    "viral_os_implementation": "Implement unit economics, source-period reconciliation and scenario explanation",
+    "limits": "Private business figures cannot be invented"
+  },
+  {
+    "domain": "Business",
+    "channel": "Company Man",
+    "archetype": "Brand-history and strategy explainers",
+    "hook": "Why a familiar company rose, fell or changed",
+    "visuals_audio": "Brand timeline, product visuals, historical context and causal narration",
+    "why_it_works": "Recognizable brands ease entry to complex strategy stories",
+    "viral_os_implementation": "Create company-change timeline with verified filings and events",
+    "limits": "Avoid unsupported causal certainty based on narrative coincidence"
+  },
+  {
+    "domain": "Business",
+    "channel": "CNBC Make It",
+    "archetype": "Real-world personal finance and income profiles",
+    "hook": "What a real person or business earns or spends",
+    "visuals_audio": "Interviews, lifestyle shots and budget/income breakdowns",
+    "why_it_works": "Human case studies make money decisions tangible",
+    "viral_os_implementation": "Support consented interviews and scenario disclaimers",
+    "limits": "Anecdotes are not general income predictions"
+  },
+  {
+    "domain": "Business",
+    "channel": "Bloomberg Originals",
+    "archetype": "Business/economic investigative documentaries",
+    "hook": "Surprising structural change in a market or institution",
+    "visuals_audio": "Data journalism, interviews, industry footage and strong reporting",
+    "why_it_works": "Global context and original reporting support authority",
+    "viral_os_implementation": "Map public filings to explanatory scenes; label original reporting limits",
+    "limits": "Do not mimic proprietary financial newsroom access"
+  },
+  {
+    "domain": "Business",
+    "channel": "The Wall Street Journal",
+    "archetype": "Markets, companies and decision explainers",
+    "hook": "Financial decision or business strategy question",
+    "visuals_audio": "Clear charts, reporter explanation, documented company details",
+    "why_it_works": "Efficient explanation of business mechanisms and tradeoffs",
+    "viral_os_implementation": "Use concise chart grammar with date/source labels",
+    "limits": "Paywalled data and footage require permissions"
+  },
+  {
+    "domain": "Business",
+    "channel": "How Money Works",
+    "archetype": "Narrated finance and systems essays",
+    "hook": "Why an economic incentive creates an unexpected outcome",
+    "visuals_audio": "Animated charts, examples, concise accessible narration",
+    "why_it_works": "Economic mechanism framing turns abstract incentives into stories",
+    "viral_os_implementation": "Build incentive maps and test numeric assumptions",
+    "limits": "Separate opinion, model and observed data"
+  },
+  {
+    "domain": "Business",
+    "channel": "Economics Explained",
+    "archetype": "Country and macroeconomics storytelling",
+    "hook": "Economic puzzle about countries or structural trends",
+    "visuals_audio": "Rankings, maps, GDP/trade charts and model-driven analysis",
+    "why_it_works": "Macro comparisons have strong broad-audience appeal",
+    "viral_os_implementation": "Add normalization, inflation and cross-country methodological checks",
+    "limits": "Avoid false precision, ecological fallacies and oversimplified rankings"
+  },
+  {
+    "domain": "Business",
+    "channel": "Think School",
+    "archetype": "India-oriented business case study explainers",
+    "hook": "What a company did right or wrong in a familiar market",
+    "visuals_audio": "Narrated story, financial visuals, strategic timeline and case structure",
+    "why_it_works": "Local relevance plus explanation makes corporate cases relatable",
+    "viral_os_implementation": "Build India filings and sector-context templates with alternate hypotheses",
+    "limits": "Do not turn speculative strategy into fact"
+  },
+  {
+    "domain": "Business",
+    "channel": "The Plain Bagel",
+    "archetype": "Careful finance education and market commentary",
+    "hook": "Clarify a financial misconception or risk",
+    "visuals_audio": "Presenter, charts, definitions, sober analysis",
+    "why_it_works": "Calmness and caution attract viewers seeking reliable understanding",
+    "viral_os_implementation": "Implement claim confidence and risk disclosure in financial scripts",
+    "limits": "No tailored investment advice without applicable safeguards"
+  },
+  {
+    "domain": "Business",
+    "channel": "Patrick Boyle",
+    "archetype": "Dry-humor financial market analysis",
+    "hook": "A surprising financial event framed with skeptical evidence",
+    "visuals_audio": "Presenter, market data, source quotations and restrained humor",
+    "why_it_works": "Skeptical explanatory tone can make serious finance engaging",
+    "viral_os_implementation": "Train a critical-reading workflow and source provenance checks",
+    "limits": "Do not imitate creator personality or assert fraud absent proof"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "Markiplier",
+    "archetype": "Personality-led lets-plays and reactions",
+    "hook": "Genuine surprising or scary gameplay situation",
+    "visuals_audio": "Authentic recorded gameplay, voice reactions, face-cam and episodic arcs",
+    "why_it_works": "Creator personality and unscripted outcomes drive attachment",
+    "viral_os_implementation": "Support original capture, synchronized mic/camera and moment detection",
+    "limits": "Cannot generate authentic personal reactions from no user footage"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "jacksepticeye",
+    "archetype": "Energetic game-first entertainment",
+    "hook": "Challenge or emotional game moment",
+    "visuals_audio": "Gameplay, face-cam, animated captions and enthusiastic commentary",
+    "why_it_works": "Energy, sincerity and series continuity sustain repeat viewing",
+    "viral_os_implementation": "Build gameplay-event and series-memory indexes",
+    "limits": "Avoid cloning creator voice or mannerisms"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "videogamedunkey",
+    "archetype": "Edited humorous gaming critique",
+    "hook": "Unexpected judgment expressed through comedic juxtaposition",
+    "visuals_audio": "Game footage, jump cuts, comedic voiceover, selective demonstrations",
+    "why_it_works": "Original point of view and tight comedic timing differentiate reviews",
+    "viral_os_implementation": "Create critique thesis and joke-beat quality reviews",
+    "limits": "Game footage rights and parody judgment remain context-specific"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "Game Theory",
+    "archetype": "Game-lore and theory essays",
+    "hook": "A mystery in game narrative or mechanics",
+    "visuals_audio": "Game screenshots, diagrams, clue cards and speculative reasoning",
+    "why_it_works": "Evidence puzzle and community participation build discussion",
+    "viral_os_implementation": "Separate canon evidence from speculation and label hypotheses",
+    "limits": "Never present fandom theory as confirmed lore"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "gameranx",
+    "archetype": "Frequent lists, updates and reviews",
+    "hook": "Ten things viewers should know before playing/buying",
+    "visuals_audio": "Gameplay montage, concise labeled lists, narrator, clear sections",
+    "why_it_works": "Practical, repeatable consumer utility drives search intent",
+    "viral_os_implementation": "Create release-date/version checklist and list segment pipeline",
+    "limits": "Publisher footage permissions and titles need verification"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "Digital Foundry",
+    "archetype": "Technical graphics/performance analysis",
+    "hook": "Which platform performs best, tested visually",
+    "visuals_audio": "Side-by-side capture, frame-time graphs, visual zooms, hardware data",
+    "why_it_works": "Reproducibility and visible measurements serve technical gamers",
+    "viral_os_implementation": "Build frame/pacing comparison and capture settings manifests",
+    "limits": "Hardware footage/tests must be authentic"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "Skill Up",
+    "archetype": "Long-form game reviews and industry commentary",
+    "hook": "Should this game be worth the time or money",
+    "visuals_audio": "Original gameplay examples, deliberate chapters, nuanced voice",
+    "why_it_works": "Clear evaluation criteria build trust with buying audiences",
+    "viral_os_implementation": "Generate review rubric with evidence clips and disclosure",
+    "limits": "Early copies, embargoes and sponsored relationships require transparency"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "Game Maker's Toolkit",
+    "archetype": "Design-mechanics educational essays",
+    "hook": "Why a specific game mechanic changes experience",
+    "visuals_audio": "Original gameplay captures, mechanics diagrams, comparisons",
+    "why_it_works": "Mechanism explanation creates evergreen design insight",
+    "viral_os_implementation": "Build game-state, input-output and design comparison visualization",
+    "limits": "Must distinguish subjective design preference from measured impact"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "IGN",
+    "archetype": "Large-scale games news, trailers and reviews",
+    "hook": "What launched, changed or deserves attention",
+    "visuals_audio": "Official trailers under distribution arrangements, newsroom edits, review scorecards",
+    "why_it_works": "Timeliness and breadth cover massive game ecosystems",
+    "viral_os_implementation": "Study editorial calendar and specialized review templates",
+    "limits": "Do not assume access to IGN publisher agreements"
+  },
+  {
+    "domain": "Gaming",
+    "channel": "Total Gaming",
+    "archetype": "India-oriented gameplay entertainment",
+    "hook": "Challenge, match or improvement arc in popular games",
+    "visuals_audio": "Original gameplay with vernacular commentary and fast cuts",
+    "why_it_works": "Regional language familiarity plus skill-based progression can grow loyalty",
+    "viral_os_implementation": "Build India locale, game rules and authentic gaming capture pipeline",
+    "limits": "Repetitious match highlights without distinct narrative can fatigue audience"
+  },
+  {
+    "domain": "History",
+    "channel": "OverSimplified",
+    "archetype": "Humorous animated historical narratives",
+    "hook": "A big historical conflict framed as an understandable dilemma",
+    "visuals_audio": "Stylized custom animation, maps, character jokes and cause/effect beats",
+    "why_it_works": "Comedy and chronology reduce friction for complex history",
+    "viral_os_implementation": "Build historically accurate event graph with optional humor beats",
+    "limits": "Low upload cadence and costly originals; no copying signature art"
+  },
+  {
+    "domain": "History",
+    "channel": "Kings and Generals",
+    "archetype": "Animated battles and long-form campaigns",
+    "hook": "A strategic question from an important conflict",
+    "visuals_audio": "Animated maps, troop movement, chronology and historical sources",
+    "why_it_works": "Spatial reasoning and campaign sequencing attract history enthusiasts",
+    "viral_os_implementation": "Create source-proven map/battle schema with uncertainty flags",
+    "limits": "Troop numbers and maps vary across historians"
+  },
+  {
+    "domain": "History",
+    "channel": "History Matters",
+    "archetype": "Compact history question explainers",
+    "hook": "Why did a historical decision occur?",
+    "visuals_audio": "Simple 2D cartoons, annotated timeline, concise narration",
+    "why_it_works": "One question per episode yields clear payoff",
+    "viral_os_implementation": "Produce concise evidence-linked question-answer animations",
+    "limits": "Simplification must not erase historiographical disagreement"
+  },
+  {
+    "domain": "History",
+    "channel": "Epic History TV",
+    "archetype": "Cinematic historical documentary storytelling",
+    "hook": "What a crucial campaign or decision changed",
+    "visuals_audio": "Dramatic maps, period imagery, rich narration and music",
+    "why_it_works": "High production atmosphere reinforces chronological engagement",
+    "viral_os_implementation": "Build cinematic but sourced map/storyboard workflow",
+    "limits": "Licensed paintings/music/assets remain separate rights"
+  },
+  {
+    "domain": "History",
+    "channel": "The Armchair Historian",
+    "archetype": "Illustrated military-history narrative",
+    "hook": "Conflict outcome explained through strategy and characters",
+    "visuals_audio": "Custom illustrated characters, battlefield diagrams, narration",
+    "why_it_works": "Animated visualization makes complex military stories accessible",
+    "viral_os_implementation": "Create original art packs and faction consistency bible",
+    "limits": "Do not present interpretive art as literal documentary footage"
+  },
+  {
+    "domain": "History",
+    "channel": "Simple History",
+    "archetype": "Accessible illustrated historical facts",
+    "hook": "Little-known role, event or object explained quickly",
+    "visuals_audio": "Clean cartoons, labels, short episodes and repeated subject framing",
+    "why_it_works": "Simple visuals reduce entry cost for general audience",
+    "viral_os_implementation": "Build low-resource CPU animation presets and fact-check layer",
+    "limits": "Templating must not produce repetitive low-value substance"
+  },
+  {
+    "domain": "History",
+    "channel": "Fall of Civilizations",
+    "archetype": "Long narrative civilizations documentaries",
+    "hook": "How a civilization thrived, transformed and declined",
+    "visuals_audio": "Atmospheric long narration, historically contextual visuals, sweeping geography",
+    "why_it_works": "Slow narrative arcs and reflection sustain very long content",
+    "viral_os_implementation": "Develop long-form chapter progression and uncertainty-aware historical synthesis",
+    "limits": "Ancient evidence is fragmentary; cannot claim complete certainty"
+  },
+  {
+    "domain": "History",
+    "channel": "Extra History",
+    "archetype": "Episodic animated historical storytelling",
+    "hook": "A key figure or period introduced as serial narrative",
+    "visuals_audio": "Recurring characters, stylized animation and chapter cliffhangers",
+    "why_it_works": "Episode serialization encourages return visits",
+    "viral_os_implementation": "Track ongoing episode arcs and character/event consistency",
+    "limits": "Narrative dramatization needs distinction from documented quote"
+  },
+  {
+    "domain": "History",
+    "channel": "The Great War",
+    "archetype": "Period-by-period historical documentary",
+    "hook": "What happened this week or phase in WWI?",
+    "visuals_audio": "Archival imagery, contemporaneous maps, chronology and source notes",
+    "why_it_works": "Time-indexed serialized coverage builds educational depth",
+    "viral_os_implementation": "Build historical calendar and chronological source planner",
+    "limits": "Archival material may be copyrighted despite old age"
+  },
+  {
+    "domain": "History",
+    "channel": "Timeline – World History Documentaries",
+    "archetype": "Full-length licensed history documentary programming",
+    "hook": "A substantial historical question explored through feature-length documentary",
+    "visuals_audio": "Documentary footage, interviews, archive material and extended narrative",
+    "why_it_works": "Lean-back viewing and large documentary library have persistent demand",
+    "viral_os_implementation": "Study chapterization, source attribution and long-form pacing",
+    "limits": "Their licensing/catalogue cannot be copied or treated as public domain"
+  },
+  {
+    "domain": "Space",
+    "channel": "NASA",
+    "archetype": "Primary-source missions, launches and science communication",
+    "hook": "Event in a mission, a new image or a launch milestone",
+    "visuals_audio": "Authentic mission footage, instruments, data visualizations and livestreams",
+    "why_it_works": "Direct access to mission evidence offers high trust and unique visuals",
+    "viral_os_implementation": "Create mission event calendar, data provenance and science captioning",
+    "limits": "NASA media usage conditions and third-party elements vary"
+  },
+  {
+    "domain": "Space",
+    "channel": "European Space Agency (ESA)",
+    "archetype": "Space missions and research public communication",
+    "hook": "What a mission discovered or instrument measured",
+    "visuals_audio": "Mission animations, observatory imagery, expert explanations",
+    "why_it_works": "Official instruments and measured data anchor accuracy",
+    "viral_os_implementation": "Build ESA data adapters and observation/simulation labels",
+    "limits": "ESA media license terms must be reviewed per asset"
+  },
+  {
+    "domain": "Space",
+    "channel": "Everyday Astronaut",
+    "archetype": "Detailed rocketry and launch explainers",
+    "hook": "Why rocket technology or mission tradeoff matters",
+    "visuals_audio": "Engineering diagrams, rocket launch footage and host explanations",
+    "why_it_works": "Specific engineering questions create deep learning engagement",
+    "viral_os_implementation": "Support propulsion component diagrams and mission progression",
+    "limits": "Footage and interviews may be exclusive or licensed"
+  },
+  {
+    "domain": "Space",
+    "channel": "Scott Manley",
+    "archetype": "Orbital mechanics and spaceflight contextual analysis",
+    "hook": "How a launch maneuver or spacecraft system works",
+    "visuals_audio": "Orbital diagrams, simulator views, narrated calculations",
+    "why_it_works": "Simulation plus real events makes complex physics tractable",
+    "viral_os_implementation": "Implement checked orbital units, numerical simulation and disclosure labels",
+    "limits": "Simulation is not direct observation; separate visually"
+  },
+  {
+    "domain": "Space",
+    "channel": "NASASpaceflight",
+    "archetype": "Rocket test and launch reporting",
+    "hook": "A vehicle test, live milestone or engineering anomaly",
+    "visuals_audio": "Original observation footage, livestream discussion and annotated updates",
+    "why_it_works": "Persistent event coverage and original capture build community",
+    "viral_os_implementation": "Track source footage provenance and engineering commentary timeline",
+    "limits": "Do not assume right to redistribute original footage"
+  },
+  {
+    "domain": "Space",
+    "channel": "Dr Becky",
+    "archetype": "Astrophysics research and discovery commentary",
+    "hook": "What a new telescope result really means",
+    "visuals_audio": "Paper extracts, authentic images, diagrams and scientist explanation",
+    "why_it_works": "Expert context and study caveats matter for breaking discoveries",
+    "viral_os_implementation": "Build paper revision/correction and astronomy glossary systems",
+    "limits": "Never conflate press release with scientific consensus"
+  },
+  {
+    "domain": "Space",
+    "channel": "Anton Petrov",
+    "archetype": "Frequent astronomical research summaries",
+    "hook": "One interesting new science paper or discovery",
+    "visuals_audio": "Narrator, scientific imagery, paper figures and basic motion",
+    "why_it_works": "Steady cadence makes new science digestible",
+    "viral_os_implementation": "Build high-freshness paper watcher with reliability checks",
+    "limits": "Paper figures and speculative implications need caution"
+  },
+  {
+    "domain": "Space",
+    "channel": "Astrum",
+    "archetype": "Cinematic solar-system and planetary storytelling",
+    "hook": "Visual journey through a planet or cosmic mystery",
+    "visuals_audio": "Astronomical footage, stylized space animation, serene narration",
+    "why_it_works": "Spatial and scenic exploration create long-view immersion",
+    "viral_os_implementation": "Develop accurate scale camera path and licensed telescope media",
+    "limits": "Visual beauty cannot override actual scale or uncertainty"
+  },
+  {
+    "domain": "Space",
+    "channel": "PBS Space Time",
+    "archetype": "Advanced cosmology and mathematical physics",
+    "hook": "A conceptual paradox or profound physics question",
+    "visuals_audio": "Equations, diagrams, host narration and carefully explained assumptions",
+    "why_it_works": "Intellectual depth maintains expert audience",
+    "viral_os_implementation": "Implement physics equation validator and prerequisites",
+    "limits": "Advanced notions require true domain review, not paraphrasing"
+  },
+  {
+    "domain": "Space",
+    "channel": "Fraser Cain / Universe Today",
+    "archetype": "Space news Q&A and community education",
+    "hook": "A recurring audience question about current astronomy",
+    "visuals_audio": "Host discussion, linked articles, explanatory slides and guest interviews",
+    "why_it_works": "Interactive question-to-answer loop sustains trust",
+    "viral_os_implementation": "Create FAQ retrieval and source-backed viewer-question workflow",
+    "limits": "Do not fake expert dialogue or telescope access"
+  },
+  {
+    "domain": "Learning",
+    "channel": "Khan Academy",
+    "archetype": "Sequential mastery-focused academic instruction",
+    "hook": "Start with a learner's exact confusion or problem",
+    "visuals_audio": "Digital board, incremental worked example, practice progression",
+    "why_it_works": "Stepwise pacing lets learner follow rather than merely consume",
+    "viral_os_implementation": "Implement prerequisite graphs, worked-solution verification and exercises",
+    "limits": "Incorrect solutions or skipped steps fail learning quality"
+  },
+  {
+    "domain": "Learning",
+    "channel": "CrashCourse",
+    "archetype": "Structured multi-episode subject courses",
+    "hook": "An essential concept and why it matters",
+    "visuals_audio": "Host, recurring graphics, animation and curriculum sequence",
+    "why_it_works": "Series scaffolding and connected ideas reward repeated viewing",
+    "viral_os_implementation": "Build syllabus planner and lesson dependency graph",
+    "limits": "Broad courses may oversimplify; cite underlying sources"
+  },
+  {
+    "domain": "Learning",
+    "channel": "TED-Ed",
+    "archetype": "Compact animated lessons and ideas",
+    "hook": "An intriguing question that can be answered in one episode",
+    "visuals_audio": "Original animation, narrative analogies and educational clarity",
+    "why_it_works": "Visual metaphor and focused answer make lessons memorable",
+    "viral_os_implementation": "Use verified metaphors, answer-check quizzes and scripted visual concepts",
+    "limits": "Narrative analogies must not become literal claims"
+  },
+  {
+    "domain": "Learning",
+    "channel": "3Blue1Brown",
+    "archetype": "Visual mathematics intuition",
+    "hook": "A hidden mathematical idea shown geometrically",
+    "visuals_audio": "Purpose-built math animation, precise graphs and careful pacing",
+    "why_it_works": "A visual model reveals structure beyond rote formulas",
+    "viral_os_implementation": "Support deterministic math animation engine and algebraic tests",
+    "limits": "No mathematical shortcuts that break correctness"
+  },
+  {
+    "domain": "Learning",
+    "channel": "freeCodeCamp.org",
+    "archetype": "Long practical programming tutorials",
+    "hook": "Promise a working project or marketable skill",
+    "visuals_audio": "Real screencasts, code editor, terminal and project milestones",
+    "why_it_works": "Visible output and complete lessons serve high-intent search",
+    "viral_os_implementation": "Require running code fixtures and downloadable reproducible setup",
+    "limits": "Do not present generated code as tested when not executed"
+  },
+  {
+    "domain": "Learning",
+    "channel": "MIT OpenCourseWare",
+    "archetype": "University lecture and course materials",
+    "hook": "Syllabus-led academic question or full lecture",
+    "visuals_audio": "Real lecture capture, slides, equations and assignments",
+    "why_it_works": "Depth and structured progression support serious study",
+    "viral_os_implementation": "Provide lecture chaptering, notes and testable exercises",
+    "limits": "Faculty lectures/handouts have applicable usage licenses"
+  },
+  {
+    "domain": "Learning",
+    "channel": "Harvard CS50",
+    "archetype": "High-production introductory computer science lectures",
+    "hook": "Problem solving challenge and step-by-step reasoning",
+    "visuals_audio": "Instructor, live demonstration, slides and coding exercises",
+    "why_it_works": "Performance and live examples make fundamentals accessible",
+    "viral_os_implementation": "Build engaging proof-by-demo lesson templates and assessments",
+    "limits": "Course footage and instructor identity cannot be reused"
+  },
+  {
+    "domain": "Learning",
+    "channel": "Physics Wallah",
+    "archetype": "India-facing exam-oriented lessons",
+    "hook": "Exam difficulty or misconception directly addressed",
+    "visuals_audio": "Hindi/Hinglish whiteboard teaching, examples and practice problems",
+    "why_it_works": "Local curriculum alignment and instructor clarity drive usefulness",
+    "viral_os_implementation": "Support regional syllabus, exam level and solved problem checks",
+    "limits": "Do not promise ranks or exam outcomes"
+  },
+  {
+    "domain": "Learning",
+    "channel": "Unacademy",
+    "archetype": "Multiple educator and exam-oriented instructional streams",
+    "hook": "Exam strategy or detailed subject lesson",
+    "visuals_audio": "On-screen teachers, slides, live Q&A and syllabus playlists",
+    "why_it_works": "Different teaching styles serve learner segments",
+    "viral_os_implementation": "Create instructor-independent lesson QA and exam-board source calendar",
+    "limits": "Educator claims need qualification and syllabus freshness"
+  },
+  {
+    "domain": "Learning",
+    "channel": "The Organic Chemistry Tutor",
+    "archetype": "Patient worked problems across math/science",
+    "hook": "Solve a familiar problem step-by-step",
+    "visuals_audio": "Digital handwriting, computations, practice examples and calm explanation",
+    "why_it_works": "Searchable problem-level tutorials stay evergreen",
+    "viral_os_implementation": "Implement symbolic/math answer verification and learner pacing profiles",
+    "limits": "Large lesson volume should not imply repetitive unsolved filler"
+  },
+  {
+    "domain": "Career",
+    "channel": "CareerVidz",
+    "archetype": "Interview and hiring-test preparation",
+    "hook": "Specific interview question with a strong sample answer",
+    "visuals_audio": "Presenter, answer structure cards, role checklists and examples",
+    "why_it_works": "Immediate practical usefulness and search intent build demand",
+    "viral_os_implementation": "Implement interview question generator with evidence-based role specificity",
+    "limits": "No guarantee of job offer or one-size-fits-all answers"
+  },
+  {
+    "domain": "Career",
+    "channel": "Linda Raynier",
+    "archetype": "Interview communication and progression coaching",
+    "hook": "Why a particular interview answer fails or succeeds",
+    "visuals_audio": "Talking-head coaching, scripts and situational reframing",
+    "why_it_works": "Confidence-building with concrete behavior helps candidates act",
+    "viral_os_implementation": "Create role-play with situational constraints and calibrated feedback",
+    "limits": "Do not imply universal recruiter preferences"
+  },
+  {
+    "domain": "Career",
+    "channel": "Self Made Millennial",
+    "archetype": "Recruiter-informed job search methods",
+    "hook": "Mistake or tactical change in hiring process",
+    "visuals_audio": "Talking-head examples, resume walkthroughs and decision frameworks",
+    "why_it_works": "Insider process expertise gives a clear differentiation",
+    "viral_os_implementation": "Build resume/ATS claim checker and tailored interview practice",
+    "limits": "Advice changes by industry, country and recruitment software"
+  },
+  {
+    "domain": "Career",
+    "channel": "Andrew LaCivita",
+    "archetype": "Full funnel job search coaching",
+    "hook": "Overcome a stalled step from targeting to offer",
+    "visuals_audio": "Methodical presentations, templates, sequences and live examples",
+    "why_it_works": "End-to-end career system is more useful than isolated tips",
+    "viral_os_implementation": "Build validated funnel stages, job search action plans and evidence labels",
+    "limits": "Never automate job applications without user consent"
+  },
+  {
+    "domain": "Career",
+    "channel": "Work It Daily",
+    "archetype": "LinkedIn and practical search/job support",
+    "hook": "A specific mistake that causes missed interviews",
+    "visuals_audio": "Practical talking-head suggestions and profile/resume examples",
+    "why_it_works": "Actionable checklists fit high-intent job seekers",
+    "viral_os_implementation": "Implement verifiable labor-market and geography constraints",
+    "limits": "Avoid unsupported algorithm claims about job sites"
+  },
+  {
+    "domain": "Career",
+    "channel": "AdviceWithErin",
+    "archetype": "Approachable short-form career education",
+    "hook": "A relatable workplace question or common awkward situation",
+    "visuals_audio": "Direct-to-camera, captions, role-play examples, humor and warm delivery",
+    "why_it_works": "Human relatability and short scripts make advice shareable",
+    "viral_os_implementation": "Provide concise question→script→practice format in locale voice",
+    "limits": "Do not impersonate creator or fabricate personal career anecdotes"
+  },
+  {
+    "domain": "Career",
+    "channel": "Jennifer Brick",
+    "archetype": "Corporate advancement and office dynamics",
+    "hook": "Why good work does not always lead to promotion",
+    "visuals_audio": "Presenter, scenarios, communication examples and frameworks",
+    "why_it_works": "Nuance about organizational context differentiates from generic advice",
+    "viral_os_implementation": "Build scenario-based career judgment with alternate explanations",
+    "limits": "No universal rule for employer behavior"
+  },
+  {
+    "domain": "Career",
+    "channel": "Jeff Su",
+    "archetype": "Workplace tools and practical communication",
+    "hook": "Show a task or communication problem with measurable payoff",
+    "visuals_audio": "Live software demos, checklists, polished overlays and concise pacing",
+    "why_it_works": "Clear before-after example encourages application",
+    "viral_os_implementation": "Combine email/meeting demos with editable templates and task-success checks",
+    "limits": "Actual software features may change; verify on screen"
+  },
+  {
+    "domain": "Career",
+    "channel": "Apna College",
+    "archetype": "India programming career and placement-oriented tutorials",
+    "hook": "Skill or project connected to beginner job readiness",
+    "visuals_audio": "Instructor/screen capture, code exercises, learner roadmap",
+    "why_it_works": "Accessible skill progression and local learner identity",
+    "viral_os_implementation": "Build India-oriented tech career routes with executable projects",
+    "limits": "No placement or salary promises"
+  },
+  {
+    "domain": "Career",
+    "channel": "Wonsulting",
+    "archetype": "Resume, LinkedIn and recruitment guidance",
+    "hook": "Specific resume or interview challenge",
+    "visuals_audio": "Examples, before-after resumes, recruiter-style tips",
+    "why_it_works": "Artifact-driven instruction is practical",
+    "viral_os_implementation": "Provide anonymized résumé templates and region-aware feedback",
+    "limits": "Privacy risk with uploaded resumes; no fake offer claims"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Ali Abdaal",
+    "archetype": "Polished productivity systems and habits",
+    "hook": "A concrete time/focus problem with promised improvement",
+    "visuals_audio": "Talking-head, personal workflow, b-roll, text and diagrams",
+    "why_it_works": "Friendly explanations and relatable examples support wide reach",
+    "viral_os_implementation": "Design evidence-based habit experiment with clear metrics",
+    "limits": "Avoid unfounded quantified time savings"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Thomas Frank",
+    "archetype": "Systematic productivity and study tools",
+    "hook": "Demonstrate an end-to-end tool system",
+    "visuals_audio": "Original screen capture, structured workflows and templates",
+    "why_it_works": "Viewers can reproduce a complete system rather than only hear advice",
+    "viral_os_implementation": "Produce actual template and verified setup steps",
+    "limits": "Tool versions and pricing change; avoid outdated demos"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Matt D’Avella",
+    "archetype": "Documentary habit and minimalism experiments",
+    "hook": "Personal challenge with measurable emotional stakes",
+    "visuals_audio": "Cinematic lifestyle footage, voice reflections and before-after scenes",
+    "why_it_works": "Narrative transformation makes gradual behavior interesting",
+    "viral_os_implementation": "Support optional authentic user logs and consented recordings",
+    "limits": "Do not fabricate a 30-day experience or footage"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Cal Newport",
+    "archetype": "Deep focus and thoughtful work philosophy",
+    "hook": "Contrarian question on attention and distraction",
+    "visuals_audio": "Long thoughtful spoken essays/podcast with evidence and practical concepts",
+    "why_it_works": "Depth and calm counterbalance noisy hacks",
+    "viral_os_implementation": "Create argument maps and practical testing prompts",
+    "limits": "Do not overstate scientific support for opinionated methods"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Tiago Forte",
+    "archetype": "Knowledge management systems",
+    "hook": "How to stop losing ideas and make notes useful",
+    "visuals_audio": "Framework diagrams, file structure and software demos",
+    "why_it_works": "Concrete organizational system reduces friction",
+    "viral_os_implementation": "Implement reusable knowledge workflow templates and validation",
+    "limits": "Not every knowledge-worker workflow is generalizable"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Jeff Su",
+    "archetype": "AI and office workflow efficiency",
+    "hook": "Show a daily task simplified with a real tool",
+    "visuals_audio": "Screen recordings, side-by-side steps, labels and deliverable",
+    "why_it_works": "Clear practical payoffs make professional tutorials useful",
+    "viral_os_implementation": "Build real integration demonstrations and timing measurements",
+    "limits": "No fictional time-saved claims; version check"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Justin Sung",
+    "archetype": "Learning methods and skillful studying",
+    "hook": "Challenge a weak study habit then teach a better process",
+    "visuals_audio": "Whiteboard diagrams, concept maps, instructor-led explanation",
+    "why_it_works": "Method emphasis bridges productivity and education",
+    "viral_os_implementation": "Validate learning claims and build comprehension tests",
+    "limits": "Avoid blanket claims that one study method always works"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Better Ideas",
+    "archetype": "Self-improvement through candid storytelling",
+    "hook": "Personal friction or motivation paradox",
+    "visuals_audio": "Direct narration, cinematic b-roll, emotionally paced narrative",
+    "why_it_works": "Honest uncertainty and lived framing build connection",
+    "viral_os_implementation": "Use original reflective scripts and practical experiments",
+    "limits": "Do not synthesize personal stories as real lived events"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Mariana Vieira",
+    "archetype": "Study organization and student routines",
+    "hook": "A manageable exam/study improvement question",
+    "visuals_audio": "Desk footage, planning pages, gentle narration and on-screen plans",
+    "why_it_works": "Aspirational calm aesthetic plus tangible rituals serve students",
+    "viral_os_implementation": "Produce reproducible study timetable planners",
+    "limits": "Aesthetic alone must not substitute for evidence-backed advice"
+  },
+  {
+    "domain": "Productivity",
+    "channel": "Simpletivity",
+    "archetype": "Practical everyday productivity software walkthroughs",
+    "hook": "A common software bottleneck and short fix",
+    "visuals_audio": "Original screen recording, cursor highlights and task checklist",
+    "why_it_works": "Direct how-to solves specific repeat searches",
+    "viral_os_implementation": "Build versioned UI walkthrough generator and task validation",
+    "limits": "Must update after UI changes or retire stale tutorial"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Lessons in Meme Culture",
+    "archetype": "Short-form meme history and interpretation",
+    "hook": "What an unfamiliar viral meme means and where it came from",
+    "visuals_audio": "Context screenshots, chronological references and short narration",
+    "why_it_works": "Fast answers reward viewers seeking cultural decoding",
+    "viral_os_implementation": "Build meme origin timeline and independent provenance checks",
+    "limits": "Creator images/music and posts have separate reuse rights"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Know Your Meme",
+    "archetype": "Meme documentation and cultural reference",
+    "hook": "Origin or spread of a recognizable format",
+    "visuals_audio": "Evidence examples, chronology, source attribution and interpretation",
+    "why_it_works": "Archival taxonomy and provenance are reusable research strengths",
+    "viral_os_implementation": "Build meme family graph and source lineage without copy-paste",
+    "limits": "Crowdsourced histories require source verification"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Danny Gonzalez",
+    "archetype": "Comic commentary on online products and trends",
+    "hook": "Why a particular online phenomenon is absurd or revealing",
+    "visuals_audio": "On-camera personality, short references, sketches and comedic edits",
+    "why_it_works": "Original jokes and point of view differentiate from merely reposting",
+    "viral_os_implementation": "Develop independent critique with distinct creative voice",
+    "limits": "Do not replicate jokes, performance or borrow clips indiscriminately"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Drew Gooden",
+    "archetype": "Observational internet culture video essays",
+    "hook": "A specific pattern in internet behavior seems strange",
+    "visuals_audio": "Talking-head, screenshots, comedic reframes and callbacks",
+    "why_it_works": "Focused thesis and economical comedy produce narrative payoff",
+    "viral_os_implementation": "Build evidence-to-joke outline with original commentary",
+    "limits": "Humor does not excuse unsupported factual attacks"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Kurtis Conner",
+    "archetype": "Long-form creator/internet trend critique",
+    "hook": "A popular or bizarre online claim challenged through humor",
+    "visuals_audio": "Presenter, short illustrative clips, sketches and recurring comedic motifs",
+    "why_it_works": "Engaging persona supports 20-minute critique formats",
+    "viral_os_implementation": "Use original scripted analysis, pacing and critical commentary",
+    "limits": "Beware humiliating private individuals or disproportionate pile-ons"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Slayy Point",
+    "archetype": "Hindi internet comedy and social commentary",
+    "hook": "An Indian meme or social absurdity used as comic setup",
+    "visuals_audio": "Two-presenter commentary, original skits, reaction examples",
+    "why_it_works": "Local Hindi humor and collaborative dialogue drive shareability",
+    "viral_os_implementation": "Support region-specific jokes and co-presenter script structure",
+    "limits": "Cannot automate genuine interpersonal chemistry or appropriate private clips"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Coffeezilla",
+    "archetype": "Investigation of online business/scam claims",
+    "hook": "A financial influencer's claim tested against records",
+    "visuals_audio": "On-camera interrogation, documents, transaction/claim timelines, stylized diagrams",
+    "why_it_works": "Skeptical evidence and clear stakes make complex claims engaging",
+    "viral_os_implementation": "Add forensic claim review, financial source graph and legal gate",
+    "limits": "Do not declare scams or guilt from mere accusations"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Folding Ideas",
+    "archetype": "Long-form critical media/internet essays",
+    "hook": "Question a cultural mechanism or online phenomenon",
+    "visuals_audio": "Narrated essay, layered evidence examples, conceptual structure",
+    "why_it_works": "Patient argumentation can reward niche but loyal viewers",
+    "viral_os_implementation": "Create essay thesis graph, opposing views and examples",
+    "limits": "Full-length works require higher research time; content reuse must be lawful"
+  },
+  {
+    "domain": "Culture",
+    "channel": "hbomberguy",
+    "archetype": "Deep research-led critique of media/internet culture",
+    "hook": "A claimed inconsistency unpacked over a long investigation",
+    "visuals_audio": "Presenter, citations, montage and evidence-heavy narrative escalations",
+    "why_it_works": "Extended factual argument can become event-level viewing",
+    "viral_os_implementation": "Support provenance audit, right-of-reply and proportionate claims",
+    "limits": "Do not assume every viral accusation is true; defamation safeguards"
+  },
+  {
+    "domain": "Culture",
+    "channel": "Jarvis Johnson",
+    "archetype": "Creator culture critique and comedic social analysis",
+    "hook": "A strange online trend examined with relatable commentary",
+    "visuals_audio": "Talking-head reactions, contextual examples, polished comedic pacing",
+    "why_it_works": "Conversational criticism plus distinct personal interpretation adds value",
+    "viral_os_implementation": "Use format-specific original thesis and clip-use evidence map",
+    "limits": "Do not treat superficial green screen commentary as enough transformation"
+  }
+]

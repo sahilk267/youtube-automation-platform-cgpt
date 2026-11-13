@@ -1,0 +1,37 @@
+{
+  "contract_version": "3.0.0",
+  "story_id": "test-story",
+  "brief_id": "test-brief",
+  "duration_ms": 5000,
+  "beats": [
+    {
+      "beat_id": "beat-one",
+      "function": "HOOK",
+      "start_ms": 0,
+      "end_ms": 2000,
+      "viewer_question": "What changes?",
+      "takeaway": "Set up question",
+      "visual_purpose": "Reveal an illustrative pitch",
+      "claim_ids": [],
+      "narration_segment_ids": [
+        "speech-one"
+      ]
+    },
+    {
+      "beat_id": "beat-two",
+      "function": "PAYOFF",
+      "start_ms": 2000,
+      "end_ms": 5000,
+      "viewer_question": "Why?",
+      "takeaway": "Explain hypothetical result",
+      "visual_purpose": "Animate original arrows",
+      "claim_ids": [],
+      "narration_segment_ids": [
+        "speech-one"
+      ]
+    }
+  ],
+  "ending_resolves_promise": true,
+  "research_revision_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "status": "DRAFT"
+}

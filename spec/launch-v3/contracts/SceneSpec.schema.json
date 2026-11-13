@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/SceneSpec.schema.json",
+  "title": "SceneSpec",
+  "description": "Device-independent semantic storyboard scene. No auto-approval of synthetic reconstruction.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "scene_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "script_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "source_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "visual_type": {
+      "enum": [
+        "ORIGINAL_DIAGRAM",
+        "LICENSED_FOOTAGE",
+        "AI_IMAGE",
+        "AI_VIDEO",
+        "SCREEN_CAPTURE",
+        "ORIGINAL_RECORDING",
+        "TEXT_MOTION"
+      ]
+    },
+    "subject": {
+      "type": "string"
+    },
+    "setting": {
+      "type": "string"
+    },
+    "composition": {
+      "type": "string"
+    },
+    "lighting": {
+      "type": "string"
+    },
+    "camera_motion": {
+      "type": "string"
+    },
+    "subject_motion": {
+      "type": "string"
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 100
+    },
+    "fps": {
+      "type": "integer",
+      "enum": [
+        24,
+        25,
+        30,
+        60
+      ]
+    },
+    "aspect_ratio": {
+      "enum": [
+        "9:16",
+        "16:9",
+        "1:1"
+      ]
+    },
+    "reference_asset_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "continuity_profile_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dialogue_segment_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "audio_mix": {
+      "type": "object"
+    },
+    "subtitle_policy": {
+      "type": "object"
+    },
+    "model_profile_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "quality_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rights_record_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "synthetic_disclosure": {
+      "enum": [
+        "NOT_APPLICABLE",
+        "REVIEW_REQUIRED",
+        "REQUIRED",
+        "NOT_REQUIRED_AFTER_REVIEW"
+      ]
+    },
+    "editorial_status": {
+      "enum": [
+        "DRAFT",
+        "REVIEW_REQUIRED",
+        "APPROVED",
+        "REJECTED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "scene_id",
+    "project_id",
+    "script_revision",
+    "purpose",
+    "source_claim_ids",
+    "visual_type",
+    "subject",
+    "setting",
+    "composition",
+    "lighting",
+    "camera_motion",
+    "subject_motion",
+    "duration_ms",
+    "fps",
+    "aspect_ratio",
+    "reference_asset_ids",
+    "quality_requirements",
+    "rights_record_ids",
+    "synthetic_disclosure",
+    "editorial_status"
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "spec_revision": "3.0",
+  "all_cases_status": "SPECIFIED_NOT_RUN",
+  "cases": [
+    {
+      "id": "NV-01",
+      "scenario": "THIRD_PARTY_UNKNOWN_RIGHTS",
+      "stage": "SOURCE_CLIP_REVIEW",
+      "expected_code": "REUPLOAD_NOT_AUTHORIZED",
+      "expected_behavior": "Unlicensed video link may be researched, not auto-downloaded into final media",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-02",
+      "scenario": "VOICEOVER_ONLY_REUPLOAD",
+      "stage": "SOURCE_CLIP_REVIEW",
+      "expected_code": "REUPLOAD_NOT_AUTHORIZED",
+      "expected_behavior": "Superficial narration or crop does not prove substantive original value",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-03",
+      "scenario": "NATIVE_REMIX_STUDIO_ONLY",
+      "stage": "SOURCE_CLIP_REVIEW",
+      "expected_code": "REUPLOAD_NOT_AUTHORIZED",
+      "expected_behavior": "Cannot invent generic automated Remix/Green Screen upload API",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-04",
+      "scenario": "BROADCAST_SPORTS_REUPLOAD",
+      "stage": "RIGHTS_CHECK",
+      "expected_code": "UNKNOWN_RIGHTS",
+      "expected_behavior": "Match broadcast footage must not be assumed cleared",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-05",
+      "scenario": "UNSUPPORTED_FACT_IN_HOOK",
+      "stage": "CLAIM_LOCK",
+      "expected_code": "EVIDENCE_UNAVAILABLE",
+      "expected_behavior": "Block false hook claim despite engagement potential",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-06",
+      "scenario": "TRANSLATED_QUOTE_CHANGED",
+      "stage": "LOCALE_BUILD",
+      "expected_code": "LOCALIZATION_CLAIM_DRIFT",
+      "expected_behavior": "Number/name/meaning drift blocks localized variant",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-07",
+      "scenario": "DEVANAGARI_GLYPH_MISSING",
+      "stage": "TEXT_OVERLAYS",
+      "expected_code": "TEXT_OVERFLOW_OR_BAD_SOURCE",
+      "expected_behavior": "Missing glyphs fail before export",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-08",
+      "scenario": "CAPTION_OUTSIDE_SAFE_BOX",
+      "stage": "TEXT_OVERLAYS",
+      "expected_code": "TEXT_OVERFLOW_OR_BAD_SOURCE",
+      "expected_behavior": "Offscreen mobile text fails",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-09",
+      "scenario": "PRIMARY_VISUAL_OVERLAP",
+      "stage": "TIMELINE",
+      "expected_code": "TIMELINE_INVALID",
+      "expected_behavior": "Simultaneous unrelated primary shots without transition fail",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-10",
+      "scenario": "ZERO_DURATION_SHOT",
+      "stage": "TIMELINE",
+      "expected_code": "TIMELINE_INVALID",
+      "expected_behavior": "Half-open intervals require end > start",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-11",
+      "scenario": "SPEECH_ESTIMATE_NOT_ALIGNED",
+      "stage": "SPEECH_BUILD",
+      "expected_code": "VOICE_RIGHTS_OR_ALIGNMENT_FAIL",
+      "expected_behavior": "Estimated timings not equivalent to actual alignment",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-12",
+      "scenario": "UNLICENSED_MUSIC",
+      "stage": "AUDIO_MIX",
+      "expected_code": "AUDIO_OR_LICENSE_FAIL",
+      "expected_behavior": "Music and SFX need own rights record",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-13",
+      "scenario": "UNAPPROVED_VOICE_CLONE",
+      "stage": "SPEECH_BUILD",
+      "expected_code": "VOICE_RIGHTS_OR_ALIGNMENT_FAIL",
+      "expected_behavior": "Voice identity rights and consent required",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-14",
+      "scenario": "GPU_MISSING",
+      "stage": "ASSET_BUILD",
+      "expected_code": "MEDIA_OR_CAPABILITY_MISSING",
+      "expected_behavior": "No imaginary GPU fallback output",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-15",
+      "scenario": "SOURCE_CORRECTION_AFTER_APPROVAL",
+      "stage": "HUMAN_PREVIEW",
+      "expected_code": "APPROVAL_REQUIRED",
+      "expected_behavior": "Changed fact invalidates related variants, renders, approvals",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-16",
+      "scenario": "REVOKED_OAUTH",
+      "stage": "EXPORT_PUBLISH",
+      "expected_code": "UPLOAD_NOT_AUTHORIZED",
+      "expected_behavior": "Private manual export offered without fake upload",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-17",
+      "scenario": "DOUBLE_UPLOAD_RETRY",
+      "stage": "EXPORT_PUBLISH",
+      "expected_code": "UPLOAD_NOT_AUTHORIZED",
+      "expected_behavior": "Reuse existing outbound idempotency and reconciliation",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-18",
+      "scenario": "MISSING_CREATOR_RETENTION",
+      "stage": "OWN_ANALYTICS",
+      "expected_code": "METRICS_NOT_AVAILABLE",
+      "expected_behavior": "Private competitor retention must remain NULL",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-19",
+      "scenario": "NO_REAL_VIDEO_QC",
+      "stage": "TECHNICAL_QC",
+      "expected_code": "QC_FAILED",
+      "expected_behavior": "No fabricated ffprobe or human watch pass",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-20",
+      "scenario": "IDENTICAL_CROSS_CHANNEL_CONTENT",
+      "stage": "BRIEF",
+      "expected_code": "NO_ORIGINAL_VALUE",
+      "expected_behavior": "Block low-value duplicate content across channels",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-21",
+      "scenario": "FALSE_HISTORICAL_VISUAL",
+      "stage": "DOMAIN_STYLE",
+      "expected_code": "UNSUPPORTED_BEAT",
+      "expected_behavior": "AI reenactment labeled archival is disallowed",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-22",
+      "scenario": "INACCURATE_CRICKET_OVERS",
+      "stage": "CLAIM_LOCK",
+      "expected_code": "EVIDENCE_UNAVAILABLE",
+      "expected_behavior": "17.3 overs represents 105 legal deliveries",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-23",
+      "scenario": "INCORRECT_FINANCIAL_AXIS",
+      "stage": "DOMAIN_STYLE",
+      "expected_code": "UNSUPPORTED_BEAT",
+      "expected_behavior": "Graph distortions blocked in Business",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-24",
+      "scenario": "CHANGED_USER_REGION",
+      "stage": "LOCALE_BUILD",
+      "expected_code": "LOCALIZATION_CLAIM_DRIFT",
+      "expected_behavior": "Region/units/date/time conversion must preserve fact",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "NV-25",
+      "scenario": "UNREVIEWED_ALLEGATION",
+      "stage": "HUMAN_PREVIEW",
+      "expected_code": "APPROVAL_REQUIRED",
+      "expected_behavior": "Human legal/editorial review cannot be bypassed",
+      "status": "NOT_RUN"
+    }
+  ]
+}

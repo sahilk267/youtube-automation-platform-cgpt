@@ -1,0 +1,63 @@
+{
+  "locale": "en-US",
+  "quality": {
+    "audio_track_present": true,
+    "automated_checks": {
+      "duration_within_400ms": true,
+      "rights_asset_records_present": true,
+      "sampled_frame_variance": true,
+      "video_stream": true,
+      "voice_duration_checked": true
+    },
+    "caption_alignment": "MEASURED_SEGMENT_LEVEL_NOT_WORD_LEVEL",
+    "ffprobe": {
+      "format": {
+        "duration": "7.850000"
+      },
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "height": 960,
+          "r_frame_rate": "20/1",
+          "width": 540
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ]
+    },
+    "m24_locale": "en-US",
+    "m24_segment_sources": [
+      "OWNER_RECORDED_WAV",
+      "OWNER_RECORDED_WAV"
+    ],
+    "m24_voice_qc": {
+      "blockers": [],
+      "clipping_ratio": 0.0,
+      "duration_seconds": 7.832,
+      "loudness_standard_measured": false,
+      "peak_fraction": 0.77142,
+      "professional_naturalness_measured": false,
+      "rms_fraction": 0.08316,
+      "sample_rate_hz": 16000,
+      "warnings": []
+    },
+    "narration_rms": 0.08349,
+    "publish_ready": false,
+    "render_wall_seconds": 1.281,
+    "status": "TECHNICAL_QC_PASSED_HUMAN_REVIEW_REQUIRED",
+    "voice_present": true,
+    "warnings": [
+      "Human full-video watch-through required",
+      "Claims not automatically verified",
+      "No copyright or YouTube monetization clearance",
+      "Captions are segment-timed by measured WAV durations, NOT word-level ASR"
+    ]
+  },
+  "source_script_hash": "245be166c0b62268f28f22c9ffe1b961cd2e9916bee00e12e749d46fc3c52277",
+  "publish_ready": false,
+  "human_final_listen_required": true
+}

@@ -1,0 +1,3 @@
+# Optional only: user supplies an existing, licensed LOCAL faster-whisper model directory.
+# Real-model end-to-end tests not run in this release. CPU int8 recommended for 32GB.
+faster-whisper>=1.1,<2

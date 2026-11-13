@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ApiUpdateComputeModeResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "contract_version",
+    "data"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "data": {
+      "$ref": "../ComputeState.schema.json"
+    }
+  }
+}

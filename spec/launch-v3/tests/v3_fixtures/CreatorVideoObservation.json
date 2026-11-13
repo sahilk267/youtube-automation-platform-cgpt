@@ -1,0 +1,17 @@
+{
+  "contract_version": "3.0.0",
+  "observation_id": "obs-test",
+  "channel_label": "example creator",
+  "video_url": "https://www.youtube.com/watch?v=abcdefghijk",
+  "observed_at_utc": "2026-11-11T12:00:00Z",
+  "observation_level": "UNAVAILABLE",
+  "video_format": "UNKNOWN",
+  "observed_hook_start_ms": null,
+  "observed_payoff_ms": null,
+  "visual_types_observed": [],
+  "public_view_count": null,
+  "private_retention": null,
+  "observer_id": "researcher-test",
+  "evidence_notes": "Illustrative no media watched",
+  "limitations": "Not evidence of creator performance"
+}

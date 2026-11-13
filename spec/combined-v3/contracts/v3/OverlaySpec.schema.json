@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/OverlaySpec.schema.json",
+  "title": "OverlaySpec",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "overlay_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "shot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})+$"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "CAPTION",
+        "EVIDENCE",
+        "STAT",
+        "LABEL",
+        "QUOTE",
+        "DISCLOSURE",
+        "BRAND",
+        "CTA"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "start_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "end_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "safe_box": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ]
+    },
+    "font_families": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "entry": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "FADE",
+        "SLIDE",
+        "TYPE",
+        "SCALE"
+      ]
+    },
+    "exit": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "FADE",
+        "SLIDE",
+        "SCALE"
+      ]
+    },
+    "contrast_check": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "readability_review": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "overlay_id",
+    "shot_id",
+    "locale",
+    "kind",
+    "text",
+    "source_claim_ids",
+    "start_ms",
+    "end_ms",
+    "safe_box",
+    "font_families",
+    "entry",
+    "exit",
+    "contrast_check",
+    "readability_review"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "newsroom",
+  "director_document": "creative/directors/newsroom.md",
+  "allowed_format_ids": [
+    "BREAKING_BRIEF",
+    "LONG_DOCUMENTARY",
+    "CASE_STUDY",
+    "REACTION_REVIEW",
+    "SHORT_EXPLAINER"
+  ],
+  "distinct_visual_methods": [
+    "Document-first original quote cards with accurate timestamps",
+    "Side-by-side historical statement comparison explicitly matched by proposition",
+    "Date-accurate policy/outcome chart with uncertainty",
+    "Ownership/relationship graph only with documented dated edges"
+  ],
+  "distinct_audio_methods": [
+    "Measured, precise source attribution; no impersonation of public figures",
+    "Quiet source document holds and restrained music; leave enough time to read"
+  ],
+  "factual_visual_review_rules": [
+    "Defamation, privacy, misleading clip edits, speech translation and synthetic-media confusion",
+    "Public footage is not public-domain merely because it is news"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

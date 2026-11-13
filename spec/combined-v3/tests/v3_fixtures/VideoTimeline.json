@@ -1,0 +1,43 @@
+{
+  "contract_version": "3.0.0",
+  "timeline_id": "timeline-test",
+  "project_id": "test-project",
+  "story_id": "test-story",
+  "locale": "hi-IN",
+  "duration_ms": 5000,
+  "width_px": 1080,
+  "height_px": 1920,
+  "fps_num": 30,
+  "fps_den": 1,
+  "segments": [
+    {
+      "segment_id": "seg-visual",
+      "lane": "PRIMARY_VISUAL",
+      "artifact_id": "test-pitch-animation",
+      "start_ms": 0,
+      "end_ms": 5000,
+      "z_index": 0
+    },
+    {
+      "segment_id": "seg-voice",
+      "lane": "VOICE",
+      "artifact_id": "fake-audio-fixture",
+      "start_ms": 0,
+      "end_ms": 5000,
+      "z_index": 0
+    },
+    {
+      "segment_id": "seg-overlay",
+      "lane": "OVERLAY",
+      "artifact_id": "overlay-one",
+      "start_ms": 200,
+      "end_ms": 1900,
+      "z_index": 2
+    }
+  ],
+  "source_claim_set_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "rights_manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "render_graph_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "qa_state": "NOT_RUN",
+  "human_approval_state": "PENDING"
+}

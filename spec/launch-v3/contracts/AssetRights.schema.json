@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/AssetRights.schema.json",
+  "title": "AssetRights",
+  "description": "No asset rights implied by online availability.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "rights_record_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "asset_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "origin_uri": {
+      "type": "string"
+    },
+    "holder": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "license_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "license_evidence_uri": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "permitted_uses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attribution_required": {
+      "type": "boolean"
+    },
+    "expiry_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "review_status": {
+      "enum": [
+        "UNKNOWN",
+        "PENDING_REVIEW",
+        "CLEARED",
+        "REJECTED",
+        "EXPIRED"
+      ]
+    },
+    "reviewer_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "rights_record_id",
+    "asset_id",
+    "origin_uri",
+    "permitted_uses",
+    "restrictions",
+    "attribution_required",
+    "review_status"
+  ]
+}

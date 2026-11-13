@@ -1,0 +1,8 @@
+{
+  "official_example_requires_real_configuration": {
+    "url": "https://example.com/replace-with-vetted-feed.xml",
+    "name": "Sample approved RSS (not fetched until replaced and permission recorded)",
+    "permission_reviewed": false,
+    "notes": "Replace URL with an official feed and review source terms before switching this flag"
+  }
+}

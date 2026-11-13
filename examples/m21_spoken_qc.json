@@ -1,0 +1,137 @@
+{
+  "render_id": "1a5e9143-4975-4e41-83c6-60f7b928771e",
+  "quality": {
+    "audio_track_present": true,
+    "automated_checks": {
+      "duration_within_400ms": true,
+      "rights_asset_records_present": true,
+      "sampled_frame_variance": true,
+      "video_stream": true,
+      "voice_duration_checked": true
+    },
+    "caption_alignment": "MEASURED_SEGMENT_LEVEL_NOT_WORD_LEVEL",
+    "ffprobe": {
+      "format": {
+        "duration": "12.133000"
+      },
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "height": 960,
+          "r_frame_rate": "20/1",
+          "width": 540
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0"
+        }
+      ]
+    },
+    "narration_rms": 0.092,
+    "publish_ready": false,
+    "status": "TECHNICAL_QC_PASSED_HUMAN_REVIEW_REQUIRED",
+    "voice_present": true,
+    "warnings": [
+      "Human full-video watch-through required",
+      "Claims not automatically verified",
+      "No copyright or YouTube monetization clearance",
+      "Captions are segment-timed by measured WAV durations, NOT word-level ASR"
+    ]
+  },
+  "manifest": {
+    "asset_sha256": {},
+    "captions": [
+      {
+        "end_ms": 3209,
+        "start_ms": 0,
+        "text": "Look closely at this original field diagram."
+      },
+      {
+        "end_ms": 7831,
+        "start_ms": 3389,
+        "text": "These arrows show how a defender might react to movement on the field."
+      },
+      {
+        "end_ms": 11953,
+        "start_ms": 8011,
+        "text": "This is a teaching illustration, not real match footage."
+      }
+    ],
+    "domain": "nfl",
+    "format": "SHORT",
+    "locale": "en-US",
+    "publish_ready": false,
+    "render_profile": "TECHNICAL_PREVIEW",
+    "renderer": "viralos_cpu_studio_v0.3",
+    "sampled_luma_variance": [
+      787.94,
+      1275.98,
+      1323.99,
+      1322.66,
+      788.95,
+      1234.98,
+      881.25
+    ],
+    "shots": [
+      {
+        "claim_ids": [],
+        "duration_ms": 3389,
+        "headline": "THE FORMATION QUESTION",
+        "overlays": [
+          {
+            "anchor": "LOWER_THIRD",
+            "end_ms": 1200,
+            "image_asset_id": null,
+            "start_ms": 260,
+            "style": "LABEL",
+            "text": "ORIGINAL ANALYSIS"
+          }
+        ],
+        "role": "HOOK",
+        "visual": {
+          "asset_id": null,
+          "kind": "ORIGINAL_DIAGRAM",
+          "motion": "ILLUSTRATIVE_ROUTE"
+        }
+      },
+      {
+        "claim_ids": [],
+        "duration_ms": 4622,
+        "headline": "READ THE POSITIONS",
+        "overlays": [],
+        "role": "EXPLANATION",
+        "visual": {
+          "asset_id": null,
+          "kind": "ORIGINAL_DIAGRAM",
+          "motion": "ILLUSTRATIVE_ROUTE"
+        }
+      },
+      {
+        "claim_ids": [],
+        "duration_ms": 4122,
+        "headline": "TACTICAL TAKEAWAY",
+        "overlays": [
+          {
+            "anchor": "LOWER_THIRD",
+            "end_ms": 1200,
+            "image_asset_id": null,
+            "start_ms": 260,
+            "style": "LABEL",
+            "text": "KEY TAKEAWAY"
+          }
+        ],
+        "role": "PAYOFF",
+        "visual": {
+          "asset_id": null,
+          "kind": "ORIGINAL_DIAGRAM",
+          "motion": "ILLUSTRATIVE_ROUTE"
+        }
+      }
+    ],
+    "total_duration_ms": 12133,
+    "voice_sha256": "1cbefdd4436f989216d643d0d637ebd8d62d06d243f299515d132c932a83b957"
+  },
+  "status": "TECHNICAL_STUDIO_PREVIEW"
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/RenderRequest.schema.json",
+  "title": "RenderRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "project_revision",
+    "format",
+    "quality_profile",
+    "compute_mode"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "project_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "SHORT",
+        "LONG"
+      ]
+    },
+    "quality_profile": {
+      "type": "string",
+      "enum": [
+        "CPU_STANDARD",
+        "GPU_APPROVED",
+        "DRAFT_PREVIEW"
+      ]
+    },
+    "compute_mode": {
+      "type": "string",
+      "enum": [
+        "AUTO",
+        "CPU_ONLY",
+        "CUDA_ONLY",
+        "HYBRID",
+        "REMOTE_WORKER"
+      ]
+    },
+    "scene_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

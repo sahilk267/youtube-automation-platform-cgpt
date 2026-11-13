@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/ExecutionRequest.schema.json",
+  "title": "ExecutionRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "operation_id",
+    "engine_id",
+    "job_id",
+    "domain_id",
+    "policy_digest",
+    "input_artifacts",
+    "deadline_utc",
+    "idempotency_key"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "operation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "engine_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "job_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain_id": {
+      "type": "string",
+      "enum": [
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "sports",
+        "career",
+        "productivity",
+        "culture"
+      ]
+    },
+    "channel_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "project_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policy_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "input_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_id",
+          "type",
+          "sha256"
+        ],
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "deadline_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "AUTO",
+        "CPU_ONLY",
+        "CUDA_ONLY",
+        "HYBRID",
+        "REMOTE_WORKER"
+      ]
+    },
+    "budget_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

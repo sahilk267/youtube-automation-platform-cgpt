@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/HumanDecision.schema.json",
+  "title": "HumanDecision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "review_id",
+    "actor_id",
+    "decision",
+    "scope",
+    "resource_sha256",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "actor_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "APPROVE",
+        "REJECT",
+        "REQUEST_CHANGES",
+        "DEFER"
+      ]
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "CONTENT",
+        "RIGHTS",
+        "DISCLOSURE",
+        "PUBLICATION",
+        "CORRECTION",
+        "HIGH_STAKES_RESEARCH"
+      ]
+    },
+    "resource_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "expires_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "space",
+  "director_document": "creative/directors/space.md",
+  "allowed_format_ids": [
+    "LONG_DOCUMENTARY",
+    "SHORT_EXPLAINER",
+    "STEP_LESSON",
+    "BREAKING_BRIEF"
+  ],
+  "distinct_visual_methods": [
+    "Distance- and time-labeled orbit animation",
+    "Agency image attribution with genuine instrument identification",
+    "Simulation vs actual observation explicit split screen",
+    "Scale-accurate astronomical comparisons where calculable"
+  ],
+  "distinct_audio_methods": [
+    "Curious explanatory tone, correct numerical/scientific pronunciation",
+    "Sustained shots where scale needs thought; avoid fictional urgent alerts"
+  ],
+  "factual_visual_review_rules": [
+    "No unlabeled CGI as telescope image",
+    "Agency media reuse licenses are item-specific"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

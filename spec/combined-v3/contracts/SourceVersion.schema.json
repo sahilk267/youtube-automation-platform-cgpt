@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/SourceVersion.schema.json",
+  "title": "SourceVersion",
+  "description": "A versioned specific source retrieval, not an LLM summary.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "source_version_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "source_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "canonical_url": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "published_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "original_language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "PRIMARY",
+        "SECONDARY",
+        "ARCHIVE",
+        "SOCIAL_LEAD",
+        "USER_FILE",
+        "UNKNOWN"
+      ]
+    },
+    "independence_group_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rights_policy_id": {
+      "type": "string"
+    },
+    "archive_uri": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "access_status": {
+      "enum": [
+        "CAPTURED",
+        "METADATA_ONLY",
+        "RESTRICTED",
+        "FAILED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "source_version_id",
+    "source_id",
+    "canonical_url",
+    "retrieved_at",
+    "content_sha256",
+    "kind",
+    "rights_policy_id",
+    "access_status"
+  ]
+}

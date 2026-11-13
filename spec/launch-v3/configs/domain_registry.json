@@ -1,0 +1,40 @@
+{
+  "contract_version": "2.0.0",
+  "domains": [
+    {
+      "domain_id": "technology",
+      "dossier": "domains/technology.md",
+      "owner_module": "domain_router",
+      "launch_status": "OPTIONAL",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "sports",
+      "dossier": "domains/sports.md",
+      "owner_module": "domain_router",
+      "launch_status": "ENABLED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    }
+  ],
+  "sports_subadapters": [
+    "cricket",
+    "nfl",
+    "mlb",
+    "nba",
+    "soccer"
+  ],
+  "reserved_ultimate_domains": [
+    "newsroom",
+    "science",
+    "business",
+    "gaming",
+    "history",
+    "space",
+    "learning",
+    "career",
+    "productivity",
+    "culture"
+  ]
+}

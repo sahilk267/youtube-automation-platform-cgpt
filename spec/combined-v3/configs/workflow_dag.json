@@ -1,0 +1,249 @@
+{
+  "contract_version": "2.0.0",
+  "spec_revision": "2.1",
+  "states": [
+    "QUEUED",
+    "RUNNING",
+    "RETRY_WAIT",
+    "BLOCKED",
+    "WAITING_FOR_APPROVAL",
+    "WAITING_FOR_CAPABILITY",
+    "SUCCEEDED",
+    "FAILED",
+    "CANCELLED"
+  ],
+  "default_publication_policy": "MANUAL",
+  "triggers": [
+    {
+      "id": "TR-001",
+      "name": "scheduled_discovery",
+      "event": "owner_enabled_poll_window",
+      "schedule": "OWNER_CONFIGURED_NO_FORCED_CADENCE",
+      "requires": [
+        "permitted_connector",
+        "quota_budget"
+      ],
+      "dedupe": "provider+market+locale+query+observation_window",
+      "job": "SOURCE_QUALIFICATION_AND_TREND_DISCOVERY"
+    },
+    {
+      "id": "TR-002",
+      "name": "live_sports_revision",
+      "event": "permitted_provider_new_score_version",
+      "schedule": "EVENT_DRIVEN",
+      "requires": [
+        "verified_source_version"
+      ],
+      "dedupe": "event_id+provider_version_hash",
+      "job": "INVALIDATE_DEPENDENT_CLAIMS_AND_RECHECK"
+    },
+    {
+      "id": "TR-003",
+      "name": "topic_research",
+      "event": "approved_or_auto_low_risk_topic_decision",
+      "schedule": "EVENT_DRIVEN",
+      "requires": [
+        "topic_id",
+        "channel_policy"
+      ],
+      "dedupe": "topic_id+channel_id+research_depth",
+      "job": "RESEARCH_DOSSIER"
+    },
+    {
+      "id": "TR-004",
+      "name": "draft_production",
+      "event": "research_sufficient_for_draft",
+      "schedule": "EVENT_DRIVEN",
+      "requires": [
+        "claim_links",
+        "rights_plan"
+      ],
+      "dedupe": "project_id+revision+production_profile",
+      "job": "SCRIPT_SCENE_RENDER_QA"
+    },
+    {
+      "id": "TR-005",
+      "name": "editorial_review",
+      "event": "gates_complete_or_sensitive",
+      "schedule": "EVENT_DRIVEN",
+      "requires": [
+        "current_risk_snapshot",
+        "technical_QA"
+      ],
+      "dedupe": "project_id+revision+risk_snapshot_hash",
+      "job": "WAITING_FOR_APPROVAL"
+    },
+    {
+      "id": "TR-006",
+      "name": "upload",
+      "event": "approved_publish_intent",
+      "schedule": "OWNER_AUTHORIZED_TIME",
+      "requires": [
+        "channel_oauth",
+        "content_hash_approval",
+        "no_rights_gaps",
+        "visibility_permission"
+      ],
+      "dedupe": "channel_id+payload_hash+intent_id",
+      "job": "UPLOAD_WITH_REMOTE_RECONCILIATION"
+    },
+    {
+      "id": "TR-007",
+      "name": "analytics_import",
+      "event": "publication_confirmed_and_owner_auth",
+      "schedule": "OWNER_CONFIGURED_POST_PUBLISH_WINDOWS",
+      "requires": [
+        "owner_oauth",
+        "analytics_scope"
+      ],
+      "dedupe": "publication_id+metric_set+observation_window",
+      "job": "OBSERVED_ANALYTICS_ONLY"
+    },
+    {
+      "id": "TR-008",
+      "name": "source_correction",
+      "event": "source_version_changed_or_correction",
+      "schedule": "EVENT_DRIVEN",
+      "requires": [
+        "source_version_id",
+        "dependent_edges"
+      ],
+      "dedupe": "source_id+new_version_hash",
+      "job": "INVALIDATE_DOWNSTREAM_AND_PROPOSE_CORRECTION"
+    },
+    {
+      "id": "TR-009",
+      "name": "capability_arrived",
+      "event": "gpu_worker_heartbeat_capability_change",
+      "schedule": "EVENT_DRIVEN",
+      "requires": [
+        "model_license",
+        "driver_benchmark",
+        "free_vram"
+      ],
+      "dedupe": "worker_id+capability_hash",
+      "job": "RECONSIDER_WAITING_JOBS"
+    }
+  ],
+  "pipeline_steps": [
+    {
+      "id": "01_QUALIFY_SOURCES",
+      "depends_on": [],
+      "side_effect": "PERMITTED_READ",
+      "approval": "AUTOMATIC"
+    },
+    {
+      "id": "02_DISCOVER_TOPIC",
+      "depends_on": [
+        "01_QUALIFY_SOURCES"
+      ],
+      "side_effect": "NONE",
+      "approval": "AUTOMATIC"
+    },
+    {
+      "id": "03_RESEARCH_PLAN",
+      "depends_on": [
+        "02_DISCOVER_TOPIC"
+      ],
+      "side_effect": "NONE",
+      "approval": "AUTOMATIC"
+    },
+    {
+      "id": "04_GATHER_EVIDENCE",
+      "depends_on": [
+        "03_RESEARCH_PLAN"
+      ],
+      "side_effect": "PERMITTED_READ",
+      "approval": "AUTOMATIC"
+    },
+    {
+      "id": "05_VERIFY_CHALLENGE",
+      "depends_on": [
+        "04_GATHER_EVIDENCE"
+      ],
+      "side_effect": "NONE",
+      "approval": "CONDITIONAL_HIGH_RISK"
+    },
+    {
+      "id": "06_SCRIPT_STORYBOARD",
+      "depends_on": [
+        "05_VERIFY_CHALLENGE"
+      ],
+      "side_effect": "LOCAL_WRITE",
+      "approval": "AUTOMATIC_DRAFT_ONLY"
+    },
+    {
+      "id": "07_LICENSE_ASSET",
+      "depends_on": [
+        "06_SCRIPT_STORYBOARD"
+      ],
+      "side_effect": "LOCAL_WRITE",
+      "approval": "BLOCK_UNLICENSED"
+    },
+    {
+      "id": "08_COMPUTE_RESERVE",
+      "depends_on": [
+        "07_LICENSE_ASSET"
+      ],
+      "side_effect": "LOCAL_WRITE",
+      "approval": "CAPABILITY_GATE"
+    },
+    {
+      "id": "09_RENDER",
+      "depends_on": [
+        "08_COMPUTE_RESERVE"
+      ],
+      "side_effect": "LOCAL_WRITE",
+      "approval": "AUTOMATIC"
+    },
+    {
+      "id": "10_TECH_FACT_RIGHTS_QA",
+      "depends_on": [
+        "09_RENDER"
+      ],
+      "side_effect": "NONE",
+      "approval": "AUTOMATIC_PLUS_HUMAN_AS_NEEDED"
+    },
+    {
+      "id": "11_OWNER_APPROVAL",
+      "depends_on": [
+        "10_TECH_FACT_RIGHTS_QA"
+      ],
+      "side_effect": "NONE",
+      "approval": "HUMAN_DEFAULT"
+    },
+    {
+      "id": "12_EXPORT",
+      "depends_on": [
+        "11_OWNER_APPROVAL"
+      ],
+      "side_effect": "LOCAL_WRITE",
+      "approval": "AUTOMATIC_AFTER_GATES"
+    },
+    {
+      "id": "13_PUBLISH",
+      "depends_on": [
+        "11_OWNER_APPROVAL",
+        "12_EXPORT"
+      ],
+      "side_effect": "EXTERNAL_UPLOAD",
+      "approval": "EXPLICIT_OPT_IN_LOW_RISK_ELSE_HUMAN"
+    },
+    {
+      "id": "14_ANALYTICS",
+      "depends_on": [
+        "13_PUBLISH"
+      ],
+      "side_effect": "PERMITTED_READ",
+      "approval": "AUTHORIZED_OAUTH"
+    },
+    {
+      "id": "15_LEARN",
+      "depends_on": [
+        "14_ANALYTICS"
+      ],
+      "side_effect": "LOCAL_WRITE",
+      "approval": "AUTOMATIC_NO_POLICY_SELF_MODIFICATION"
+    }
+  ]
+}

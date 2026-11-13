@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/ScriptVersion.schema.json",
+  "title": "ScriptVersion",
+  "description": "Citation-linked immutable script version, source and scene invalidation on edit.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "script_version_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "language": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "narrative_plan_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "claim_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_id",
+          "start",
+          "end"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "script_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "script_version_id",
+    "project_id",
+    "revision",
+    "language",
+    "body",
+    "narrative_plan_id",
+    "claim_links",
+    "script_sha256",
+    "created_at"
+  ]
+}

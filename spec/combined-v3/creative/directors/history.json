@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "history",
+  "director_document": "creative/directors/history.md",
+  "allowed_format_ids": [
+    "LONG_DOCUMENTARY",
+    "SHORT_EXPLAINER",
+    "CASE_STUDY",
+    "STEP_LESSON"
+  ],
+  "distinct_visual_methods": [
+    "Original animated historical border maps with period accuracy",
+    "Legible source-document closeups and citation",
+    "Chronology strips and geography of campaigns/events",
+    "Clearly labeled artistic reconstructions separate from photos"
+  ],
+  "distinct_audio_methods": [
+    "Narrative but careful; pronounce names and transliteration accurately",
+    "Respectful restrained music that does not sensationalize tragedy"
+  ],
+  "factual_visual_review_rules": [
+    "Avoid modern borders in old era without disclaimer",
+    "AI-generated historical faces must not be passed off as authentic photographs"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

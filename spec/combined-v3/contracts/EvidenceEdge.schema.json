@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/EvidenceEdge.schema.json",
+  "title": "EvidenceEdge",
+  "description": "Evidence passage/timecode grounded in actually retrieved source bytes.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "evidence_edge_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "claim_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "source_version_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "relation": {
+      "enum": [
+        "SUPPORTS",
+        "REFUTES",
+        "CONTEXT",
+        "ORIGIN",
+        "CORRECTION"
+      ]
+    },
+    "locator": {
+      "type": "string"
+    },
+    "excerpt_or_value": {
+      "type": "string"
+    },
+    "independence_group_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checked_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checked_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "human_review_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "contract_version",
+    "evidence_edge_id",
+    "claim_id",
+    "source_version_id",
+    "relation",
+    "locator",
+    "excerpt_or_value",
+    "human_review_required"
+  ]
+}

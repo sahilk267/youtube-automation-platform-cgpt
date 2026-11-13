@@ -1,0 +1,40 @@
+{
+  "release": "ViralOS Launch — M2.4 Multilingual Director + M3.2 Private Channel Acceptance v0.7",
+  "date": "2026-11-12",
+  "baseline": "ViralOS Launch M2.3 + M3.1 v0.6; migrations 001–010 preserved",
+  "new_migrations": [
+    "011",
+    "012"
+  ],
+  "automated_tests_last_run": 82,
+  "test_execution": "Linux Python 3.13: 82/82 pass in combined suite; Python 3.12 Windows user hardware not tested",
+  "fresh_hindi_english_mp4_rendered": true,
+  "samples": {
+    "en-US": "examples/m24_en-US_demo.mp4",
+    "hi-IN": "examples/m24_hi-IN_demo.mp4"
+  },
+  "sample_audio_source": "Robotic eSpeak synthetic fixture, NOT a professional voice model",
+  "sample_video_source": "Original fictional cricket diagram, NOT real match footage",
+  "real_piper_model_live_tested": false,
+  "whisperx_real_local_forced_alignment_model_tested": false,
+  "live_google_oauth_account_verified": false,
+  "live_private_upload_tested": false,
+  "real_youtube_monetary_retention_tested": false,
+  "actual_user_windows_hardware_tested": false,
+  "automatic_translation": false,
+  "autonomous_dubbing": false,
+  "natural_professional_voice_quality_verified": false,
+  "professional_visual_creative_quality_verified": false,
+  "all_12_directors_operational": false,
+  "auth_tokens_or_model_weights_bundled": false,
+  "public_auto_publishing": false,
+  "packaging_checks": [
+    "SHA-256 file integrity manifest",
+    "pytest regression",
+    "Node syntax",
+    "ffprobe on both demo variants",
+    "fresh extraction"
+  ],
+  "security": "single-user localhost-only developer prototype; real private upload opt-in separate, no blind retry",
+  "release_gate": "DEVELOPMENT_CHECKPOINT_NOT_PRODUCTION_OR_MONETIZATION_READY"
+}

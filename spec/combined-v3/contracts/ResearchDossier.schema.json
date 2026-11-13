@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/ResearchDossier.schema.json",
+  "title": "ResearchDossier",
+  "description": "Source and claim linked research, not forced final truth.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "research_plan_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "topic_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "source_version_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "research_gap_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "counterevidence_summary": {
+      "type": "string"
+    },
+    "coverage_report": {
+      "type": "object"
+    },
+    "source_independence_report": {
+      "type": "object"
+    },
+    "editorial_risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "SUFFICIENT_FOR_DRAFT",
+        "NEEDS_MORE_RESEARCH",
+        "BLOCKED_EXTERNAL_SOURCE",
+        "HUMAN_ADJUDICATION_REQUIRED"
+      ]
+    },
+    "assembled_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "research_plan_id",
+    "topic_id",
+    "source_version_ids",
+    "claim_ids",
+    "research_gap_ids",
+    "counterevidence_summary",
+    "coverage_report",
+    "source_independence_report",
+    "editorial_risk_flags",
+    "status",
+    "assembled_at"
+  ]
+}

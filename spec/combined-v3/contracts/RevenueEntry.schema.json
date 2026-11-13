@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/RevenueEntry.schema.json",
+  "title": "RevenueEntry",
+  "description": "Savings totals exclude estimate scenarios.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "ledger_entry_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "channel_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "period_start": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "period_end": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "amount_minor_units": {
+      "type": "integer"
+    },
+    "kind": {
+      "enum": [
+        "EARNED_REVENUE",
+        "EXPENSE",
+        "RESERVE",
+        "SAVINGS_TRANSFER",
+        "ADJUSTMENT"
+      ]
+    },
+    "basis": {
+      "enum": [
+        "ACTUAL_AUTHORIZED",
+        "OWNER_ENTERED_ACTUAL",
+        "ESTIMATE_SCENARIO"
+      ]
+    },
+    "source_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "note": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "ledger_entry_id",
+    "channel_id",
+    "period_start",
+    "period_end",
+    "currency",
+    "amount_minor_units",
+    "kind",
+    "basis"
+  ]
+}

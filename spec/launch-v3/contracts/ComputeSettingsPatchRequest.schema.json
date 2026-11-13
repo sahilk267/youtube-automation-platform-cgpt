@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/ComputeSettingsPatchRequest.schema.json",
+  "title": "ComputeSettingsPatchRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "mode"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "AUTO",
+        "CPU_ONLY",
+        "CUDA_ONLY",
+        "HYBRID"
+      ]
+    }
+  }
+}

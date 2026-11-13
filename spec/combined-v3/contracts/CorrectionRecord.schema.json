@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/CorrectionRecord.schema.json",
+  "title": "CorrectionRecord",
+  "description": "Changes propagate to approved scripts and published correction queue.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "correction_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "trigger_source_version_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "affected_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "affected_project_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "affected_publication_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "reason": {
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "proposed_action": {
+      "enum": [
+        "RESEARCH",
+        "FIX_DRAFT",
+        "OWNER_REVIEW_PUBLIC_CORRECTION",
+        "OWNER_REVIEW_TAKEDOWN"
+      ]
+    },
+    "decision_state": {
+      "enum": [
+        "OPEN",
+        "IN_REVIEW",
+        "RESOLVED"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "correction_id",
+    "trigger_source_version_id",
+    "affected_claim_ids",
+    "affected_project_ids",
+    "affected_publication_ids",
+    "reason",
+    "severity",
+    "proposed_action",
+    "decision_state",
+    "created_at"
+  ]
+}

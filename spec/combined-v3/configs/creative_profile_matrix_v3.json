@@ -1,0 +1,52 @@
+{
+  "spec_revision": "3.0",
+  "profile": "COMBINED",
+  "active_domains": [
+    "sports"
+  ],
+  "optional_domains": [
+    "technology"
+  ],
+  "documented_deferred_domains": [
+    "business",
+    "career",
+    "culture",
+    "gaming",
+    "history",
+    "learning",
+    "newsroom",
+    "productivity",
+    "science",
+    "space"
+  ],
+  "available_creative_director_specs": [
+    "sports",
+    "newsroom",
+    "science",
+    "technology",
+    "business",
+    "gaming",
+    "history",
+    "space",
+    "learning",
+    "career",
+    "productivity",
+    "culture"
+  ],
+  "available_format_specs": [
+    "SHORT_EXPLAINER",
+    "LONG_DOCUMENTARY",
+    "TACTICAL_ANALYSIS",
+    "BREAKING_BRIEF",
+    "DEMO_REVIEW",
+    "STEP_LESSON",
+    "REACTION_REVIEW",
+    "CASE_STUDY",
+    "GAMEPLAY_ANALYSIS"
+  ],
+  "publication_default": "MANUAL",
+  "compute_default": "AUTO_CPU_WITH_CAPABILITY_CHECK",
+  "language_variant_default": "ONE_PRIMARY_PER_CHANNEL",
+  "rights_policy": "FAIL_CLOSED_ON_UNLICENSED_VIDEO",
+  "v3_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

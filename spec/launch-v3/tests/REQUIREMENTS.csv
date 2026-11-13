@@ -1,0 +1,23 @@
+req_id,title,owner_module,edition,priority,milestone,canonical_spec,test_ids,status
+L-001,Windows/CPU install and launcher,system,LAUNCH,P0,M0,projects/LAUNCH_EXECUTION_SPEC.md,T-L-001,SPECIFIED
+L-002,Channel profile isolation and persistence,channel_registry,LAUNCH,P0,M1,projects/LAUNCH_EXECUTION_SPEC.md,T-L-002,SPECIFIED
+L-003,Cricket/NFL permitted sports source intake,connector_registry,LAUNCH,P0,M2,projects/LAUNCH_EXECUTION_SPEC.md,T-L-003,SPECIFIED
+L-004,Trend coverage and source health,trend_engine,LAUNCH,P0,M2,projects/LAUNCH_EXECUTION_SPEC.md,T-L-004,SPECIFIED
+L-005,Passage-level claims and source provenance,evidence_service,LAUNCH,P0,M2,projects/LAUNCH_EXECUTION_SPEC.md,T-L-005,SPECIFIED
+L-006,Cricket/NFL domain-distinct creative rules,domain_router,LAUNCH,P0,M2,projects/LAUNCH_EXECUTION_SPEC.md,T-L-006,SPECIFIED
+L-007,CPU original Short and long-form video,media_pipeline,LAUNCH,P0,M3,projects/LAUNCH_EXECUTION_SPEC.md,T-L-007,SPECIFIED
+L-008,Rights and substantive originality gate,asset_rights,LAUNCH,P0,M3,projects/LAUNCH_EXECUTION_SPEC.md,T-L-008,SPECIFIED
+L-009,Editorial approval and correction invalidation,editorial_council,LAUNCH,P0,M3,projects/LAUNCH_EXECUTION_SPEC.md,T-L-009,SPECIFIED
+L-010,Manual export and optional authorized YouTube upload,publication_service,LAUNCH,P0,M4,projects/LAUNCH_EXECUTION_SPEC.md,T-L-010,SPECIFIED
+L-011,"Actual analytics, experiments and unavailable state",analytics_service,LAUNCH,P0,M4,projects/LAUNCH_EXECUTION_SPEC.md,T-L-011,SPECIFIED
+L-012,Actual revenue/expenses and GPU savings,revenue_ledger,LAUNCH,P0,M5,projects/LAUNCH_EXECUTION_SPEC.md,T-L-012,SPECIFIED
+L-013,CPU/GPU/Auto/Hybrid scheduler,compute_scheduler,LAUNCH,P0,M1,projects/LAUNCH_EXECUTION_SPEC.md,T-L-013,SPECIFIED
+L-014,Durable job recovery and backup/restore,audit_backup,LAUNCH,P0,M1,projects/LAUNCH_EXECUTION_SPEC.md,T-L-014,SPECIFIED
+L-015,Secrets and secure untrusted source ingestion,audit_backup,LAUNCH,P0,M1,projects/LAUNCH_EXECUTION_SPEC.md,T-L-015,SPECIFIED
+L-016,"Goldens, reproducibility and release QA",audit_backup,LAUNCH,P0,M5,projects/LAUNCH_EXECUTION_SPEC.md,T-L-016,SPECIFIED
+L-017,"Audience intent, truthful narratives, dedupe",creator_studio,LAUNCH,P0,M3,projects/LAUNCH_EXECUTION_SPEC.md,T-L-017,SPECIFIED
+L-018,"Versioned API, schema migrations and idempotency",channel_registry,LAUNCH,P0,M1,projects/LAUNCH_EXECUTION_SPEC.md,T-L-018,SPECIFIED
+L-019,"Bounded research, completeness, counterevidence",research_engine,LAUNCH,P0,M2,projects/LAUNCH_EXECUTION_SPEC.md,T-L-019,SPECIFIED
+L-020,Original script storyboard and revision validity,creator_studio,LAUNCH,P0,M3,projects/LAUNCH_EXECUTION_SPEC.md,T-L-020,SPECIFIED
+L-021,Truthful metadata and disclosure-linked publish intent,publication_service,LAUNCH,P0,M4,projects/LAUNCH_EXECUTION_SPEC.md,T-L-021,SPECIFIED
+L-022,"Actionable dashboard, honest blocker states",channel_registry,LAUNCH,P0,M5,projects/LAUNCH_EXECUTION_SPEC.md,T-L-022,SPECIFIED

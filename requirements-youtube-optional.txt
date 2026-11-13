@@ -1,0 +1,8 @@
+# Optional only: owner-authorized YouTube read-only Analytics, PRIVATE upload,
+# monetary reports with a SEPARATE OAuth scope, and remote-private status checks.
+# No production account OAuth/remote API calls were performed in packaged testing.
+# Tokens are stored only in OS keyring, never in SQLite or a ZIP.
+google-api-python-client>=2,<3
+google-auth-oauthlib>=1,<2
+google-auth-httplib2>=0.2,<1
+keyring>=25,<30

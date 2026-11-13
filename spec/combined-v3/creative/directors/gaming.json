@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "gaming",
+  "director_document": "creative/directors/gaming.md",
+  "allowed_format_ids": [
+    "GAMEPLAY_ANALYSIS",
+    "SHORT_EXPLAINER",
+    "STEP_LESSON",
+    "REACTION_REVIEW"
+  ],
+  "distinct_visual_methods": [
+    "Original unmodified gameplay excerpts with timestamped capture manifest",
+    "HUD, map arrows, controls and hitbox diagrams",
+    "Before-after actual rounds, not staged AI footage",
+    "Patch note quotations and version tags"
+  ],
+  "distinct_audio_methods": [
+    "Excitement appropriate to gameplay, no forced artificial shouting",
+    "Game SFX/music require publisher/piece-specific permission; narration remains clear"
+  ],
+  "factual_visual_review_rules": [
+    "Do not pretend AI-generated gameplay is authentic",
+    "Publisher music/content licensing and streamer clips differ"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

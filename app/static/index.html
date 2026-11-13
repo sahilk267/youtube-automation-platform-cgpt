@@ -1,0 +1,130 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ViralOS · Launch Workbench</title><link rel="stylesheet" href="/static/style.css"></head><body>
+<header><div class="brand">◈ ViralOS <span class="sub">LAUNCH WORKBENCH</span></div><div class="status">● CPU-ONLY · LOCAL</div></header>
+<main>
+ <section class="hero"><p class="eyebrow">M0–M3 + M2.4 / M3.2 · v0.7</p><h1>Research to screen,<br>with every claim accountable.</h1><p>Build original sports explainer previews. This is a working development workbench with research audit, timed creative plans and private review packets. A timed CPU Studio, owner-reviewed final export and opt-in private-only YouTube uploader are included. Nothing publishes without explicit review and authorization.</p><div id="capabilities" class="pillrow"></div></section>
+ <div class="layout"><aside>
+  <div class="panel"><h3>1 · Channel</h3><form id="channel-form"><input name="name" placeholder="Channel name" required minlength="2"><select name="sport_id"><option value="cricket">Cricket · India</option><option value="nfl">NFL · USA</option></select><div class="row2"><input name="locale" value="hi-IN" required aria-label="Locale"><input name="market" value="India" required aria-label="Market"></div><input name="timezone" value="Asia/Kolkata" required aria-label="Timezone"><button type="submit">Create channel</button></form><select id="channels" aria-label="Choose channel"><option value="">Choose channel…</option></select></div>
+  <div class="panel"><h3>2 · Project</h3><form id="project-form"><input name="title" placeholder="Topic title" required minlength="6"><textarea name="original_angle" placeholder="Your original reporting angle (min 10 characters)" required></textarea><select name="format"><option value="SHORT">Vertical Short · 9:16</option><option value="LONG">Landscape Long · 16:9</option></select><button type="submit">Create project</button></form><select id="projects" aria-label="Choose project"><option value="">Choose project…</option></select></div>
+  <div class="panel"><h3>6 · Actions</h3><button id="queue" type="button" class="outline">Queue CPU preview</button><button id="run" type="button">Run next local job</button><p class="small">Rendering needs FFmpeg. Voice WAV is optional for technical preview only.</p></div>
+ </aside><div class="workspace">
+  <div class="panel"><h3>3 · Evidence intake <em>human verification required</em></h3><form id="source-form"><input name="url" type="url" placeholder="Original source URL (no auto fetching)" required><input name="publisher" placeholder="Publisher / author" required><textarea name="excerpt" placeholder="Paste exact relevant excerpt or observed data. Don't claim verification by URL alone." required></textarea><button type="submit">Record source</button></form><p class="small">Most recent source version: <code id="source-id">none</code></p></div>
+  <div class="panel"><h3>4 · Claim & script</h3><form id="claim-form"><textarea name="proposition" placeholder="An atomic factual claim (10+ chars)" required></textarea><input name="source_version_id" id="source-input" placeholder="Source version ID" required><input name="locator" placeholder="Passage / timestamp / page" required><button type="submit">Attach UNREVIEWED claim</button></form><div id="claims"></div><hr><form id="script-form"><select id="script-claim" aria-label="Optional factual claim to explicitly link"><option value="">No claim link for this script</option></select><input name="exact_quote" placeholder="Exact text span referring to selected claim (optional)"><textarea name="text" placeholder="Original narration (min 25 chars). Choose a claim and enter its exact script quote above to link it; unlinked text is not assumed verified." required rows="5"></textarea><button type="submit">Save script revision</button></form></div>
+  <div class="panel"><h3>5 · Storyboard</h3><form id="scene-form"><textarea name="text" placeholder="Original on-screen explanation or diagram label" required></textarea><div class="row2"><input name="duration_seconds" type="number" min="1" max="15" value="3" step="0.5" required><input name="claim_ids" placeholder="Optional comma-separated linked claim IDs"></div><button type="submit">Add original-text scene</button></form><form id="voice-form" class="voice"><label>Owner-recorded narration (.wav; optional): <input name="file" type="file" accept=".wav,audio/wav" required></label><button type="submit" class="outline">Attach voice WAV</button></form><p class="small">No auto dubbing, lip sync, speech alignment or copyright clearance is implied.</p></div>
+  <div class="panel"><h3>7 · M1 Research Intelligence <em>no fact claims by model</em></h3>
+   <button id="audit-research" class="outline" type="button">Audit evidence coverage</button>
+   <form id="rss-form"><input name="title" placeholder="Feed display name" value="Owner supplied sports feed" required><input name="feed_url" type="url" placeholder="Original feed URL" required><textarea name="xml_text" placeholder="Paste RSS or Atom XML source (no remote fetching)" required></textarea><button type="submit">Parse owner-supplied RSS</button></form><p class="small">Entries are discovery leads, not verified facts. The system will never scrape another user's video automatically.</p>
+  </div>
+  <div class="panel"><h3>8 · M2 Creative Timeline & Localization <em>scene-level estimated timings</em></h3>
+    <button id="plan-story" type="button" class="outline">Generate timed creative plan</button>
+    <button id="caption-base" type="button" class="outline">Open scene caption SRT</button>
+    <form id="locale-form"><input name="locale" placeholder="Target locale, e.g. en-US" value="en-US" required><textarea name="localized_scenes" placeholder="ONE translated on-screen scene per line, in original order. Written by operator; auto-translation not performed." required></textarea><label class="small"><input type="checkbox" name="owner_checked" required> I have verified translation, proper names and facts</label><button type="submit">Save localized overlays</button></form><p class="small">Subtitles here are timed to storyboard scenes, NOT aligned to actual spoken words. Dubbed audio requires a separate approved voice.</p>
+  </div>
+  <div class="panel"><h3>9 · M2 Studio Director <em>CPU prototype, not publish-ready</em></h3>
+    <p class="small">Create a typed video timeline: original sports diagrams, owner-approved images, timed text overlays, optional approved WAV music and owner-timed captions. Import an aligned narration WAV using the existing voice form.</p>
+    <button id="studio-example" type="button" class="outline">Load editable example timeline</button>
+    <form id="studio-plan-form">
+      <label class="small" for="studio-json">Edit Studio plan JSON (2–12 shots; HOOK → PAYOFF)</label>
+      <textarea id="studio-json" name="plan_json" rows="12" placeholder="Load example first, then edit headline, timed overlays and caption cues." required></textarea>
+      <button type="submit">Save Studio plan</button>
+    </form>
+    <div class="row2"><button id="studio-queue" type="button" class="outline">Queue Studio render</button><button id="studio-run" type="button">Render next Studio job</button></div>
+    <form id="studio-still-form"><strong class="small">Optional owner-approved image</strong><input name="origin" placeholder="Image creator/source" required minlength="8"><input name="license_note" placeholder="Specific reuse rights or original-creation note" required minlength="12"><input type="file" name="file" accept="image/png,image/jpeg" required><label class="small"><input type="checkbox" name="rights_attested" value="true" required> I own or have checked permission for this image</label><button type="submit" class="outline">Add approved still</button></form>
+    <form id="studio-music-form"><strong class="small">Optional cleared music (WAV only)</strong><input name="origin" placeholder="Audio creator/source" required minlength="8"><input name="license_note" placeholder="Specific permission and use restrictions" required minlength="12"><input type="file" name="file" accept=".wav,audio/wav" required><label class="small"><input type="checkbox" name="rights_attested" value="true" required> I checked soundtrack usage rights</label><button type="submit" class="outline">Add approved audio</button></form>
+    <div id="studio-result" aria-live="polite" class="small">No Studio render yet.</div>
+    <p class="small">No footage scraping. No automatic translation, forced speech alignment, rights clearance or public publishing. A human must watch the final cut.</p>
+  </div>
+  <div class="panel"><h3>9A · M2.1 Automatic Creative Draft <em>script-derived, no invented facts</em></h3>
+    <p class="small">Creates HOOK → EXPLANATION → PAYOFF from the exact current script. Narration timing is measured from individual WAV segments. This is <strong>not</strong> word-level alignment or auto-translation. Drafts remain editable through existing Studio plan before rendering.</p>
+    <form id="director-draft-form">
+      <label class="small">Output locale <input id="director-locale" name="locale" value="en-US" placeholder="en-US / hi-IN" required pattern="[a-z]{2}-[A-Z]{2}"></label>
+      <label class="small">Translated narration (optional; required when locale differs)</label>
+      <textarea name="translated_script" rows="4" placeholder="Paste reviewed full localized narration; leave blank for the original script."></textarea>
+      <label class="small"><input type="checkbox" name="locale_reviewed"> I personally checked all translated facts, names and wording</label>
+      <button type="submit">Generate original script-based draft</button>
+    </form>
+    <div id="director-segments" aria-live="polite" class="small">Generate a draft to see each narration segment.</div>
+    <div class="row2"><button id="director-piper" type="button" class="outline">Generate using opt-in local Piper (if installed)</button><button id="director-assemble" type="button">Assemble measured timeline</button></div>
+    <p class="small">If Piper is unavailable, upload your own WAV for each segment. Afterwards use Studio Queue and Run above. Voice pronunciation and the complete preview still require human review. Every output is NOT PUBLISH READY.</p>
+  </div>
+  <div class="panel"><h3>10 · M3 Editorial Review & Private Export <em>YouTube upload blocked</em></h3>
+    <form id="review-form"><input name="reviewer" value="Local owner" placeholder="Reviewer" required><textarea name="notes" placeholder="What was checked? Give meaningful review notes." required></textarea>
+      <label class="small"><input type="checkbox" name="rights_attested" required> I have checked media and soundtrack rights</label>
+      <label class="small"><input type="checkbox" name="claims_attested" required> I reviewed every factual claim</label>
+      <label class="small"><input type="checkbox" name="watched_full_video" required> I watched the entire rendered video</label>
+      <button type="submit">Record private preview review</button></form>
+    <button id="export-private" type="button" class="outline">Generate private review ZIP</button>
+    <p class="small">Private review bundle only; the technical preview is not cleared for public YouTube use.</p>
+  </div>
+  <div class="panel"><h3>11 · Analytics (owner-entered) <em>not API-verified</em></h3>
+    <form id="analytics-form"><input type="date" name="report_date" required><select name="format"><option>SHORT</option><option>LONG</option><option>ALL</option></select><div class="row2"><input name="views" type="number" min="0" value="0" placeholder="Actual views" required><input name="watch_hours" type="number" min="0" step="any" placeholder="Watch hours (optional)"></div><button type="submit">Record observed analytics</button></form>
+    <button id="analytics-view" type="button" class="outline">View channel observations</button>
+  </div>
+  <div class="panel"><h3>12 · M2.2 Creative Quality & Final Export <em>human approval mandatory</em></h3>
+   <p class="small">Assess source/shot links, narration, captions, visible motion and rights. This audit detects defined errors; it cannot judge every aspect of creative quality.</p>
+   <div class="row2"><button id="m22-policies" type="button" class="outline">Creative policy profiles</button><button id="m22-audit" type="button" class="outline">Audit latest Studio video</button></div>
+   <form id="m22-review-form"><input name="reviewer" placeholder="Human reviewer" required minlength="2"><textarea name="notes" placeholder="Describe full-video review of content, rights, narration and visual accuracy (15+ characters)" required minlength="15"></textarea>
+    <label class="small"><input name="watched_full_video" type="checkbox" required> Watched entire rendered MP4</label>
+    <label class="small"><input name="original_or_rights_reviewed" type="checkbox" required> Reviewed original/borrowed assets and rights</label>
+    <label class="small"><input name="facts_sources_reviewed" type="checkbox" required> Reviewed factual statements and source context</label>
+    <label class="small"><input name="narration_and_captions_reviewed" type="checkbox" required> Reviewed narration, captions, pronunciation and pacing</label>
+    <button type="submit">Approve latest Studio render for final export</button></form>
+   <button id="m22-export" type="button" class="outline">Generate owner-reviewed final MP4</button>
+   <div id="m22-result" aria-live="polite" class="small">No final export has been created.</div>
+  </div>
+  <div class="panel"><h3>13 · M3 YouTube Private Upload <em>OFF until owner connects account</em></h3>
+   <p class="small">Uses owner-approved final export only. OAuth connection is done separately with <code>tools/connect_youtube_private_upload.py</code>. Upload is always PRIVATE, never automatically public. Set <code>VIRALOS_ENABLE_PRIVATE_UPLOAD=1</code> locally to enable execution. The app never invents earnings.</p>
+   <form id="m3-private-form"><input name="title" placeholder="Honest YouTube title" required maxlength="100"><textarea name="description" placeholder="Accurate video description and attribution (20+ characters)" required minlength="20"></textarea><input name="tags" placeholder="Comma-separated tags, optional">
+    <label class="small"><input type="checkbox" name="altered_content"> Contains realistic AI-altered/synthetic media requiring disclosure</label>
+    <label class="small"><input type="checkbox" name="made_for_kids"> Content made for kids (owner declaration)</label>
+    <label class="small"><input type="checkbox" name="owner_confirmed_metadata_rights" required> I reviewed metadata, rights and disclosures</label>
+    <button type="submit">Prepare private upload intent (no upload yet)</button></form>
+   <button id="m3-execute" type="button" class="outline">Upload PRIVATE only (separate confirmation)</button>
+   <div id="m3-result" class="small" aria-live="polite">Private upload disabled by default.</div>
+  </div>
+  <div class="panel"><h3>14 · M2.3 Evidence-to-Screen <em>human-reviewed provenance</em></h3>
+   <p class="small">First add a source, a claim, link the claim to the script, and review claim status. Then review its exact evidence locator below. Generated card is an ORIGINAL graphic, not copied news footage or independent verification.</p>
+   <button id="m23-load-edges" type="button" class="outline">Load this project's evidence edges</button>
+   <select id="m23-edges" aria-label="Evidence edge needing review"><option value="">Choose a reviewed source link…</option></select>
+   <form id="m23-edge-review"><input name="reviewer" required placeholder="Source reviewer name" minlength="3"><textarea name="explanation" required minlength="15" placeholder="Explain how you verified this exact source locator"></textarea><label class="small"><input type="checkbox" name="source_and_locator_checked" required> I inspected the source, provenance and exact claim locator</label><button type="submit" class="outline">Record source/locator review</button></form>
+   <button id="m23-generate-card" type="button">Create ORIGINAL source evidence card</button>
+   <div id="m23-evidence-result" class="small" aria-live="polite">Use the card's asset ID as IMAGE_INSERT in Studio plan after review.</div>
+  </div>
+  <div class="panel"><h3>15 · M2.3 Local Speech Timing <em>optional model, manual approval</em></h3>
+   <p class="small">Offline faster-whisper CPU/int8 requires a locally installed/licensed model. The generated word timestamps are ASR proposals, NOT forced alignment. Always listen, correct every word and review all timings.</p>
+   <button id="m23-asr" type="button" class="outline">Generate offline ASR timing proposal</button>
+   <textarea id="m23-words" rows="5" placeholder="Owner-corrected JSON list of {token,start_ms,end_ms}; no model installed by default"></textarea>
+   <label class="small"><input type="checkbox" id="m23-checked"> I listened to the audio and checked every word and timestamp</label>
+   <button id="m23-approve" type="button">Bind owner-reviewed timestamps</button>
+   <button id="m23-locale" type="button" class="outline">Audit locale / voice consistency</button>
+  </div>
+  <div class="panel"><h3>16 · M3.1 Channel Learning <em>opt-in owned-account APIs only</em></h3>
+   <p class="small">Revenue requires separately authorized Google monetary scope. API revenue values are ESTIMATES, not net profit. Retention only maps authentic owned-video samples to shot timing; scene correlation does not prove causation.</p>
+   <form id="m31-revenue"><div class="row2"><input name="start_date" type="date" required><input name="end_date" type="date" required></div><select name="currency"><option value="USD">USD</option><option value="INR">INR</option></select><label class="small"><input type="checkbox" name="owner_authorized_sync" required> I explicitly authorize retrieval for my own YouTube channel</label><button type="submit" class="outline">Sync estimated revenue (if connected)</button></form>
+   <button id="m31-earnings" class="outline" type="button">View saved genuine revenue estimates</button>
+   <form id="m31-retention"><input name="export_id" placeholder="Owned final export ID" required><div class="row2"><input name="start_date" type="date" required><input name="end_date" type="date" required></div><label class="small"><input type="checkbox" name="owner_authorized_sync" required> I authorize retention retrieval for my own uploaded video</label><button type="submit" class="outline">Sync real retention by scene (if connected)</button></form>
+   <div id="m31-observed" class="small" aria-live="polite">No remote analytics loaded.</div>
+  </div>
+  <div class="panel"><h3>17 · M3.1 Safe Private Upload Reconciliation <em>no duplicate retry</em></h3>
+   <p class="small">Only when a prior private upload is REMOTE_UNKNOWN: check the video in YouTube Studio, enter its actual video ID and explicitly reconcile. This does not upload anything new.</p>
+   <form id="m31-reconcile"><input name="intent_id" placeholder="Remote-unknown upload intent ID" required><input name="remote_video_id" placeholder="Existing private YouTube video ID" required><label class="small"><input type="checkbox" name="owner_checked_studio_video_matches" required> I checked the exact video in YouTube Studio and it matches this export</label><button type="submit" class="outline">Verify remote-private video; reconcile only</button></form>
+  </div>
+  <div class="panel"><h3>18 · M2.4 Multilingual Director <em>owner reviewed, CPU technical preview</em></h3>
+   <p class="small">Create an independent Hindi or English version from a reviewed local script. All names, numbers and visual wording require owner confirmation. Each scene needs its own WAV recording, or a separately installed licensed Piper voice. No automatic translation or voice cloning.</p>
+   <form id="m24-variant-form"><select name="locale"><option value="hi-IN">Hindi (India)</option><option value="en-US">English (US)</option></select><textarea name="reviewed_script" rows="5" placeholder="Fully human-reviewed localized narration" minlength="25" required></textarea><input name="reviewer" placeholder="Language reviewer name" minlength="3" required><textarea name="regional_notes" minlength="15" required placeholder="Regional pronunciation, facts, names and cultural notes"></textarea><label class="small"><input type="checkbox" name="words_names_numbers_and_meaning_reviewed" required> I reviewed words, names, facts and numeric meaning</label><label class="small"><input type="checkbox" name="on_screen_language_reviewed" required> I reviewed localized on-screen text</label><button type="submit">Create reviewed locale variant</button></form>
+   <div id="m24-segments" class="small" aria-live="polite">Choose a project and create a variant first.</div>
+   <div class="row2"><button id="m24-synthesize" type="button" class="outline">Opt-in local Piper voice (if configured)</button><button id="m24-render" type="button">Render localized technical preview</button></div>
+   <p class="small">Output is NOT publication-approved. Real offline voice model quality and forced alignment require separate on-device validation.</p>
+  </div>
+  <div class="panel"><h3>19 · M3.2 YouTube Acceptance <em>no upload performed</em></h3>
+   <p class="small">Checks owner-approved final MP4 fingerprint, exact channel binding, existing upload status and—only if explicitly enabled—read-only remote ownership/privacy. Actual upload uses the separate M3 workflow above. Estimated revenue can be unavailable before YPP approval.</p>
+   <label class="small"><input type="checkbox" id="m32-owner-local"> I checked the exact final file, facts, rights and disclosures</label>
+   <label class="small"><input type="checkbox" id="m32-owner-channel"> I checked the intended owned YouTube channel</label>
+   <label class="small"><input type="checkbox" id="m32-live"> Allow explicitly opted-in remote READ-ONLY check (requires local environment setting)</label>
+   <button id="m32-preflight" type="button" class="outline">Run acceptance preflight; no upload</button>
+   <div id="m32-result" class="small" aria-live="polite">Not checked.</div>
+  </div>
+  <div class="panel"><h3>Project inspection <em>reality gates</em></h3><div id="summary">Select a project to see sources, claims, scenes and blockers.</div><div id="preview"></div></div>
+  <div class="panel"><h3>Operation log</h3><pre id="log">Workbench initialized.</pre></div>
+ </div></div>
+</main><footer>Research assistance is not automatic fact verification. Preview is not a final video. External PRIVATE uploading is available only after owner review, verified OAuth and explicit per-video opt-in. No automated public publishing.</footer>
+<script src="/static/app.js" defer></script></body></html>

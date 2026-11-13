@@ -1,0 +1,19 @@
+{
+  "contract_version": "3.0.0",
+  "brief_id": "test-brief",
+  "project_id": "test-project",
+  "domain_id": "sports",
+  "sport_id": "cricket",
+  "format_id": "TACTICAL_ANALYSIS",
+  "locale": "hi-IN",
+  "channel_brand_id": "brand-test",
+  "audience_intent": "ANALYSIS",
+  "viewer_question": "Why did the field placement matter in this hypothetical example?",
+  "viewer_promise": "Explain one hypothetical tactical choice with a clear diagram",
+  "original_value": "An original schematic, independent rule explanation and example",
+  "fact_claim_ids": [],
+  "rights_strategy": "ORIGINAL_ONLY",
+  "risk_level": "LOW",
+  "target_duration_ms": 5000,
+  "status": "DRAFT"
+}

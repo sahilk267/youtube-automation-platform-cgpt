@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/ContentProject.schema.json",
+  "title": "ContentProject",
+  "description": "Channel specific editorial video project with content revision.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "channel_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "topic_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "domain_id": {
+      "enum": [
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "sports",
+        "career",
+        "productivity",
+        "culture"
+      ]
+    },
+    "editorial_angle": {
+      "type": "string"
+    },
+    "angle_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "format": {
+      "enum": [
+        "SHORT",
+        "LONG"
+      ]
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "RESEARCHING",
+        "SCRIPTING",
+        "PRODUCING",
+        "QA_REVIEW",
+        "APPROVED",
+        "EXPORTED",
+        "PUBLISHED",
+        "BLOCKED",
+        "CANCELLED"
+      ]
+    },
+    "active_script_version_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "project_id",
+    "channel_id",
+    "topic_id",
+    "domain_id",
+    "editorial_angle",
+    "angle_sha256",
+    "revision",
+    "format",
+    "status"
+  ]
+}

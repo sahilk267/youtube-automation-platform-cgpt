@@ -1,0 +1,299 @@
+{
+  "spec_revision": "3.0",
+  "purpose": "Normative production-operation extensions, not code or proofs",
+  "operations": [
+    {
+      "id": "CV3-01",
+      "short_name": "BRIEF",
+      "owner_service": "creative_director",
+      "input_contract": "ChannelProfile + ResearchDossier + BrandPack",
+      "output_contract": "CreativeBrief",
+      "algorithm": "Provenance-aware question and original angle; reject unrelated or near-duplicate video concept.",
+      "failure_code": "NO_ORIGINAL_VALUE",
+      "gate": "LOW_RISK_AUTO",
+      "depends_on": [],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-01"
+    },
+    {
+      "id": "CV3-02",
+      "short_name": "CLAIM_LOCK",
+      "owner_service": "research_engine",
+      "input_contract": "ResearchDossier + Claims + EvidenceEdges",
+      "output_contract": "ResearchDossier (v2: immutable verified revision + evidence/source IDs)",
+      "algorithm": "Freeze permitted factual claims; missing critical source blocks production.",
+      "failure_code": "EVIDENCE_UNAVAILABLE",
+      "gate": "REVIEW_WHEN_DISPUTED",
+      "depends_on": [
+        "CV3-01"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-02"
+    },
+    {
+      "id": "CV3-03",
+      "short_name": "DOMAIN_STYLE",
+      "owner_service": "domain_router",
+      "input_contract": "CreativeBrief + domain creative profile",
+      "output_contract": "DomainCreativeProfile",
+      "algorithm": "Load real domain visual/voice rules; no generic theme swap or disabled domain.",
+      "failure_code": "DOMAIN_NOT_ENABLED",
+      "gate": "AUTOMATIC",
+      "depends_on": [
+        "CV3-01"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-03"
+    },
+    {
+      "id": "CV3-04",
+      "short_name": "BEAT_PLAN",
+      "owner_service": "creative_director",
+      "input_contract": "CreativeBrief + evidence lock",
+      "output_contract": "TimedBeatGraph",
+      "algorithm": "Ask/promise, evidence, uncertainty, payoff, and duration ranges; mark claims by ID.",
+      "failure_code": "UNSUPPORTED_BEAT",
+      "gate": "AUTOMATIC_WITH_REVIEW",
+      "depends_on": [
+        "CV3-02",
+        "CV3-03"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-04"
+    },
+    {
+      "id": "CV3-05",
+      "short_name": "SHOT_PLAN",
+      "owner_service": "shot_planner",
+      "input_contract": "TimedBeatGraph + domain/format pack",
+      "output_contract": "ShotPlan",
+      "algorithm": "Visual class, permitted source, image/video overlay, speech cue, motion, source & rights dependencies.",
+      "failure_code": "UNEXPLAINED_SHOT",
+      "gate": "AUTOMATIC_WITH_REVIEW",
+      "depends_on": [
+        "CV3-04"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-05"
+    },
+    {
+      "id": "CV3-06",
+      "short_name": "RIGHTS_CHECK",
+      "owner_service": "asset_service",
+      "input_contract": "ShotPlan + AssetRights + source versions",
+      "output_contract": "AssetRights (v2) + reviewed ShotPlan rights IDs",
+      "algorithm": "Delegate adjudication to existing rights service, unknown legal basis -> HOLD.",
+      "failure_code": "UNKNOWN_RIGHTS",
+      "gate": "HUMAN_FOR_THIRD_PARTY",
+      "depends_on": [
+        "CV3-05"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-06"
+    },
+    {
+      "id": "CV3-07",
+      "short_name": "SOURCE_CLIP_REVIEW",
+      "owner_service": "reaction_director",
+      "input_contract": "Original source context + documented rights + commentary",
+      "output_contract": "ReactionClipMap",
+      "algorithm": "Require real new independent critique and source-to-commentary link. No generic green-screen license. When source clips are absent, record NOT_APPLICABLE as a durable guard result; downstream stages must not treat a skipped required guard as approval.",
+      "failure_code": "REUPLOAD_NOT_AUTHORIZED",
+      "gate": "HUMAN_FOR_SOURCE_CLIPS",
+      "depends_on": [
+        "CV3-06"
+      ],
+      "conditional_on": "HAS_THIRD_PARTY_CLIP",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-07"
+    },
+    {
+      "id": "CV3-08",
+      "short_name": "ASSET_BUILD",
+      "owner_service": "asset_service",
+      "input_contract": "Rights-approved shots + compute capability",
+      "output_contract": "ShotPlan",
+      "algorithm": "Generate original diagrams or use authorized assets; GPU only if tested/available. Mandatory clip-review guard returns signed NOT_APPLICABLE if no third-party clips; otherwise requires reviewed ReactionClipMap.",
+      "failure_code": "MEDIA_OR_CAPABILITY_MISSING",
+      "gate": "AUTOMATIC_WHEN_ALLOWED",
+      "depends_on": [
+        "CV3-06",
+        "CV3-07"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-08"
+    },
+    {
+      "id": "CV3-09",
+      "short_name": "SPEECH_BUILD",
+      "owner_service": "voice_service",
+      "input_contract": "Locked script + locale + licensed voice",
+      "output_contract": "SpeechSegment",
+      "algorithm": "Synth/import voice, measure speech segment duration and align real timing.",
+      "failure_code": "VOICE_RIGHTS_OR_ALIGNMENT_FAIL",
+      "gate": "HUMAN_PRONUNCIATION_REVIEW",
+      "depends_on": [
+        "CV3-04"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-09"
+    },
+    {
+      "id": "CV3-10",
+      "short_name": "LOCALE_BUILD",
+      "owner_service": "localization_service",
+      "input_contract": "Master story + source-verified claim set + locale profile",
+      "output_contract": "LocalizationVariant",
+      "algorithm": "Meaning-preserving adaptation, region-safe numbers/names; regenerate text/audio/timing.",
+      "failure_code": "LOCALIZATION_CLAIM_DRIFT",
+      "gate": "HUMAN_LOCALE_REVIEW",
+      "depends_on": [
+        "CV3-09",
+        "CV3-02"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-10"
+    },
+    {
+      "id": "CV3-11",
+      "short_name": "TEXT_OVERLAYS",
+      "owner_service": "overlay_service",
+      "input_contract": "ShotPlan + localized speech/caption text",
+      "output_contract": "OverlaySpec",
+      "algorithm": "Native-script caption and semantic text tracks; collision, safe box and contrast checks.",
+      "failure_code": "TEXT_OVERFLOW_OR_BAD_SOURCE",
+      "gate": "AUTOMATIC_WITH_REVIEW",
+      "depends_on": [
+        "CV3-05",
+        "CV3-10"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-11"
+    },
+    {
+      "id": "CV3-12",
+      "short_name": "AUDIO_MIX",
+      "owner_service": "audio_mixer",
+      "input_contract": "Speech segments + permitted music/SFX/ambience",
+      "output_contract": "SoundMixSpec",
+      "algorithm": "Track-based mix, speech-first intelligibility, loudness evidence and rights.",
+      "failure_code": "AUDIO_OR_LICENSE_FAIL",
+      "gate": "HUMAN_LISTEN_REVIEW",
+      "depends_on": [
+        "CV3-09",
+        "CV3-10"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-12"
+    },
+    {
+      "id": "CV3-13",
+      "short_name": "TIMELINE",
+      "owner_service": "timeline_compiler",
+      "input_contract": "Shots + overlays + aligned speech + mix + locale",
+      "output_contract": "VideoTimeline",
+      "algorithm": "Immutable half-open millisecond interval graph, source/rights hashes, scene continuity.",
+      "failure_code": "TIMELINE_INVALID",
+      "gate": "AUTOMATIC_WITH_REVIEW",
+      "depends_on": [
+        "CV3-08",
+        "CV3-11",
+        "CV3-12"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-13"
+    },
+    {
+      "id": "CV3-14",
+      "short_name": "RENDER",
+      "owner_service": "render_service",
+      "input_contract": "Validated VideoTimeline + worker capability",
+      "output_contract": "RenderManifest (v2) + output media checksum",
+      "algorithm": "CPU FFmpeg or optional GPU provider, reproducible render manifest and bounded retry.",
+      "failure_code": "RENDER_FAILED",
+      "gate": "AUTOMATIC_BOUNDED",
+      "depends_on": [
+        "CV3-13"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-14"
+    },
+    {
+      "id": "CV3-15",
+      "short_name": "TECHNICAL_QC",
+      "owner_service": "creative_qc",
+      "input_contract": "Actual rendered file + source and rights hashes",
+      "output_contract": "CreativeQualityReport",
+      "algorithm": "Frame/audio/aspect/safe-zone/caption/source/factual validity checks.",
+      "failure_code": "QC_FAILED",
+      "gate": "AUTOMATIC_WITH_HUMAN_GATE",
+      "depends_on": [
+        "CV3-14"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-15"
+    },
+    {
+      "id": "CV3-16",
+      "short_name": "HUMAN_PREVIEW",
+      "owner_service": "editorial_council",
+      "input_contract": "Actual final rendered revision + QC + rights status",
+      "output_contract": "ApprovalRecord (v2) + updated CreativeQualityReport",
+      "algorithm": "Manual full watch-through; content-specific acceptance, material edits void approval.",
+      "failure_code": "APPROVAL_REQUIRED",
+      "gate": "HUMAN_REQUIRED",
+      "depends_on": [
+        "CV3-15"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-16"
+    },
+    {
+      "id": "CV3-17",
+      "short_name": "EXPORT_PUBLISH",
+      "owner_service": "publication_service",
+      "input_contract": "Approved final revision + outbound intent",
+      "output_contract": "PublicationStatus",
+      "algorithm": "Private export always supported; upload only after correct credentials/policy. Studio dubbing manual handoff.",
+      "failure_code": "UPLOAD_NOT_AUTHORIZED",
+      "gate": "HUMAN_OR_EXPLICIT_BOUNDED",
+      "depends_on": [
+        "CV3-16"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-17"
+    },
+    {
+      "id": "CV3-18",
+      "short_name": "OWN_ANALYTICS",
+      "owner_service": "analytics_service",
+      "input_contract": "Authorized publication IDs + account metrics",
+      "output_contract": "AnalyticsObservation",
+      "algorithm": "Use actual owner observations only, compare matched cohorts with uncertainty.",
+      "failure_code": "METRICS_NOT_AVAILABLE",
+      "gate": "BOUNDED_AUTOMATIC",
+      "depends_on": [
+        "CV3-17"
+      ],
+      "conditional_on": "ALWAYS",
+      "implementation_status": "SPECIFIED_NOT_IMPLEMENTED",
+      "test_id": "T-CV3-18"
+    }
+  ]
+}

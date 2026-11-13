@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/ShotPlan.schema.json",
+  "title": "ShotPlan",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "shot_plan_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "story_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "shot_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "beat_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "start_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_ms": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "visual_role": {
+            "type": "string",
+            "enum": [
+              "EVIDENCE",
+              "DEMONSTRATION",
+              "ILLUSTRATION",
+              "RECONSTRUCTION",
+              "COMMENTARY",
+              "ORIGINAL_CAPTURE"
+            ]
+          },
+          "media_mode": {
+            "type": "string",
+            "enum": [
+              "SVG",
+              "CHART",
+              "ORIGINAL_SCREENCAST",
+              "OWNER_FOOTAGE",
+              "LICENSED_FOOTAGE",
+              "APPROVED_STILL",
+              "AI_VISUAL"
+            ]
+          },
+          "asset_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "render_recipe": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 3
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "rights_decision_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "overlay_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "camera_motion": {
+            "type": "string",
+            "enum": [
+              "STATIC",
+              "PAN",
+              "ZOOM",
+              "TRACK",
+              "CUSTOM_KEYFRAMES"
+            ]
+          },
+          "has_synthetic_disclosure": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "shot_id",
+          "beat_id",
+          "start_ms",
+          "end_ms",
+          "visual_role",
+          "media_mode",
+          "asset_id",
+          "render_recipe",
+          "source_claim_ids",
+          "rights_decision_id",
+          "overlay_ids",
+          "camera_motion",
+          "has_synthetic_disclosure"
+        ]
+      },
+      "minItems": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "RIGHTS_REVIEWED",
+        "BLOCKED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "shot_plan_id",
+    "story_id",
+    "duration_ms",
+    "shots",
+    "status"
+  ]
+}

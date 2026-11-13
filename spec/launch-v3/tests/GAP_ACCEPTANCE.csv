@@ -1,0 +1,31 @@
+test_id,gap_id,test_class,expected_behavior,status
+V21-G-001,G-001,SPEC_OR_RUNTIME,"Validate fix per ExecutionRequest/Result schemas, core/14, engine execution registry, fail closed on Engine interfaces declare generic input/output text; no typed operation protocol",NOT_RUN
+V21-G-002,G-002,SPEC_OR_RUNTIME,"Validate fix per core/15 API rules + typed envelopes; endpoint conformance test mandatory, fail closed on Many OpenAPI success/error bodies vague and pagination not fully modeled",NOT_RUN
+V21-G-003,G-003,SPEC_OR_RUNTIME,"Validate fix per distinct manifest profiles and dedicated validators, fail closed on Launch/Ultimate had blended release gates and cross-referenced deferred features",NOT_RUN
+V21-G-004,G-004,SPEC_OR_RUNTIME,"Validate fix per SPEC_PRECEDENCE.md; conflict is blocker, not choose-by-guess, fail closed on No exact priority or precedence when canonical requirements contradict addenda",NOT_RUN
+V21-G-005,G-005,SPEC_OR_RUNTIME,"Validate fix per blocker ledger, live connector qualification, offline fallback, fail closed on Runtime sources/rights/OAuth unspecified could be silently fabricated",NOT_RUN
+V21-G-006,G-006,SPEC_OR_RUNTIME,"Validate fix per configs/engine_execution_registry.json + 12 domain playbooks, fail closed on Engine registry 144 names but not individual state/IO/output requirements",NOT_RUN
+V21-G-007,G-007,SPEC_OR_RUNTIME,"Validate fix per core/16 side-effect state machines + migration 002, fail closed on Human approval revocation and upload timeout reconciliation not executable",NOT_RUN
+V21-G-008,G-008,SPEC_OR_RUNTIME,"Validate fix per core/17 evidence gates, SourceCoverageReport, fail closed on Per-source reliability vs independence groups and metadata-only access ambiguous",NOT_RUN
+V21-G-009,G-009,SPEC_OR_RUNTIME,"Validate fix per core/17 cache TTL and downstream invalidation rules, fail closed on No explicit negative caching, source change invalidation boundaries",NOT_RUN
+V21-G-010,G-010,SPEC_OR_RUNTIME,"Validate fix per SourceCoverageReport and bounded stopping conditions, fail closed on Research completion lacked mandatory report of inaccessible or unsearched sources",NOT_RUN
+V21-G-011,G-011,SPEC_OR_RUNTIME,"Validate fix per playbooks/sports plus sport specific negative fixtures, fail closed on Sports event corrections/time-zone/partial score invalidation insufficiently tested",NOT_RUN
+V21-G-012,G-012,SPEC_OR_RUNTIME,"Validate fix per playbooks/technology, immutable benchmark logs, fail closed on No mandatory technology/security benchmark replay artifacts",NOT_RUN
+V21-G-013,G-013,SPEC_OR_RUNTIME,"Validate fix per core/18 capability negotiation and GPU only hold, fail closed on GPU scaling assumes model capability without live model/driver benchmark",NOT_RUN
+V21-G-014,G-014,SPEC_OR_RUNTIME,"Validate fix per core/18, scene-scoped source IDs and reconstruction labels, fail closed on Media generation prompt/shot chain lacks explicit scene to claims provenance",NOT_RUN
+V21-G-015,G-015,SPEC_OR_RUNTIME,"Validate fix per core/14 untrusted input isolation and privileged action boundaries, fail closed on LLM prompt injection and tool side effects insufficiently contract-bound",NOT_RUN
+V21-G-016,G-016,SPEC_OR_RUNTIME,"Validate fix per core/18 staging and deterministic rendering profiles, fail closed on Filesystem Windows paths, ffmpeg crash checkpoints and CPU budgets underspecified",NOT_RUN
+V21-G-017,G-017,SPEC_OR_RUNTIME,"Validate fix per configs/provider_acceptance.json; tests/provider cases, fail closed on No zero-trust source connector qualification evidence",NOT_RUN
+V21-G-018,G-018,SPEC_OR_RUNTIME,"Validate fix per core/19 learning guardrails and truthful packaging, fail closed on Audience optimization might reward sensational or unsupported thumbnails",NOT_RUN
+V21-G-019,G-019,SPEC_OR_RUNTIME,"Validate fix per tests/OPERATOR_RELEASE_CHECKLIST.md, fail closed on No independent external acceptance owner sign-off for release",NOT_RUN
+V21-G-020,G-020,SPEC_OR_RUNTIME,"Validate fix per PACK_MANIFEST.json, FILE_HASHES.json, ZIP_SELF_TEST.py, fail closed on No robust ZIP separation/integrity with root manifests",NOT_RUN
+V21-G-021,G-021,SPEC_OR_RUNTIME,"Validate fix per tools/validate_pack.py including JSON schema examples and SQL behavior, fail closed on Spec validator previously checked document shape but not operation fixtures",NOT_RUN
+V21-G-022,G-022,SPEC_OR_RUNTIME,"Validate fix per database/002_operational_controls.sql; core/16, fail closed on No upload-reconciliation journal / actual observed vs forecast provenance",NOT_RUN
+V21-G-023,G-023,SPEC_OR_RUNTIME,"Validate fix per core/18 conservative profile with real benchmark calibration, fail closed on No explicit non-functional limits and resourcing policy for 32GB i7",NOT_RUN
+V21-G-024,G-024,SPEC_OR_RUNTIME,"Validate fix per core/19 actuals, scenario segregation and zero income guarantee, fail closed on Revenue and GPU goals risk equating views with earnings",NOT_RUN
+V21-G-025,G-025,SPEC_OR_RUNTIME,"Validate fix per playbook rules require external records and deterministic tests, fail closed on Domain agent roles may be mistaken for independent fact-checking",NOT_RUN
+V21-G-026,G-026,SPEC_OR_RUNTIME,"Validate fix per v2.1 single canonical file per module; earlier versions excluded from runtime spec, fail closed on Spec archival v1/v2 copies repeated and potentially conflicting",NOT_RUN
+V21-G-027,G-027,SPEC_OR_RUNTIME,"Validate fix per core/16 idempotency hashing and remote reconciliation, fail closed on No enforced idempotency checks for external side effects and mismatched payload keys",NOT_RUN
+V21-G-028,G-028,SPEC_OR_RUNTIME,"Validate fix per core/16 migration preflight backup, smoke test, read-only recovery, fail closed on Database migration forward-only policy and downgrade policy underdefined",NOT_RUN
+V21-G-029,G-029,SPEC_OR_RUNTIME,"Validate fix per playbooks/newsroom high-risk audit and human gate, fail closed on Sensitive allegation right-of-reply and dispute burden unclear",NOT_RUN
+V21-G-030,G-030,SPEC_OR_RUNTIME,"Validate fix per core/18 model provenance and capability gate, fail closed on License and model commercial use need review at GPU activation",NOT_RUN

@@ -1,0 +1,22 @@
+{
+  "contract_version": "3.0.0",
+  "report_id": "qc-test",
+  "timeline_id": "timeline-test",
+  "render_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "checks": [
+    {
+      "check_id": "check-frame",
+      "name": "ffprobe_available",
+      "result": "NOT_RUN",
+      "evidence_ref": null,
+      "notes": "Fixture only, no video exists"
+    }
+  ],
+  "factual_review": "PENDING",
+  "rights_review": "PENDING",
+  "visual_quality_review": "PENDING",
+  "human_watchthrough": "NOT_DONE",
+  "final_status": "REVIEW_REQUIRED",
+  "reviewer_id": null,
+  "reviewed_revision_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

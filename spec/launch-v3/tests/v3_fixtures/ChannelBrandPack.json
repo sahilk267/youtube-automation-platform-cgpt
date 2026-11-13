@@ -1,0 +1,20 @@
+{
+  "contract_version": "3.0.0",
+  "brand_id": "brand-test",
+  "channel_id": "channel-test",
+  "locale_default": "hi-IN",
+  "voice_profile_id": "voice-test",
+  "logo_asset_id": null,
+  "palette_hex": [
+    "#162434",
+    "#F3C543"
+  ],
+  "font_families": [
+    "Noto Sans",
+    "Noto Sans Devanagari"
+  ],
+  "intro_policy": "NONE",
+  "outro_policy": "PAYOFF_THEN_CTA",
+  "risk_policy_id": "policy-test",
+  "version": 1
+}

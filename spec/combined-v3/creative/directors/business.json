@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "business",
+  "director_document": "creative/directors/business.md",
+  "allowed_format_ids": [
+    "CASE_STUDY",
+    "LONG_DOCUMENTARY",
+    "SHORT_EXPLAINER",
+    "BREAKING_BRIEF"
+  ],
+  "distinct_visual_methods": [
+    "Original labeled revenue flow/waterfall",
+    "Dated 10-K/annual report source card with accounting period",
+    "Peer comparison with currency and inflation context",
+    "Ownership graph with dated primary links"
+  ],
+  "distinct_audio_methods": [
+    "Analytical, patient, define gross versus net and financial terms",
+    "Financial arithmetic read with units and fiscal year"
+  ],
+  "factual_visual_review_rules": [
+    "No unsupported fraud allegations or investment advice",
+    "Visually large bars must not hide changes of axis or period"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

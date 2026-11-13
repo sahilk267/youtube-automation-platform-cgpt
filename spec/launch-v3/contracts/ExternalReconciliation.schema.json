@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/ExternalReconciliation.schema.json",
+  "title": "ExternalReconciliation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "intent_id",
+    "provider",
+    "local_state",
+    "remote_state",
+    "decision",
+    "observed_at"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "intent_id": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string",
+      "enum": [
+        "YOUTUBE"
+      ]
+    },
+    "local_state": {
+      "type": "string"
+    },
+    "remote_state": {
+      "type": "string",
+      "enum": [
+        "NOT_QUERIED",
+        "EXISTS",
+        "ABSENT_CONFIRMED",
+        "UNKNOWN",
+        "TOKEN_REVOKED"
+      ]
+    },
+    "remote_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "NO_RETRY",
+        "SAFE_TO_RETRY",
+        "HOLD_FOR_HUMAN",
+        "CONFIRMED_SUCCEEDED"
+      ]
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "account_scope_verified": {
+      "type": "boolean"
+    }
+  }
+}

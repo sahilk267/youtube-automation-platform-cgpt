@@ -1,0 +1,13 @@
+{
+  "contract_version": "3.0.0",
+  "request_id": "request-test",
+  "operation_id": "CV3-01",
+  "channel_id": "channel-test",
+  "project_id": "test-project",
+  "input_artifact_ids": [],
+  "expected_revision_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "idempotency_key": "idem-1",
+  "requested_by": "owner",
+  "edition_profile": "LAUNCH",
+  "allow_external_side_effect": false
+}
