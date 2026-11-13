@@ -57,3 +57,10 @@ The [exact Ultimate v3 reconstruction guide](docs/ULTIMATE_REFERENCE.md) rebuild
 ### New: Windows owner CPU acceptance & private recovery (Issue #4)
 
 `tools/accept_windows.ps1` runs offline preflight and synthetic original 9:16/16:9 FFmpeg benchmarks; `tools/owner_acceptance.py backup|verify|restore` creates/verifies private **database-only** SQLite online backups and restores into **nonexistent targets** with final-export approvals invalidated. No credentials, model downloads or YouTube uploads. See [`docs/WINDOWS_CPU_ACCEPTANCE.md`](docs/WINDOWS_CPU_ACCEPTANCE.md). **Actual owner i7/32 GB Windows test remains pending; never put DB snapshots or reports in this PUBLIC repository.**
+
+
+### M2.5 — Offline voice/alignment evidence evaluator (new, not professional voice)
+
+[Operator guide](docs/M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md) | [Voice evaluator](tools/audio_acceptance.py) | [Private manifest initializer](tools/create_voice_manifest.py) | [Windows helper](tools/voice_accept_windows.ps1).
+
+These opt-in, local-only tools assess an **owner-supplied** real WAV and aligner word timestamps against human-reviewed ground truth, including Hindi–English code-switch and SHA-256/licence claims. Reports stay outside this **PUBLIC** Git repo. **No model is downloaded or run, no quality ratings are generated, and no publishing is enabled.** See [Issue #2](https://github.com/sahilk267/youtube-automation-platform-cgpt/issues/2) for still-blocked real model/Windows/video acceptance.
