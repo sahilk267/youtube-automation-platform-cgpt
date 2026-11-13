@@ -2,6 +2,8 @@
 
 > **Status: active CPU-first engineering prototype. NOT a finished autonomous publishing platform.**
 
+**Latest verified GitHub snapshot:** [CURRENT_CHECKPOINT](docs/CURRENT_CHECKPOINT.md) — full source import MERGED, 574 files, GitHub Actions **82 tests passed** on main; user Windows, natural voices and live YouTube acceptance remain pending.
+
 **Start here:** [Project recovery guide](docs/START_HERE.md) · [Architecture](docs/ARCHITECTURE.md) · [Current verified status](docs/IMPLEMENTATION_STATUS.md) · [Roadmap](docs/ROADMAP.md) · [Security](docs/SECURITY_AND_RIGHTS.md).
 
 ## Product mission

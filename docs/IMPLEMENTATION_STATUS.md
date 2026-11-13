@@ -1,5 +1,7 @@
 # Implementation truth table — read before making “done” claims
 
+**GitHub independently verified:** [post-merge CI](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43341866207) returned **82 passed, 1 warning in 30.40 seconds** on a fresh Linux/Python 3.12 checkout after 574 files were merged. All source file Git blob hashes were checked. This is *not* Windows/human/YouTube/model acceptance. See [CURRENT_CHECKPOINT](CURRENT_CHECKPOINT.md).
+
 **Canonical imported checkpoint:** ViralOS Launch M2.4 + M3.2 v0.7, dated 2026-11-12. Source is in `app/`, `sql/`, `tests/`, `tools/`. Legacy build record previously reported 82/82 tests and bilingual technical video output **on Linux**; these are historical reports, not proof of Windows/Google/model acceptance and not a substitute for fresh GitHub CI. Always re-run tests at the current commit.
 
 | Capability | Level | Evidence/next gate |

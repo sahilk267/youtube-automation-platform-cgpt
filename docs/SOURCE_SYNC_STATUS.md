@@ -1,14 +1,14 @@
-# GitHub source sync status
+# GitHub source sync — completed and independently checked (2026-11-13)
 
-**Target repository:** `sahilk267/youtube-automation-platform-cgpt` (PUBLIC when opened). This document records the planned canonical layout and excludes large/private binaries.
+**Status: SYNCED to main.** Full source import [PR #1](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/1) was merged. Source/import commit `22a6a2c39829f6483cc0f5d88b89fe0c2e078f27`, merge commit `1c3ae1784ff59c481350e6635af5464047d4a31a`. Git tree contained **574 readable files**, including bootstrap README. Local-import vs actual Git blob SHA1 comparison: **573/573 matched**, no missing or mismatched files. See [CURRENT_CHECKPOINT](CURRENT_CHECKPOINT.md).
 
-The first complete source import should contain:
+## Verified paths
+`app/` actual FastAPI/dashboard runtime; `sql/` migrations 001–012; `tests/`; `tools/`; `configs/`; `requirements.txt`; `examples/` source/scripts/text fixture files; `spec/launch-v3/` and `spec/combined-v3/` immutable historical architecture snapshots; `research/` complete desk-research files; `README.md`, `AGENTS.md`, `.github/workflows/ci.yml` and recovery/status/rights docs.
 
-- Runtime `app/`, `sql/` (001–012), `tests/`, `tools/`, `requirements.txt`, `configs/`, readable `examples/` scripts and captions.
-- Versioned `spec/launch-v3/` and `spec/combined-v3/` specification snapshots. They are **not** runnable apps.
-- `research/` platform/120-channel materials and research limitations.
-- Readme, agent handoff, architecture, status, security, Windows quickstart, roadmap, recovery notes, CI.
+## Independent test
+[Post-merge CI run](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43341866207) **SUCCESS** on Linux/Python 3.12/FFmpeg: 82 pytest passes, one warning; Python compilation, JavaScript syntax, high-confidence secret pattern scan passed. This **does not** prove target Windows hardware, real Piper/WhisperX models, private YouTube OAuth or world-class video quality.
 
-**Omitted intentionally:** local SQLite and user-owned raw source footage, licensed voice weights, OAuth credentials, downloaded copyrighted third-party clips, and generated MP4/PNG demonstration outputs. Regenerate technical demos from `examples/create_*.py` as appropriate. Historic ZIP manifests in `docs/historical/` describe old archives and may reference missing generated files; do **not** run `tools/verify_package.py` against a normalized Git checkout and call missing media a source failure.
+## Deliberately excluded
+Generated MP4/PNG demonstrations and voice assets, model weights, OAuth/Google credentials, local SQLite/private channel data, copyrighted footage, proprietary paid assets. Regenerate examples using committed source/demo scripts; private state needs its **own encrypted backup**. Historic ZIP manifests stored in `docs/historical/v0.7/` refer to an older ZIP, **not** a normalized Git checkout; do not use `tools/verify_package.py` as Git-integrity proof.
 
-**Audit after import:** compare GitHub tree paths with this inventory, run `python -m pytest -q` from fresh clone, inspect actual CI result, and record commit SHA. No docs-only commit should be described as full code sync. A successful remote tree write does not certify target Windows, real model or YouTube provider acceptance.
+**Next:** read [START_HERE](START_HERE.md), [ARCHITECTURE](ARCHITECTURE.md), [ROADMAP](ROADMAP.md), [CURRENT_CHECKPOINT](CURRENT_CHECKPOINT.md) and open GitHub [Issues](https://github.com/sahilk267/youtube-automation-platform-cgpt/issues). If this chat is lost, clone the repository and continue from those artifacts. Repository was **PUBLIC** on initial import. Never store secrets here.
