@@ -206,3 +206,20 @@ def test_private_metadata_disclosure_changes_are_not_silent(client):
           'tags':[],'altered_content':False,'made_for_kids':False,'owner_confirmed_metadata_rights':True}
     post(client,'/api/m3/private-upload/intents',data)
     assert client.post('/api/m3/private-upload/intents',json={**data,'altered_content':True}).status_code==409
+
+
+def test_restore_style_invalidated_export_cannot_be_downloaded_or_reused(client):
+    """A restored DB keeps review history, not publication-ready export status."""
+    if not shutil.which('ffmpeg') or not shutil.which('ffprobe'):
+        pytest.skip('FFmpeg missing')
+    ch, pid, plan_id = setup_draft(client)
+    rid = make_render(client, pid)
+    approved = review_and_export(client, pid, rid)
+    with db.transaction() as c:
+        c.execute("UPDATE m22_final_exports SET status='INVALIDATED' WHERE export_id=?",
+                  (approved['export_id'],))
+    assert client.get(f"/api/m22/final-exports/{approved['export_id']}/download").status_code == 409
+    with db.read() as c:
+        review_id = c.execute('SELECT review_id FROM m22_final_exports WHERE export_id=?',
+                              (approved['export_id'],)).fetchone()[0]
+    assert client.post(f'/api/projects/{pid}/m22/reviews/{review_id}/export-final').status_code == 409
