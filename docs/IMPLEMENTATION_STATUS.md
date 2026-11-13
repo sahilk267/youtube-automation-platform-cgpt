@@ -1,3 +1,5 @@
+**Additional latest acceptance:** [Ultimate PR #12 CI](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43344067226): **83 pytest tests passed** on Linux. Exact Ultimate spec materialization test included. Does not prove Windows, live voice, YouTube or human professional quality.
+
 # Implementation truth table — read before making “done” claims
 
 **GitHub independently verified:** [post-merge CI](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43341866207) returned **82 passed, 1 warning in 30.40 seconds** on a fresh Linux/Python 3.12 checkout after 574 files were merged. All source file Git blob hashes were checked. This is *not* Windows/human/YouTube/model acceptance. See [CURRENT_CHECKPOINT](CURRENT_CHECKPOINT.md).

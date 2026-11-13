@@ -53,3 +53,11 @@
 6. Owner determines repository visibility, enables branch protection and private backup (#11).
 
 **Do not rely on previous sandbox ZIP links.** Everything necessary to begin *development* now lives in this repository. Runtime passwords, model binaries, raw licensed assets, channel data and videos intentionally do not.
+
+## Update: exact Ultimate v3 edition merged (2026-11-13)
+
+- [PR #12](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/12) **MERGED**; merge commit `83ff3a7fa58cadfd7e836cbdbb6f4ab4636a425a`.
+- Added 11 readable files: 7 Ultimate-only/changed historical files, SHA-256 manifest, Python reconstruction tool, documentation and test; canonical runtime remains unchanged.
+- Original 250-file Ultimate v3 contents can be reconstructed from `spec/combined-v3/` + `spec/ultimate-v3-overlay/` via `python tools/materialize_ultimate.py` and every file SHA-256 verified.
+- Updated branch [CI run](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43344067226) passed **83 tests, 1 warning in 28.60 seconds**. This is Linux offline software only, not live model/account acceptance.
+- Repo contents now **586 files before this documentation-only update** (575 after initial import/status docs + 11 Ultimate additions). Latest info also in [ULTIMATE_REFERENCE](ULTIMATE_REFERENCE.md).

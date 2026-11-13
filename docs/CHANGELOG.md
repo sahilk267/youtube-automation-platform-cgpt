@@ -1,0 +1,16 @@
+# ViralOS recovery-first changelog
+
+## 2026-11-13 — Canonical GitHub source import
+
+- Bootstrapped public repository and imported v0.7 CPU-first runnable FastAPI/SQLite/FFmpeg prototype, Launch v3 and Combined v3 specifications, competitor research, 120-channel desk research and safety/Windows/agent-recovery docs.
+- [PR #1](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/1) merged; [main-branch CI](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43341866207) 82 offline tests passed.
+- Source transfer audit: 573/573 imported file Git blob SHA1 hashes matched, 574 initial files including README; no proprietary MP4, model weights, tokens or SQLite data committed.
+- README and [CURRENT_CHECKPOINT](CURRENT_CHECKPOINT.md) record real capabilities, historical claims and unmet acceptance gates. Created 10 specific tracking issues #2–#11.
+
+## 2026-11-13 — Exact Ultimate v3 edition recovery
+
+- [PR #12](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/12) merged; [CI](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43344067226) 83 offline tests passed.
+- Ultimate design differs from Combined v3 in six changed files plus one Ultimate-only and one Combined-only; new `spec/ultimate-v3-overlay/` stores edition differences, `tools/materialize_ultimate.py` reconstructs and checks original 250 files via SHA-256. Total readable Git files: 586 before this changelog/doc update.
+- No extra fork of runtime, no real voice/YouTube account acceptance and no professional finished-video claim.
+
+**Following changes** must update both implementation status and applicable test/hardware/rights gates. Recover from main branch, read [START_HERE](START_HERE.md), [AGENTS](../AGENTS.md), [ROADMAP](ROADMAP.md), and Issues.

@@ -12,3 +12,7 @@
 Generated MP4/PNG demonstrations and voice assets, model weights, OAuth/Google credentials, local SQLite/private channel data, copyrighted footage, proprietary paid assets. Regenerate examples using committed source/demo scripts; private state needs its **own encrypted backup**. Historic ZIP manifests stored in `docs/historical/v0.7/` refer to an older ZIP, **not** a normalized Git checkout; do not use `tools/verify_package.py` as Git-integrity proof.
 
 **Next:** read [START_HERE](START_HERE.md), [ARCHITECTURE](ARCHITECTURE.md), [ROADMAP](ROADMAP.md), [CURRENT_CHECKPOINT](CURRENT_CHECKPOINT.md) and open GitHub [Issues](https://github.com/sahilk267/youtube-automation-platform-cgpt/issues). If this chat is lost, clone the repository and continue from those artifacts. Repository was **PUBLIC** on initial import. Never store secrets here.
+
+## Edition preservation update
+
+[PR #12](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/12) added the **exact Ultimate v3 delta**. `spec/combined-v3/` plus `spec/ultimate-v3-overlay/` and `tools/materialize_ultimate.py` reconstruct 250/250 original Ultimate files with SHA-256 verification. This intentionally avoids 243 duplicated identical design files. Git tree grew from 575 to **586** readable files. [Latest PR CI](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43344067226): **83 passed** on Ubuntu. Original import statistics above remain historically accurate.
