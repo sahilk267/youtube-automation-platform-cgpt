@@ -251,8 +251,10 @@ def register_creative_m22(app):
             if not review:raise HTTPException(404,'Review not found')
             digest,p,row,planrow,plan,script,links,research,assets,voice=fingerprint(c,project_id,review['preview_render_id'])
             if digest!=review['fingerprint']:raise HTTPException(409,'Review stale: evidence, files or script changed')
-            previous=db.one(c,'SELECT export_id,file_relpath,file_sha256 FROM m22_final_exports WHERE review_id=?',(review_id,))
+            previous=db.one(c,'SELECT export_id,file_relpath,file_sha256,status FROM m22_final_exports WHERE review_id=?',(review_id,))
             if previous:
+                if previous['status']!='OWNER_APPROVED_FINAL_EXPORT':
+                    raise HTTPException(409,'Previous final export invalidated; new human review and render required')
                 target=(m.OUT/previous['file_relpath']).resolve()
                 if m.OUT.resolve() in target.parents and target.is_file() and sha_file(target)==previous['file_sha256']:
                     return {'export_id':previous['export_id'],'already_exists':True,'status':'OWNER_APPROVED_FINAL_EXPORT'}
@@ -278,6 +280,8 @@ def register_creative_m22(app):
         with db.read() as c:
             e=db.one(c,'SELECT * FROM m22_final_exports WHERE export_id=?',(export_id,))
             if not e:raise HTTPException(404,'Export not found')
+            if e['status']!='OWNER_APPROVED_FINAL_EXPORT':
+                raise HTTPException(409,'Final export invalidated; new owner review required')
             r=db.one(c,'SELECT * FROM m22_studio_reviews WHERE review_id=?',(e['review_id'],))
             digest,*_=fingerprint(c,e['project_id'],r['preview_render_id'])
             if digest!=e['fingerprint']:raise HTTPException(409,'Final export obsolete after changes')

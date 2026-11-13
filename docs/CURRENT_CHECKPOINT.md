@@ -61,3 +61,8 @@
 - Original 250-file Ultimate v3 contents can be reconstructed from `spec/combined-v3/` + `spec/ultimate-v3-overlay/` via `python tools/materialize_ultimate.py` and every file SHA-256 verified.
 - Updated branch [CI run](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43344067226) passed **83 tests, 1 warning in 28.60 seconds**. This is Linux offline software only, not live model/account acceptance.
 - Repo contents now **586 files before this documentation-only update** (575 after initial import/status docs + 11 Ultimate additions). Latest info also in [ULTIMATE_REFERENCE](ULTIMATE_REFERENCE.md).
+
+
+### Next implementation — Issue #4 offline owner acceptance & recovery
+
+Branch `feature/windows-offline-acceptance-and-private-recovery` adds CPU benchmark and private SQLite recovery tools, 12 new tests, plus a final-export invalidation bypass regression test. Local staged code passed **95/95 pytest tests on Linux**. GitHub Actions Linux and Windows-runner checks must be read on the linked PR before merging. Actual owner i7/32GB Windows acceptance, professional quality and Google live tests remain pending. Use `docs/WINDOWS_CPU_ACCEPTANCE.md` on the owner's device; keep sensitive local reports/data outside Git.

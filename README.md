@@ -52,3 +52,8 @@ The v0.7 handoff ZIP `ViralOS_Launch_M2_4_M3_2_v0_7_Working_Source.zip` was crea
 ### Recover the original Ultimate v3 edition
 
 The [exact Ultimate v3 reconstruction guide](docs/ULTIMATE_REFERENCE.md) rebuilds all 250 original Ultimate specification files from the Combined v3 snapshot plus a tiny edition delta, checking 250 SHA-256 hashes. It is a design reference, not a second application. Current full GitHub source tree has 587 files, and the latest Ultimate PR [#12](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/12) passed 83 offline CI tests.
+
+
+### New: Windows owner CPU acceptance & private recovery (Issue #4)
+
+`tools/accept_windows.ps1` runs offline preflight and synthetic original 9:16/16:9 FFmpeg benchmarks; `tools/owner_acceptance.py backup|verify|restore` creates/verifies private **database-only** SQLite online backups and restores into **nonexistent targets** with final-export approvals invalidated. No credentials, model downloads or YouTube uploads. See [`docs/WINDOWS_CPU_ACCEPTANCE.md`](docs/WINDOWS_CPU_ACCEPTANCE.md). **Actual owner i7/32 GB Windows test remains pending; never put DB snapshots or reports in this PUBLIC repository.**

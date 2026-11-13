@@ -28,3 +28,8 @@ Source-backed claims and provenance; tested story arc; planned and original/auth
 ## When chat context is missing
 
 Clone repository, inspect current main/PRs, run tests, open `docs/START_HERE.md`. Rebuild from committed source. If any references to an older `/mnt/data/*.zip` remain, **do not assume access to that path**. Ask only for missing private inputs (credentials, owned media rights, source data and human approval); never invent them.
+
+
+## Offline Windows/backup acceptance tool (Issue #4)
+
+`tools/owner_acceptance.py` and `docs/WINDOWS_CPU_ACCEPTANCE.md` define environment, CPU FFmpeg benchmark, consistent SQLite-only backups and clean-profile recovery. Do not bypass restore-time final-export invalidation, auto-retry remote-unknown uploads, overwrite an existing DB, or put private backups/owner reports in Git. Windows GitHub runner CI **is not** acceptance on owner's actual i7/32GB PC.

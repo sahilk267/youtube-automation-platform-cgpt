@@ -31,3 +31,8 @@ First 3 pilot videos: Cricket Hindi Short, NFL English long-form/analysis, pract
 ### Issue template per feature
 
 **Inputs & evidence** / explicit API and rights / domain×format×locale policy / expected artifact / failure + stale-state behavior / unit+integration+owner test / independent factual and creative QC / performance budget / docs and migration impact. Never close based on unit tests alone where human or live external acceptance is required.
+
+
+### Issue #4 checkpoint — offline tools implemented; real Windows owner gate OPEN
+
+Preflight, two original synthetic FFmpeg renders, SQLite WAL-safe backup/verify/clean-profile restore, invalidation of earlier final approvals, and cross-platform safety tests are now in `tools/owner_acceptance.py` + `tests/test_owner_acceptance.py`. GitHub CI adds Windows-runner recovery tests. **Not accepted yet:** real owner 8th-gen i7 32GB benchmark, Hindi font and audio checks, restored media paths/rights, complete video watch-through, installed model license/quality checks and local encrypted backups. Follow [operator procedure](WINDOWS_CPU_ACCEPTANCE.md).
