@@ -1,0 +1,3 @@
+# Ultimate Standalone Dependency Rules
+
+This pack is standalone **as a specification** and includes the Launch baseline because Ultimate cannot work without capture, source evidence, media, rights, publication, and analytics core. Implement Launch milestone first; use same codebase and database, not a separate installed application. Ultimate's 12 domain dossiers are architecture targets, not working engines. A provider/model/hardware requirement blocks only affected functions and does not disable unrelated CPU jobs. Future SaaS must be explicitly approved before any billing/tenant routes are enabled.
