@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/CapabilityDecision.schema.json",
+  "title": "CapabilityDecision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "job_id",
+    "required_capabilities",
+    "detected_capabilities",
+    "decision",
+    "reason_codes"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "detected_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "RUN_LOCAL_CPU",
+        "RUN_LOCAL_GPU",
+        "RUN_REMOTE",
+        "WAITING_FOR_CAPABILITY",
+        "BLOCKED_POLICY"
+      ]
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "worker_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "estimated_peak_ram_bytes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "estimated_peak_vram_bytes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    }
+  }
+}

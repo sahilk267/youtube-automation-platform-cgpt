@@ -1,0 +1,66 @@
+{
+  "contract_version": "2.0.0",
+  "workflow": {
+    "cpu_heavy_max_concurrent": 1,
+    "http_per_provider_default_concurrent": 2,
+    "max_network_retries": 3,
+    "retry_delay_seconds": [
+      5,
+      30,
+      120
+    ],
+    "default_publish_mode": "MANUAL",
+    "default_visibility": "PRIVATE",
+    "sensitive_claims_require_human_approval": true,
+    "no_rights_no_publish": true,
+    "no_evidence_no_verified_factual_claim": true,
+    "scope_owner_channels_only": true
+  },
+  "hardware": {
+    "primary_baseline": "Intel Core i7 8th gen / 32GB RAM / no dedicated GPU",
+    "compute_modes": [
+      "AUTO",
+      "CPU_ONLY",
+      "CUDA_ONLY",
+      "HYBRID",
+      "REMOTE_WORKER"
+    ],
+    "default_mode": "AUTO",
+    "reserve_ram_fraction": 0.15,
+    "max_gpu_jobs_without_benchmark": 1
+  },
+  "release_profiles": {
+    "LAUNCH": {
+      "enabled_domains": [
+        "sports"
+      ],
+      "optional_domains": [
+        "technology"
+      ],
+      "pilot_max_active_channels": 2
+    },
+    "ULTIMATE": {
+      "all_domains": [
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "sports",
+        "career",
+        "productivity",
+        "culture"
+      ],
+      "saas_requires_separate_approval": true
+    }
+  },
+  "quality": {
+    "critical_claim_citation_coverage_required": 1.0,
+    "unknown_rights_block_third_party_media": true,
+    "approval_invalidated_on_material_edit": true,
+    "synthetic_realistic_content_needs_disclosure_review": true
+  }
+}

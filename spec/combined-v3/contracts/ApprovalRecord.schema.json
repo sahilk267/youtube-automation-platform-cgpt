@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/ApprovalRecord.schema.json",
+  "title": "ApprovalRecord",
+  "description": "Actual human-approved immutable snapshot; a model is not a human actor.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "approval_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "project_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "rights_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "risk_report_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "decision": {
+      "enum": [
+        "APPROVE",
+        "REJECT",
+        "REQUEST_CHANGES"
+      ]
+    },
+    "actor_type": {
+      "enum": [
+        "OWNER",
+        "AUTHORIZED_HUMAN_REVIEWER"
+      ]
+    },
+    "reviewer_id": {
+      "type": "string"
+    },
+    "approved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "approval_id",
+    "project_id",
+    "project_revision",
+    "project_sha256",
+    "rights_manifest_sha256",
+    "risk_report_sha256",
+    "decision",
+    "actor_type",
+    "reviewer_id",
+    "approved_at"
+  ]
+}

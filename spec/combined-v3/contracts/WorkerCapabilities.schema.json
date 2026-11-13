@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/WorkerCapabilities.schema.json",
+  "title": "WorkerCapabilities",
+  "description": "Real capability detection, not UI planning profile.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "worker_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "provider_type": {
+      "enum": [
+        "CPU",
+        "CUDA",
+        "REMOTE"
+      ]
+    },
+    "cpu_threads": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "system_ram_mb": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "dedicated_gpu_present": {
+      "type": "boolean"
+    },
+    "gpu_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "vram_total_mb": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "vram_available_mb": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "driver_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "compute_runtime_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "supported_tasks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "installed_model_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ffmpeg_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "disk_free_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "detected_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "worker_id",
+    "provider_type",
+    "cpu_threads",
+    "system_ram_mb",
+    "dedicated_gpu_present",
+    "vram_total_mb",
+    "vram_available_mb",
+    "supported_tasks",
+    "installed_model_ids",
+    "disk_free_bytes",
+    "detected_at"
+  ]
+}

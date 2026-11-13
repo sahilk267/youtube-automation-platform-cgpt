@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/EngineManifest.schema.json",
+  "title": "EngineManifest",
+  "description": "Single-owner engine registration with declared inputs and failures.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "engine_id": {
+      "type": "string"
+    },
+    "owner_module": {
+      "type": "string"
+    },
+    "domain_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "sports",
+        "career",
+        "productivity",
+        "culture",
+        null
+      ]
+    },
+    "pipeline_stage": {
+      "enum": [
+        "DISCOVER",
+        "INVESTIGATE",
+        "VERIFY",
+        "REASON",
+        "CREATE",
+        "PUBLISH",
+        "LEARN"
+      ]
+    },
+    "algorithm_spec": {
+      "type": "string"
+    },
+    "input_contract": {
+      "type": "string"
+    },
+    "output_contract": {
+      "type": "string"
+    },
+    "error_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_policy": {
+      "type": "string"
+    },
+    "device_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "SPECIFIED",
+        "IMPLEMENTED",
+        "TESTED",
+        "VERIFIED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "engine_id",
+    "owner_module",
+    "domain_id",
+    "pipeline_stage",
+    "algorithm_spec",
+    "input_contract",
+    "output_contract",
+    "error_codes",
+    "review_policy",
+    "device_requirements",
+    "status"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "contract_version": "3.0.0",
+  "shot_plan_id": "plan-one",
+  "story_id": "test-story",
+  "duration_ms": 5000,
+  "shots": [
+    {
+      "shot_id": "shot-one",
+      "beat_id": "beat-one",
+      "start_ms": 0,
+      "end_ms": 2000,
+      "visual_role": "ILLUSTRATION",
+      "media_mode": "SVG",
+      "asset_id": null,
+      "render_recipe": "draw_pitch_demo()",
+      "source_claim_ids": [],
+      "rights_decision_id": null,
+      "overlay_ids": [
+        "overlay-one"
+      ],
+      "camera_motion": "STATIC",
+      "has_synthetic_disclosure": false
+    },
+    {
+      "shot_id": "shot-two",
+      "beat_id": "beat-two",
+      "start_ms": 2000,
+      "end_ms": 5000,
+      "visual_role": "ILLUSTRATION",
+      "media_mode": "SVG",
+      "asset_id": null,
+      "render_recipe": "draw_route_demo()",
+      "source_claim_ids": [],
+      "rights_decision_id": null,
+      "overlay_ids": [],
+      "camera_motion": "PAN",
+      "has_synthetic_disclosure": false
+    }
+  ],
+  "status": "DRAFT"
+}

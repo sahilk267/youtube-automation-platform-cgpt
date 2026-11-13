@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/ComputeState.schema.json",
+  "title": "ComputeState",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "mode",
+    "detected_worker_count",
+    "gpu_available"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "AUTO",
+        "CPU_ONLY",
+        "CUDA_ONLY",
+        "HYBRID"
+      ]
+    },
+    "detected_worker_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "gpu_available": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "science",
+  "director_document": "creative/directors/science.md",
+  "allowed_format_ids": [
+    "SHORT_EXPLAINER",
+    "LONG_DOCUMENTARY",
+    "STEP_LESSON",
+    "CASE_STUDY"
+  ],
+  "distinct_visual_methods": [
+    "Mechanism animation labeling observation versus hypothesis",
+    "Axis- and unit-labeled original plot from reported values",
+    "Study population/experiment design diagram",
+    "Evidence-strength and uncertainty strip"
+  ],
+  "distinct_audio_methods": [
+    "Clear approachable explanation of jargon and unit pronunciation",
+    "Measured pacing for mechanisms and equations; avoid exaggerated cinematic certainty"
+  ],
+  "factual_visual_review_rules": [
+    "No invented scientific demonstration or medical advice",
+    "Paper figures and photographs require rights even if the paper is accessible"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

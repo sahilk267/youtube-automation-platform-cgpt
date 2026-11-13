@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/HealthReport.schema.json",
+  "title": "HealthReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "database",
+    "queue",
+    "storage_free_bytes",
+    "ffmpeg",
+    "model_runtime",
+    "youtube_auth"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "database": {
+      "type": "string",
+      "enum": [
+        "OK",
+        "READ_ONLY",
+        "DOWN"
+      ]
+    },
+    "queue": {
+      "type": "string",
+      "enum": [
+        "OK",
+        "DEGRADED",
+        "DOWN"
+      ]
+    },
+    "storage_free_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ffmpeg": {
+      "type": "string",
+      "enum": [
+        "AVAILABLE",
+        "UNAVAILABLE"
+      ]
+    },
+    "model_runtime": {
+      "type": "string",
+      "enum": [
+        "AVAILABLE",
+        "UNAVAILABLE",
+        "NOT_INSTALLED"
+      ]
+    },
+    "youtube_auth": {
+      "type": "string",
+      "enum": [
+        "AUTHORIZED",
+        "NOT_CONNECTED",
+        "REVOKED",
+        "UNKNOWN"
+      ]
+    }
+  }
+}

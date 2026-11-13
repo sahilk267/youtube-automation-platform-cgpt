@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/ChannelPatchRequest.schema.json",
+  "title": "ChannelPatchRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "expected_revision",
+    "changes"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "expected_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "changes": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "market": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "approval_mode": {
+          "type": "string",
+          "enum": [
+            "MANUAL",
+            "TRUSTED_LOW_RISK"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "DRAFT",
+            "ACTIVE",
+            "PAUSED"
+          ]
+        },
+        "voice_profile_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "content_formats": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "SHORT",
+              "LONG"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

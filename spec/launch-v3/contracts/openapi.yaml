@@ -1,0 +1,833 @@
+openapi: 3.1.0
+info:
+  title: ViralOS Local API (normative minimum)
+  version: 2.0.0
+  description: Engineering contract; these endpoints do not yet exist. Request/response models follow JSON schemas
+    in contracts directory, and implementation must document all status/error codes. Never imply external integrations
+    are active by default.
+servers:
+- url: http://127.0.0.1:8000
+paths:
+  /api/v1/health:
+    get:
+      operationId: getHealth
+      responses:
+        '200':
+          description: Actual health and dependency availability
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetHealthResponse.schema.json
+  /api/v1/capabilities:
+    get:
+      operationId: getCapabilities
+      responses:
+        '200':
+          description: Detected and validated compute/software capabilities
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetCapabilitiesResponse.schema.json
+  /api/v1/channels:
+    get:
+      operationId: listChannels
+      responses:
+        '200':
+          description: Paginated channel list
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListChannelsResponse.schema.json
+    post:
+      operationId: createChannel
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ChannelProfile.schema.json
+      responses:
+        '201':
+          description: Validated channel profile created
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiCreateChannelResponse.schema.json
+        '422':
+          description: Invalid profile or domain
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/channels/{channel_id}:
+    parameters:
+    - in: path
+      name: channel_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: getChannel
+      responses:
+        '200':
+          description: Channel profile
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetChannelResponse.schema.json
+        '404':
+          description: Missing channel
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+    patch:
+      operationId: updateChannel
+      parameters:
+      - in: header
+        name: If-Match
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+          minLength: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ChannelPatchRequest.schema.json
+      responses:
+        '200':
+          description: Updated revision
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiUpdateChannelResponse.schema.json
+        '409':
+          description: Optimistic revision conflict
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/connectors:
+    get:
+      operationId: listConnectors
+      responses:
+        '200':
+          description: Actual provider coverage
+          quota and health: null
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListConnectorsResponse.schema.json
+  /api/v1/connectors/{provider_id}/sync:
+    parameters:
+    - in: path
+      name: provider_id
+      required: true
+      schema:
+        type: string
+    post:
+      operationId: syncConnector
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ConnectorSyncRequest.schema.json
+      responses:
+        '202':
+          description: Durable job ID
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiSyncConnectorResponse.schema.json
+        '403':
+          description: Terms or access restricted
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+        '429':
+          description: Rate limit
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/topics:
+    get:
+      operationId: listTopics
+      responses:
+        '200':
+          description: Observed topic cards with source provenance and freshness
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListTopicsResponse.schema.json
+  /api/v1/topics/{topic_id}/research:
+    parameters:
+    - in: path
+      name: topic_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: startResearch
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ResearchPlan.schema.json
+      responses:
+        '202':
+          description: Durable research job
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiStartResearchResponse.schema.json
+        '409':
+          description: Missing prerequisite or conflicting revision
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/research/{research_plan_id}:
+    parameters:
+    - in: path
+      name: research_plan_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: getResearchDossier
+      responses:
+        '200':
+          description: Claims
+          evidence: null
+          sources: null
+          questions and gaps: null
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetResearchDossierResponse.schema.json
+  /api/v1/projects:
+    get:
+      operationId: listProjects
+      responses:
+        '200':
+          description: Paginated content projects
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListProjectsResponse.schema.json
+    post:
+      operationId: createProject
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ContentProject.schema.json
+      responses:
+        '201':
+          description: Project record created
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiCreateProjectResponse.schema.json
+        '409':
+          description: Duplicate editorial angle
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/projects/{project_id}/render:
+    parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: renderProject
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./RenderRequest.schema.json
+      responses:
+        '202':
+          description: Render job and expected capability
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiRenderProjectResponse.schema.json
+        '409':
+          description: Unresolved rights or dependencies
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/projects/{project_id}/approvals:
+    parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: approveProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ApprovalRecord.schema.json
+      responses:
+        '201':
+          description: Human actor approval tied to revision
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiApproveProjectResponse.schema.json
+        '403':
+          description: Missing authorized human actor
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+        '409':
+          description: Risks or revision mismatch
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/projects/{project_id}/export:
+    parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: exportProject
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Export queued
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiExportProjectResponse.schema.json
+        '409':
+          description: Missing render or safety prerequisites
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/projects/{project_id}/publish:
+    parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: publishProject
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./PublicationIntent.schema.json
+      responses:
+        '202':
+          description: Authorized publish intent accepted
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiPublishProjectResponse.schema.json
+        '403':
+          description: OAuth or approval missing
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+        '409':
+          description: Not approved or unresolved rights
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/analytics/sync:
+    post:
+      operationId: syncAnalytics
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./AnalyticsSyncRequest.schema.json
+      responses:
+        '202':
+          description: Analytics sync job queued
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiSyncAnalyticsResponse.schema.json
+        '403':
+          description: Unauthorized metrics
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/analytics/snapshots:
+    get:
+      operationId: listAnalytics
+      responses:
+        '200':
+          description: Observed/unavailable data with source window
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListAnalyticsResponse.schema.json
+  /api/v1/ledger:
+    get:
+      operationId: getLedger
+      responses:
+        '200':
+          description: Actual entries and separate projections
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetLedgerResponse.schema.json
+    post:
+      operationId: recordLedgerEntry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./RevenueEntry.schema.json
+      responses:
+        '201':
+          description: Validated immutable revenue/expense entry
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiRecordLedgerEntryResponse.schema.json
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+          minLength: 1
+  /api/v1/jobs/{job_id}:
+    parameters:
+    - in: path
+      name: job_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: getJob
+      responses:
+        '200':
+          description: Durable job current state/progress
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetJobResponse.schema.json
+        '404':
+          description: Unknown job
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/jobs/{job_id}/cancel:
+    parameters:
+    - in: path
+      name: job_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: cancelJob
+      responses:
+        '202':
+          description: Cancellation requested
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiCancelJobResponse.schema.json
+        '409':
+          description: Job already terminal
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+          minLength: 1
+  /api/v1/settings/compute:
+    patch:
+      operationId: updateComputeMode
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ComputeSettingsPatchRequest.schema.json
+      responses:
+        '200':
+          description: Validated and persisted selected mode
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiUpdateComputeModeResponse.schema.json
+        '409':
+          description: Mode requires missing capability
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+          minLength: 1
+  /api/v1/sources/{source_id}/versions:
+    parameters:
+    - in: path
+      name: source_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: listSourceVersions
+      responses:
+        '200':
+          description: Immutable capture versions and provenance
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListSourceVersionsResponse.schema.json
+        '404':
+          description: Source not found
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/projects/{project_id}/script:
+    parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: getScriptVersion
+      responses:
+        '200':
+          description: Current script and claim links
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetScriptVersionResponse.schema.json
+    post:
+      operationId: updateScript
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ScriptUpdateRequest.schema.json
+      responses:
+        '202':
+          description: Create new script revision job
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiUpdateScriptResponse.schema.json
+        '409':
+          description: Source/approval revision conflicts
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/projects/{project_id}/storyboard:
+    parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: getStoryboard
+      responses:
+        '200':
+          description: Ordered SceneSpec records
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetStoryboardResponse.schema.json
+    post:
+      operationId: updateStoryboard
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./SceneSpec.schema.json
+      responses:
+        '202':
+          description: New storyboard revision queued
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiUpdateStoryboardResponse.schema.json
+        '409':
+          description: Asset/claim conflict
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/projects/{project_id}/qa:
+    parameters:
+    - in: path
+      name: project_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    post:
+      operationId: runQualityGates
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Machine/human review gate job started
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiRunQualityGatesResponse.schema.json
+  /api/v1/publications/{publication_id}:
+    parameters:
+    - in: path
+      name: publication_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: getPublication
+      responses:
+        '200':
+          description: Reconciled and actually observed publishing state
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetPublicationResponse.schema.json
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+  /api/v1/assets/{asset_id}/rights:
+    parameters:
+    - in: path
+      name: asset_id
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      operationId: getAssetRights
+      responses:
+        '200':
+          description: Rights review records and allowed uses
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiGetAssetRightsResponse.schema.json
+    post:
+      operationId: proposeAssetRights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./AssetRights.schema.json
+      responses:
+        '201':
+          description: New rights record
+          not automatic clearance: null
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiProposeAssetRightsResponse.schema.json
+        '409':
+          description: No actual permission evidence
+          content:
+            application/json:
+              schema:
+                $ref: ./ApiErrorResponse.schema.json
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+          minLength: 1
+  /api/v1/experiments:
+    get:
+      operationId: listExperiments
+      responses:
+        '200':
+          description: Observed experiments and stated limitations
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListExperimentsResponse.schema.json
+    post:
+      operationId: createExperiment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./ExperimentCreateRequest.schema.json
+      responses:
+        '201':
+          description: Hypothesis and protocol created
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiCreateExperimentResponse.schema.json
+      parameters:
+      - in: header
+        name: Idempotency-Key
+        required: true
+        schema:
+          type: string
+          minLength: 1
+  /api/v1/workers:
+    get:
+      operationId: listWorkers
+      responses:
+        '200':
+          description: Actually detected provider and capability health
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListWorkersResponse.schema.json
+  /api/v1/models:
+    get:
+      operationId: listModels
+      responses:
+        '200':
+          description: Locally installed and license-verified model manifests
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListModelsResponse.schema.json
+  /api/v1/audit:
+    get:
+      operationId: listAuditEvents
+      responses:
+        '200':
+          description: Redacted traceable audit events
+          content:
+            application/json:
+              schema:
+                $ref: ./api_responses/ApiListAuditEventsResponse.schema.json

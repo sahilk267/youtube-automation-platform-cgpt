@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/CreatorVideoObservation.schema.json",
+  "title": "CreatorVideoObservation",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "observation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "channel_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "video_url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "observed_at_utc": {
+      "type": "string",
+      "minLength": 20
+    },
+    "observation_level": {
+      "type": "string",
+      "enum": [
+        "DIRECT_VIDEO",
+        "CHANNEL_SOURCE",
+        "CURATED_REPORT",
+        "INFERENCE",
+        "UNAVAILABLE"
+      ]
+    },
+    "video_format": {
+      "type": "string",
+      "enum": [
+        "SHORT",
+        "LONG",
+        "UNKNOWN"
+      ]
+    },
+    "observed_hook_start_ms": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observed_payoff_ms": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "visual_types_observed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "public_view_count": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "private_retention": {
+      "type": "null"
+    },
+    "observer_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_notes": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "contract_version",
+    "observation_id",
+    "channel_label",
+    "video_url",
+    "observed_at_utc",
+    "observation_level",
+    "video_format",
+    "observed_hook_start_ms",
+    "observed_payoff_ms",
+    "visual_types_observed",
+    "public_view_count",
+    "private_retention",
+    "observer_id",
+    "evidence_notes",
+    "limitations"
+  ]
+}

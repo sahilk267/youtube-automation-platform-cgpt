@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "source_script_id": "19c8c014-72d9-4f91-a768-a19e750d4333",
+  "locale": "en-US",
+  "format": "SHORT",
+  "total_duration_ms": 12000,
+  "beat_count": 3,
+  "beats": [
+    {
+      "index": 0,
+      "role": "HOOK",
+      "start_ms": 0,
+      "end_ms": 4000,
+      "spoken_segment": "NOT_ALIGNED",
+      "text_overlay": {
+        "text": "TACTICAL QUESTION\nHow can field position matter?",
+        "safe_area_pct": [
+          7,
+          18,
+          86,
+          64
+        ],
+        "style": "MAIN_TITLE",
+        "native_locale": "en-US"
+      },
+      "visual": {
+        "type": "ORIGINAL_DIAGRAM_OR_TEXT",
+        "domain": "nfl",
+        "rights": "ORIGINAL_ONLY"
+      },
+      "music": {
+        "mode": "NONE_UNTIL_RIGHTS_APPROVED"
+      },
+      "source_claim_ids": [],
+      "human_director_review": "REQUIRED"
+    },
+    {
+      "index": 1,
+      "role": "CONTEXT",
+      "start_ms": 4000,
+      "end_ms": 8000,
+      "spoken_segment": "NOT_ALIGNED",
+      "text_overlay": {
+        "text": "ORIGINAL FIELD DIAGRAM\nNo broadcast clips used",
+        "safe_area_pct": [
+          7,
+          18,
+          86,
+          64
+        ],
+        "style": "MAIN_TITLE",
+        "native_locale": "en-US"
+      },
+      "visual": {
+        "type": "ORIGINAL_DIAGRAM_OR_TEXT",
+        "domain": "nfl",
+        "rights": "ORIGINAL_ONLY"
+      },
+      "music": {
+        "mode": "NONE_UNTIL_RIGHTS_APPROVED"
+      },
+      "source_claim_ids": [],
+      "human_director_review": "REQUIRED"
+    },
+    {
+      "index": 2,
+      "role": "PAYOFF",
+      "start_ms": 8000,
+      "end_ms": 12000,
+      "spoken_segment": "NOT_ALIGNED",
+      "text_overlay": {
+        "text": "KEY TAKEAWAY\nVerify your sources before publishing",
+        "safe_area_pct": [
+          7,
+          18,
+          86,
+          64
+        ],
+        "style": "MAIN_TITLE",
+        "native_locale": "en-US"
+      },
+      "visual": {
+        "type": "ORIGINAL_DIAGRAM_OR_TEXT",
+        "domain": "nfl",
+        "rights": "ORIGINAL_ONLY"
+      },
+      "music": {
+        "mode": "NONE_UNTIL_RIGHTS_APPROVED"
+      },
+      "source_claim_ids": [],
+      "human_director_review": "REQUIRED"
+    }
+  ],
+  "voice_direction": {
+    "source": "OWNER_WAV_OR_CONFIGURED_LOCAL_TTS",
+    "alignment": "NOT_MEASURED",
+    "pronunciation_review": "REQUIRED"
+  },
+  "audience_promise": "OWNER_MUST_REVIEW",
+  "creative_quality": "UNTESTED",
+  "publish_ready": false
+}

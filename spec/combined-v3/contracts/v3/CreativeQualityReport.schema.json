@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/CreativeQualityReport.schema.json",
+  "title": "CreativeQualityReport",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "report_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeline_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "render_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "check_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_RUN",
+              "BLOCKED"
+            ]
+          },
+          "evidence_ref": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "check_id",
+          "name",
+          "result",
+          "evidence_ref",
+          "notes"
+        ]
+      },
+      "minItems": 1
+    },
+    "factual_review": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "rights_review": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "visual_quality_review": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "human_watchthrough": {
+      "type": "string",
+      "enum": [
+        "NOT_DONE",
+        "APPROVED",
+        "REJECTED"
+      ]
+    },
+    "final_status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "REVIEW_REQUIRED"
+      ]
+    },
+    "reviewer_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reviewed_revision_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "contract_version",
+    "report_id",
+    "timeline_id",
+    "render_sha256",
+    "checks",
+    "factual_review",
+    "rights_review",
+    "visual_quality_review",
+    "human_watchthrough",
+    "final_status",
+    "reviewer_id",
+    "reviewed_revision_sha256"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/PublicationStatus.schema.json",
+  "title": "PublicationStatus",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "publication_id",
+    "project_id",
+    "platform",
+    "local_state",
+    "remote_state",
+    "observed_at"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "publication_id": {
+      "type": "string"
+    },
+    "project_id": {
+      "type": "string"
+    },
+    "platform": {
+      "const": "YOUTUBE"
+    },
+    "local_state": {
+      "type": "string",
+      "enum": [
+        "PREPARED",
+        "SUBMITTED",
+        "CONFIRMED",
+        "UNKNOWN_REMOTE_STATE",
+        "BLOCKED",
+        "HOLD_FOR_HUMAN"
+      ]
+    },
+    "remote_state": {
+      "type": "string",
+      "enum": [
+        "NOT_QUERIED",
+        "EXISTS_PRIVATE",
+        "EXISTS_UNLISTED",
+        "EXISTS_PUBLIC",
+        "ABSENT_CONFIRMED",
+        "UNKNOWN",
+        "TOKEN_REVOKED"
+      ]
+    },
+    "remote_video_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verified_account_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "disclosure_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

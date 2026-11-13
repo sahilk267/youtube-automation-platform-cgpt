@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/QualityGateReport.schema.json",
+  "title": "QualityGateReport",
+  "description": "Hard policies never traded for opportunity score.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "gate_report_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "gate_type": {
+      "enum": [
+        "EVIDENCE",
+        "RIGHTS",
+        "ORIGINALITY",
+        "DISCLOSURE",
+        "TECHNICAL",
+        "EDITORIAL",
+        "AUTH_CHANNEL"
+      ]
+    },
+    "decision": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "REVIEW_REQUIRED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "check_id",
+          "decision",
+          "reason"
+        ],
+        "properties": {
+          "check_id": {
+            "type": "string"
+          },
+          "decision": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "REVIEW_REQUIRED",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "proof_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "report_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "reviewer_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "gate_report_id",
+    "project_id",
+    "revision",
+    "gate_type",
+    "decision",
+    "checks",
+    "report_sha256",
+    "created_at"
+  ]
+}

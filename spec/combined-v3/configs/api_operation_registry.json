@@ -1,0 +1,310 @@
+{
+  "spec_revision": "2.1",
+  "operation_count": 38,
+  "operations": [
+    {
+      "operation_id": "getHealth",
+      "method": "GET",
+      "route": "/api/v1/health",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetHealthResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getCapabilities",
+      "method": "GET",
+      "route": "/api/v1/capabilities",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetCapabilitiesResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listChannels",
+      "method": "GET",
+      "route": "/api/v1/channels",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListChannelsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "createChannel",
+      "method": "POST",
+      "route": "/api/v1/channels",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiCreateChannelResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getChannel",
+      "method": "GET",
+      "route": "/api/v1/channels/{channel_id}",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetChannelResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "updateChannel",
+      "method": "PATCH",
+      "route": "/api/v1/channels/{channel_id}",
+      "request_type": "ChannelPatchRequest",
+      "response_type": "ApiUpdateChannelResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listConnectors",
+      "method": "GET",
+      "route": "/api/v1/connectors",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListConnectorsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "syncConnector",
+      "method": "POST",
+      "route": "/api/v1/connectors/{provider_id}/sync",
+      "request_type": "ConnectorSyncRequest",
+      "response_type": "ApiSyncConnectorResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listTopics",
+      "method": "GET",
+      "route": "/api/v1/topics",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListTopicsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "startResearch",
+      "method": "POST",
+      "route": "/api/v1/topics/{topic_id}/research",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiStartResearchResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getResearchDossier",
+      "method": "GET",
+      "route": "/api/v1/research/{research_plan_id}",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetResearchDossierResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listProjects",
+      "method": "GET",
+      "route": "/api/v1/projects",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListProjectsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "createProject",
+      "method": "POST",
+      "route": "/api/v1/projects",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiCreateProjectResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "renderProject",
+      "method": "POST",
+      "route": "/api/v1/projects/{project_id}/render",
+      "request_type": "RenderRequest",
+      "response_type": "ApiRenderProjectResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "approveProject",
+      "method": "POST",
+      "route": "/api/v1/projects/{project_id}/approvals",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiApproveProjectResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "exportProject",
+      "method": "POST",
+      "route": "/api/v1/projects/{project_id}/export",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiExportProjectResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "publishProject",
+      "method": "POST",
+      "route": "/api/v1/projects/{project_id}/publish",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiPublishProjectResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "syncAnalytics",
+      "method": "POST",
+      "route": "/api/v1/analytics/sync",
+      "request_type": "AnalyticsSyncRequest",
+      "response_type": "ApiSyncAnalyticsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listAnalytics",
+      "method": "GET",
+      "route": "/api/v1/analytics/snapshots",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListAnalyticsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getLedger",
+      "method": "GET",
+      "route": "/api/v1/ledger",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetLedgerResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "recordLedgerEntry",
+      "method": "POST",
+      "route": "/api/v1/ledger",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiRecordLedgerEntryResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getJob",
+      "method": "GET",
+      "route": "/api/v1/jobs/{job_id}",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetJobResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "cancelJob",
+      "method": "POST",
+      "route": "/api/v1/jobs/{job_id}/cancel",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiCancelJobResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "updateComputeMode",
+      "method": "PATCH",
+      "route": "/api/v1/settings/compute",
+      "request_type": "ComputeSettingsPatchRequest",
+      "response_type": "ApiUpdateComputeModeResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listSourceVersions",
+      "method": "GET",
+      "route": "/api/v1/sources/{source_id}/versions",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListSourceVersionsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getScriptVersion",
+      "method": "GET",
+      "route": "/api/v1/projects/{project_id}/script",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetScriptVersionResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "updateScript",
+      "method": "POST",
+      "route": "/api/v1/projects/{project_id}/script",
+      "request_type": "ScriptUpdateRequest",
+      "response_type": "ApiUpdateScriptResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getStoryboard",
+      "method": "GET",
+      "route": "/api/v1/projects/{project_id}/storyboard",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetStoryboardResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "updateStoryboard",
+      "method": "POST",
+      "route": "/api/v1/projects/{project_id}/storyboard",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiUpdateStoryboardResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "runQualityGates",
+      "method": "POST",
+      "route": "/api/v1/projects/{project_id}/qa",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiRunQualityGatesResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getPublication",
+      "method": "GET",
+      "route": "/api/v1/publications/{publication_id}",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetPublicationResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "getAssetRights",
+      "method": "GET",
+      "route": "/api/v1/assets/{asset_id}/rights",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiGetAssetRightsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "proposeAssetRights",
+      "method": "POST",
+      "route": "/api/v1/assets/{asset_id}/rights",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiProposeAssetRightsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listExperiments",
+      "method": "GET",
+      "route": "/api/v1/experiments",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListExperimentsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "createExperiment",
+      "method": "POST",
+      "route": "/api/v1/experiments",
+      "request_type": "ExperimentCreateRequest",
+      "response_type": "ApiCreateExperimentResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listWorkers",
+      "method": "GET",
+      "route": "/api/v1/workers",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListWorkersResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listModels",
+      "method": "GET",
+      "route": "/api/v1/models",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListModelsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    },
+    {
+      "operation_id": "listAuditEvents",
+      "method": "GET",
+      "route": "/api/v1/audit",
+      "request_type": "existing_contract_or_none",
+      "response_type": "ApiListAuditEventsResponse",
+      "status": "SPECIFIED_NOT_IMPLEMENTED"
+    }
+  ]
+}

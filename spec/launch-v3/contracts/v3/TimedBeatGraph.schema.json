@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/TimedBeatGraph.schema.json",
+  "title": "TimedBeatGraph",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "story_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brief_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "beat_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "function": {
+            "type": "string",
+            "enum": [
+              "HOOK",
+              "CONTEXT",
+              "QUESTION",
+              "EVIDENCE",
+              "DEMONSTRATION",
+              "COUNTERARGUMENT",
+              "REVEAL",
+              "PAYOFF",
+              "OUTRO"
+            ]
+          },
+          "start_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_ms": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "viewer_question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "takeaway": {
+            "type": "string",
+            "minLength": 1
+          },
+          "visual_purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          },
+          "narration_segment_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "beat_id",
+          "function",
+          "start_ms",
+          "end_ms",
+          "viewer_question",
+          "takeaway",
+          "visual_purpose",
+          "claim_ids",
+          "narration_segment_ids"
+        ]
+      },
+      "minItems": 2
+    },
+    "ending_resolves_promise": {
+      "type": "boolean"
+    },
+    "research_revision_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "FACT_REVIEWED",
+        "BLOCKED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "story_id",
+    "brief_id",
+    "duration_ms",
+    "beats",
+    "ending_resolves_promise",
+    "research_revision_sha256",
+    "status"
+  ]
+}

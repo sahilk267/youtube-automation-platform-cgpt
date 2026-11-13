@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/ExecutionResult.schema.json",
+  "title": "ExecutionResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "operation_id",
+    "engine_id",
+    "job_id",
+    "status",
+    "artifact_refs",
+    "reason_codes",
+    "observed_at_utc"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "operation_id": {
+      "type": "string"
+    },
+    "engine_id": {
+      "type": "string"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "SUCCEEDED",
+        "BLOCKED",
+        "REVIEW_REQUIRED",
+        "FAILED",
+        "CANCELLED"
+      ]
+    },
+    "artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "observed_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "retry_after_seconds": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "review_task_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "integer",
+          "number",
+          "string",
+          "boolean",
+          "null"
+        ]
+      }
+    }
+  }
+}

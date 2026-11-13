@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "learning",
+  "director_document": "creative/directors/learning.md",
+  "allowed_format_ids": [
+    "STEP_LESSON",
+    "LONG_DOCUMENTARY",
+    "SHORT_EXPLAINER",
+    "DEMO_REVIEW"
+  ],
+  "distinct_visual_methods": [
+    "Whiteboard with readable handwritten-style vector steps",
+    "Highlight exact transformation in equation/diagram",
+    "Progressive problem solving without changing notation",
+    "Brief pause/quiz prompt that actually tests recall"
+  ],
+  "distinct_audio_methods": [
+    "Patient instructional tone and deliberate explanation of step changes",
+    "Short silence can allow learner attempt; avoid frantic cuts"
+  ],
+  "factual_visual_review_rules": [
+    "Answer correctness, accessibility and language-dependent prerequisite terminology",
+    "Do not use copyrighted textbooks wholesale"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

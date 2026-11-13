@@ -1,0 +1,68 @@
+{
+  "contract_version": "2.0.0",
+  "connectors": [
+    {
+      "id": "manual_url",
+      "method": "USER_SUBMITTED",
+      "access_state": "AVAILABLE_WITH_VALIDATION",
+      "rights_check": "PER_ITEM",
+      "notes": "Never treat user link as verified source until fetched"
+    },
+    {
+      "id": "rss_news",
+      "method": "LICENSED_RSS",
+      "access_state": "REQUIRES_FEED_VALIDATION",
+      "rights_check": "PER_FEED_AND_ITEM",
+      "notes": "Feeds may be discontinued or syndicate"
+    },
+    {
+      "id": "youtube_data",
+      "method": "OFFICIAL_OAUTH_OR_API_KEY",
+      "access_state": "REQUIRES_CREDENTIALS",
+      "rights_check": "YOUTUBE_API_TOS",
+      "notes": "No exhaustive platform coverage"
+    },
+    {
+      "id": "youtube_analytics",
+      "method": "OFFICIAL_CHANNEL_OAUTH",
+      "access_state": "REQUIRES_OWNER_AUTHORIZATION",
+      "rights_check": "YOUTUBE_API_TOS",
+      "notes": "No private analytics without permissions"
+    },
+    {
+      "id": "cricket_official",
+      "method": "OFFICIAL_PERMITTED_SOURCE",
+      "access_state": "NOT_CONFIGURED",
+      "rights_check": "SPORT_DATA_PROVIDER_LICENSE",
+      "notes": "No presumption of free league data API"
+    },
+    {
+      "id": "nfl_official",
+      "method": "OFFICIAL_PERMITTED_SOURCE",
+      "access_state": "NOT_CONFIGURED",
+      "rights_check": "SPORT_DATA_PROVIDER_LICENSE",
+      "notes": "No presumption of official API access"
+    },
+    {
+      "id": "google_trends",
+      "method": "OFFICIAL_OR_PERMITTED_ACCESS_ONLY",
+      "access_state": "NOT_CONFIGURED",
+      "rights_check": "PROVIDER_TERMS",
+      "notes": "Relative trend and availability are not guaranteed"
+    },
+    {
+      "id": "reddit",
+      "method": "APPROVED_API",
+      "access_state": "NOT_CONFIGURED",
+      "rights_check": "REDDIT_API_TERMS",
+      "notes": "Community leads not factual truth"
+    },
+    {
+      "id": "social_other",
+      "method": "APPROVED_PLATFORM_API",
+      "access_state": "NOT_CONFIGURED",
+      "rights_check": "PROVIDER_TERMS",
+      "notes": "Never circumvent controls or scrape private content"
+    }
+  ]
+}

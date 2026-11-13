@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/NarrativePlan.schema.json",
+  "title": "NarrativePlan",
+  "description": "Original viewer-intent-aligned story plan tied to specific claims and limits.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "narrative_plan_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "viewer_intent": {
+      "enum": [
+        "UPDATE",
+        "EXPLANATION",
+        "DEEP_INVESTIGATION",
+        "ENTERTAINMENT",
+        "PRACTICAL_TUTORIAL",
+        "TACTICAL_ANALYSIS",
+        "COMPARISON",
+        "REFERENCE"
+      ]
+    },
+    "original_angle": {
+      "type": "string"
+    },
+    "hook_promise": {
+      "type": "string"
+    },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "beat_id",
+          "purpose",
+          "source_claim_ids",
+          "target_duration_ms"
+        ],
+        "properties": {
+          "beat_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "source_claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "target_duration_ms": {
+            "type": "integer",
+            "minimum": 100
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "counterevidence_note": {
+      "type": "string"
+    },
+    "viewer_takeaway": {
+      "type": "string"
+    },
+    "target_format": {
+      "enum": [
+        "SHORT",
+        "LONG"
+      ]
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "contract_version",
+    "narrative_plan_id",
+    "project_id",
+    "viewer_intent",
+    "original_angle",
+    "hook_promise",
+    "beats",
+    "counterevidence_note",
+    "viewer_takeaway",
+    "target_format",
+    "risk_flags"
+  ]
+}

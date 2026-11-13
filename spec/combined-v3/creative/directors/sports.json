@@ -1,0 +1,31 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "sports",
+  "director_document": "creative/directors/sports.md",
+  "allowed_format_ids": [
+    "SHORT_EXPLAINER",
+    "TACTICAL_ANALYSIS",
+    "BREAKING_BRIEF",
+    "LONG_DOCUMENTARY",
+    "REACTION_REVIEW"
+  ],
+  "distinct_visual_methods": [
+    "Original pitch/gridiron/diamond/court diagrams with actual sport-specific dimensions/terms",
+    "Verified scoreboard cards with source time and timezone",
+    "Player-route arrows / field placements only when sourced or explicitly hypothetical",
+    "Comparison cards for matchup strengths, no broadcast footage by default"
+  ],
+  "distinct_audio_methods": [
+    "Hindi/Hinglish commentary with verified cricket names; US English NFL/MLB terminology",
+    "Energy may rise during a documented decisive play, but no fabricated crowd audio; keep score readouts intelligible"
+  ],
+  "factual_visual_review_rules": [
+    "Broadcast footage and player likeness rights are not automatic",
+    "Do not confuse 17.3 overs with decimal 17.3; verify cricket deliveries"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

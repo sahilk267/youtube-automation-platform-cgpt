@@ -1,0 +1,8 @@
+1
+00:00:00,000 --> 00:00:03,475
+This original diagram shows two cricket field positions.
+
+2
+00:00:03,655 --> 00:00:07,653
+It is a fictional educational example, not actual match footage.
+

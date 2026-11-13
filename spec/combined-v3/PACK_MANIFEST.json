@@ -1,0 +1,59 @@
+{
+  "pack_format_version": "3.0",
+  "contract_version": "2.0.0",
+  "profile": "COMBINED",
+  "name": "ViralOS_Combined_v3",
+  "release_stage": "INTEGRATED_IMPLEMENTATION_SPEC_ONLY_NOT_RUNNING_SOFTWARE",
+  "scope": {
+    "active_domains": [
+      "sports"
+    ],
+    "optional_domains": [
+      "technology"
+    ],
+    "deferred_domains": [
+      "newsroom",
+      "science",
+      "business",
+      "gaming",
+      "history",
+      "space",
+      "learning",
+      "career",
+      "productivity",
+      "culture"
+    ],
+    "upgrade_mode": "ONE_CODEBASE_PROFILE_SWITCH",
+    "release_gate_prefixes": [
+      "L-"
+    ]
+  },
+  "domain_dossier_count": 12,
+  "engine_count": 144,
+  "canonical_source": "SPEC_PRECEDENCE.md",
+  "validation_command": "python tools/validate_pack.py",
+  "agent_entrypoint": "AGENT_START_HERE.md",
+  "original_v2_source_digest_sha256": "7bf53207c3d35c371ad5ee065de554b961aad8502b17c0c14234c9a429d8298e",
+  "source_code_included": false,
+  "database_sql_is_spec_baseline_not_production_migration_applied": true,
+  "api_operation_count": 38,
+  "engine_case_count": 144,
+  "workflow_step_count": 15,
+  "explicit_launch_only_requirements": null,
+  "top_level_schema_count": 48,
+  "api_response_schema_count": 38,
+  "spec_revision": "3.0",
+  "creative_contract_version": "3.0.0",
+  "creative_api_operation_count": 18,
+  "v3_creative_schema_count": 15,
+  "v3_domain_creative_director_count": 12,
+  "v3_format_pack_count": 9,
+  "v3_manual_golden_status": "NOT_RUN",
+  "v3_source_code_included": false,
+  "v3_validator": "python tools/validate_v3.py",
+  "creative_primary_document": "core/21_EVIDENCE_TO_SCREEN_V3.md",
+  "architectural_decision": "Modular monolith, one shared evidence-to-screen compiler, orthogonal domain/format/locale/brand, durable CPU/GPU workers",
+  "research_scope_note": "120 channel desk-research reference profiles, not 600 videos actually reviewed nor subscriber ranking",
+  "media_status": "NO_RENDERED_VIDEOS_INCLUDED",
+  "prior_spec_reference": "v2.1 inherited source, research, jobs, publishing and APIs; v3 creative typed extensions"
+}

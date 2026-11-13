@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/Claim.schema.json",
+  "title": "Claim",
+  "description": "Atomic traceable proposition; verdicts are review states, not generic moral labels.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "claim_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "research_plan_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "proposition": {
+      "type": "string"
+    },
+    "claim_type": {
+      "enum": [
+        "FACT",
+        "QUOTE",
+        "POLICY",
+        "PREDICTION",
+        "OPINION",
+        "ALLEGATION",
+        "EXPLANATION",
+        "SATIRE",
+        "HYPOTHESIS"
+      ]
+    },
+    "verification_status": {
+      "enum": [
+        "UNREVIEWED",
+        "SUPPORTED",
+        "REFUTED",
+        "MIXED",
+        "UNVERIFIABLE",
+        "OUT_OF_CONTEXT",
+        "REQUIRES_HUMAN_REVIEW"
+      ]
+    },
+    "attributed_to": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "start_time": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "time_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "geographic_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "qualifier": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "claim_id",
+    "research_plan_id",
+    "proposition",
+    "claim_type",
+    "verification_status"
+  ]
+}

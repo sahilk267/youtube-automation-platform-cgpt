@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/ConnectorManifest.schema.json",
+  "title": "ConnectorManifest",
+  "description": "An external provider without verified terms must remain unavailable.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "api_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "access_state": {
+      "enum": [
+        "VERIFIED_ACCESS",
+        "DEGRADED",
+        "BLOCKED",
+        "NOT_CONFIGURED",
+        "NO_DATA"
+      ]
+    },
+    "terms_uri": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "terms_reviewed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "auth_scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_market_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "locale_codes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "polling_interval_sec": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 30
+    },
+    "rate_limit_notes": {
+      "type": "string"
+    },
+    "checkpoint_policy": {
+      "type": "string"
+    },
+    "license_restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fail_closed": {
+      "const": true
+    }
+  },
+  "required": [
+    "contract_version",
+    "provider_id",
+    "access_state",
+    "auth_scopes",
+    "allowed_market_codes",
+    "locale_codes",
+    "rate_limit_notes",
+    "checkpoint_policy",
+    "license_restrictions",
+    "fail_closed"
+  ]
+}

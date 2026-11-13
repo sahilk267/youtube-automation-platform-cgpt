@@ -1,0 +1,85 @@
+{
+  "locale": "en-US",
+  "locale_reviewed": true,
+  "music_asset_id": null,
+  "shots": [
+    {
+      "role": "HOOK",
+      "duration_ms": 3200,
+      "headline": "What opens the passing lane?",
+      "visual": {
+        "kind": "ORIGINAL_DIAGRAM",
+        "asset_id": null
+      },
+      "claim_ids": [],
+      "overlays": [
+        {
+          "text": "Notice the spacing",
+          "start_ms": 550,
+          "end_ms": 2850,
+          "anchor": "CENTER",
+          "style": "CALLOUT",
+          "image_asset_id": null
+        }
+      ]
+    },
+    {
+      "role": "CONTEXT",
+      "duration_ms": 3500,
+      "headline": "The formation changes the angles",
+      "visual": {
+        "kind": "ORIGINAL_DIAGRAM",
+        "asset_id": null
+      },
+      "claim_ids": [],
+      "overlays": [
+        {
+          "text": "Original schematic insert",
+          "start_ms": 350,
+          "end_ms": 3150,
+          "anchor": "CENTER",
+          "style": "IMAGE_INSERT",
+          "image_asset_id": "sample_pip"
+        }
+      ]
+    },
+    {
+      "role": "PAYOFF",
+      "duration_ms": 3100,
+      "headline": "The key is spacing and timing",
+      "visual": {
+        "kind": "ORIGINAL_DIAGRAM",
+        "asset_id": null
+      },
+      "claim_ids": [],
+      "overlays": [
+        {
+          "text": "An original tactical explanation",
+          "start_ms": 450,
+          "end_ms": 2750,
+          "anchor": "CENTER",
+          "style": "CALLOUT",
+          "image_asset_id": null
+        }
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "start_ms": 100,
+      "end_ms": 3000,
+      "text": "What causes the passing lane to open?"
+    },
+    {
+      "start_ms": 3200,
+      "end_ms": 6500,
+      "text": "Watch the players shift their positions."
+    },
+    {
+      "start_ms": 6700,
+      "end_ms": 9600,
+      "text": "Spacing and timing create the lane."
+    }
+  ],
+  "captions_provenance": "OWNER_TIMED"
+}

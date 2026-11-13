@@ -1,0 +1,101 @@
+{
+  "spec_revision": "2.1",
+  "providers": [
+    {
+      "id": "manual_url",
+      "mandatory": [
+        "manual_input",
+        "url_validation",
+        "provenance_review"
+      ],
+      "fallback": "PERSIST_AS_UNVERIFIED_UNTIL_FETCHED",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    },
+    {
+      "id": "rss_news",
+      "mandatory": [
+        "feed_terms",
+        "rate_limit",
+        "syndication_group",
+        "etag_version"
+      ],
+      "fallback": "MARK_UNAVAILABLE",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    },
+    {
+      "id": "youtube_data",
+      "mandatory": [
+        "api_key_or_oauth",
+        "scope_check",
+        "daily_quota",
+        "allowed_metadata_use"
+      ],
+      "fallback": "DISABLE_NO_PLATFORM_SCRAPING",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    },
+    {
+      "id": "youtube_analytics",
+      "mandatory": [
+        "owner_oauth",
+        "read_only_scopes",
+        "window_freshness",
+        "consent_revoke"
+      ],
+      "fallback": "NOT_AUTHORIZED",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    },
+    {
+      "id": "cricket_official",
+      "mandatory": [
+        "license_or_permitted_page",
+        "sport_format_normalizer",
+        "score_correction"
+      ],
+      "fallback": "MANUAL_AUTHORIZED_SOURCE",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    },
+    {
+      "id": "nfl_official",
+      "mandatory": [
+        "rights_to_use_stats",
+        "season_week_dst",
+        "score_state_correction"
+      ],
+      "fallback": "MANUAL_AUTHORIZED_SOURCE",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    },
+    {
+      "id": "google_trends",
+      "mandatory": [
+        "approved_access_method",
+        "relative_sample_limit",
+        "geo_locale",
+        "quota"
+      ],
+      "fallback": "UNKNOWN_TREND_COVERAGE",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    },
+    {
+      "id": "reddit",
+      "mandatory": [
+        "permitted_api",
+        "community_privacy",
+        "quota",
+        "no_engagement_proof"
+      ],
+      "fallback": "DISABLE",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    },
+    {
+      "id": "social_other",
+      "mandatory": [
+        "official_approved_api",
+        "privacy",
+        "permissions",
+        "rate_limit"
+      ],
+      "fallback": "DISABLE",
+      "status": "UNQUALIFIED_UNTIL_LIVE_VERIFICATION"
+    }
+  ]
+}

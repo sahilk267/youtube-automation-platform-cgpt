@@ -1,0 +1,17 @@
+{
+  "contract_version": "2.0.0",
+  "decisions": [
+    {"id":"D-001","topic":"YouTube accounts and OAuth","status":"UNRESOLVED_EXTERNAL","safe_default":"MANUAL_EXPORT_ONLY","owner_input_needed":"Authorized channel IDs and OAuth consent"},
+    {"id":"D-002","topic":"Sports broadcast and statistics licensing","status":"UNRESOLVED_EXTERNAL","safe_default":"ONLY_ORIGINAL_DIAGRAMS_OR_RIGHTS_CLEARED_ASSETS","owner_input_needed":"Documented footage/data rights for planned provider"},
+    {"id":"D-003","topic":"Google Trends/Reddit/social provider access","status":"UNRESOLVED_EXTERNAL","safe_default":"DISABLED_AND_COVERAGE_GAP","owner_input_needed":"Current legally allowed API permissions and credentials"},
+    {"id":"D-004","topic":"Local model selection","status":"UNRESOLVED_BENCHMARK","safe_default":"MODEL_OPTIONAL_DETERMINISTIC_RENDER_PATH","owner_input_needed":"Approved installed model, license and measured compatibility"},
+    {"id":"D-005","topic":"Detailed hardware, disk and OS version","status":"UNRESOLVED_RUNTIME","safe_default":"CONSERVATIVE_CPU_SINGLE_HEAVY_JOB","owner_input_needed":"Hardware detector/benchmark output"},
+    {"id":"D-006","topic":"Narration voice and identity","status":"OWNER_CONFIGURABLE","safe_default":"LICENSED_NON_IMPERSONATING_TTS_OR_MANUAL_VOICE","owner_input_needed":"Preferred language and voice rights"},
+    {"id":"D-007","topic":"Publication cadence and auto-approval","status":"OWNER_CONFIGURABLE","safe_default":"NO_FORCED_CADENCE_AND_MANUAL_PUBLISH","owner_input_needed":"Explicit signed per-channel mode and review choices"},
+    {"id":"D-008","topic":"A6000 actual cost and GPU power budget","status":"UNRESOLVED_EXTERNAL","safe_default":"NO_PRICE_INFERENCE","owner_input_needed":"Verified quote and electrical/cooling costs"},
+    {"id":"D-009","topic":"Future SaaS","status":"DEFERRED","safe_default":"OWNER_ONLY_LOCAL_FIRST","owner_input_needed":"Separate product ADR and tenant/security requirements"},
+    {"id":"D-010","topic":"Current official YouTube terms, quotas and eligibility","status":"REQUIRES_REFRESH","safe_default":"NO_UNVERIFIED_DEPLOYMENT_ASSUMPTIONS","owner_input_needed":"Current official documentation verification and account state"},
+    {"id":"D-011","topic":"Sensitive multilingual quote fidelity","status":"HUMAN_REVIEW","safe_default":"RETAIN_ORIGINAL_AND_MARK_TRANSLATION_UNCERTAIN","owner_input_needed":"Bilingual reviewer/source validation for high-impact quotations"},
+    {"id":"D-012","topic":"Real YouTube analytics and revenue","status":"UNRESOLVED_EXTERNAL","safe_default":"EMPTY_OBSERVED_DASHBOARD","owner_input_needed":"Account authorization and actual reports"}
+  ]
+}

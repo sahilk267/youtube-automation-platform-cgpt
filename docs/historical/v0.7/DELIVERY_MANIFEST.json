@@ -1,0 +1,25 @@
+{
+  "name": "ViralOS Launch — M2.4/M3.2 incremental implementation",
+  "version": "0.7.0-dev",
+  "build_date": "2026-11-12",
+  "release_gate": "NOT_PRODUCTION_READY",
+  "verification": "python tools/verify_package.py && python -m pytest -q && node --check app/static/app.js",
+  "file_count_hashed": 314,
+  "features": [
+    "preserves all v0.6 source and SQL migrations 001–010",
+    "SQL 011–012 additive",
+    "two reviewed locale variants with original visuals and independent voice/captions",
+    "optional local Piper model and phonetic glossary, real model NOT tested",
+    "optional local WhisperX CTC aligner proposal + human approval, model NOT tested",
+    "non-destructive M3.2 offline account/approval preflight, optional Google readback mock-tested",
+    "82 automated tests, actual CPU Hindi and English demo preview MP4s"
+  ],
+  "unverified": [
+    "natural quality voices and automatic translation/dubbing",
+    "live WhisperX inference",
+    "actual Google account OAuth",
+    "real owner upload and revenue Analytics",
+    "Windows i7/32GB hardware benchmark",
+    "12 world-class domain director completion"
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/ResearchPlan.schema.json",
+  "title": "ResearchPlan",
+  "description": "Versioned research questions and bounded retrieval, no claims of exhaustiveness.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "research_plan_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "channel_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "topic_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "domain_id": {
+      "enum": [
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "sports",
+        "career",
+        "productivity",
+        "culture"
+      ]
+    },
+    "depth": {
+      "enum": [
+        "QUICK_VERIFIED_BRIEF",
+        "DEEP_INVESTIGATION",
+        "EXTENDED_FORENSIC"
+      ]
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "must_check": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "search_queries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_classes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "budget_max_requests": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_duration_sec": {
+      "type": "integer",
+      "minimum": 30
+    },
+    "stop_policy": {
+      "enum": [
+        "SUFFICIENT_EVIDENCE_OR_EXPLICIT_GAPS"
+      ]
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "RUNNING",
+        "SUFFICIENT_FOR_DRAFT",
+        "NEEDS_MORE_RESEARCH",
+        "BLOCKED_EXTERNAL_SOURCE",
+        "HUMAN_ADJUDICATION_REQUIRED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "research_plan_id",
+    "channel_id",
+    "topic_id",
+    "domain_id",
+    "depth",
+    "questions",
+    "must_check",
+    "search_queries",
+    "source_classes",
+    "budget_max_requests",
+    "max_duration_sec",
+    "stop_policy",
+    "status"
+  ]
+}

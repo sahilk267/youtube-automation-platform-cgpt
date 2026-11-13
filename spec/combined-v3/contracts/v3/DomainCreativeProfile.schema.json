@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/DomainCreativeProfile.schema.json",
+  "title": "DomainCreativeProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "domain_id": {
+      "type": "string",
+      "enum": [
+        "sports",
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "career",
+        "productivity",
+        "culture"
+      ]
+    },
+    "director_document": {
+      "type": "string",
+      "pattern": "^creative/directors/"
+    },
+    "allowed_format_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 2,
+      "uniqueItems": true
+    },
+    "distinct_visual_methods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 5
+      },
+      "minItems": 3
+    },
+    "distinct_audio_methods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 5
+      },
+      "minItems": 2
+    },
+    "factual_visual_review_rules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 8
+      },
+      "minItems": 2
+    },
+    "required_golden_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "SHORT",
+          "LONG"
+        ]
+      },
+      "minItems": 2,
+      "uniqueItems": true
+    },
+    "implementation_status": {
+      "const": "SPECIFIED_NOT_IMPLEMENTED"
+    }
+  },
+  "required": [
+    "contract_version",
+    "domain_id",
+    "director_document",
+    "allowed_format_ids",
+    "distinct_visual_methods",
+    "distinct_audio_methods",
+    "factual_visual_review_rules",
+    "required_golden_outputs",
+    "implementation_status"
+  ]
+}

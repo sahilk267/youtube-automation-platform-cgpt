@@ -1,0 +1,14 @@
+{
+  "contract_version": "3.0.0",
+  "clip_map_id": "reaction-test",
+  "story_id": "test-story",
+  "source_url": "https://example.org/viral-video",
+  "source_category": "UNKNOWN_OR_DENIED",
+  "full_source_context_checked": false,
+  "source_rights_decision_id": null,
+  "excerpts": [],
+  "legal_or_editorial_approval": "PENDING",
+  "creation_mode": "NO_SOURCE_FOOTAGE",
+  "auto_download_allowed": false,
+  "reuse_originality_review": "PENDING"
+}

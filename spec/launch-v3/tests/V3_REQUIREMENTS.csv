@@ -1,0 +1,19 @@
+req_id,operation_id,description,acceptance_test,status
+V3-REQ-01,CV3-01,Provenance-aware question and original angle; reject unrelated or near-duplicate video concept.,T-CV3-01,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-02,CV3-02,Freeze permitted factual claims; missing critical source blocks production.,T-CV3-02,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-03,CV3-03,Load real domain visual/voice rules; no generic theme swap or disabled domain.,T-CV3-03,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-04,CV3-04,"Ask/promise, evidence, uncertainty, payoff, and duration ranges; mark claims by ID.",T-CV3-04,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-05,CV3-05,"Visual class, permitted source, image/video overlay, speech cue, motion, source & rights dependencies.",T-CV3-05,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-06,CV3-06,"Delegate adjudication to existing rights service, unknown legal basis -> HOLD.",T-CV3-06,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-07,CV3-07,Require real new independent critique and source-to-commentary link. No generic green-screen license.,T-CV3-07,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-08,CV3-08,Generate original diagrams or use authorized assets; GPU only if tested/available.,T-CV3-08,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-09,CV3-09,"Synth/import voice, measure speech segment duration and align real timing.",T-CV3-09,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-10,CV3-10,"Meaning-preserving adaptation, region-safe numbers/names; regenerate text/audio/timing.",T-CV3-10,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-11,CV3-11,"Native-script caption and semantic text tracks; collision, safe box and contrast checks.",T-CV3-11,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-12,CV3-12,"Track-based mix, speech-first intelligibility, loudness evidence and rights.",T-CV3-12,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-13,CV3-13,"Immutable half-open millisecond interval graph, source/rights hashes, scene continuity.",T-CV3-13,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-14,CV3-14,"CPU FFmpeg or optional GPU provider, reproducible render manifest and bounded retry.",T-CV3-14,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-15,CV3-15,Frame/audio/aspect/safe-zone/caption/source/factual validity checks.,T-CV3-15,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-16,CV3-16,"Manual full watch-through; content-specific acceptance, material edits void approval.",T-CV3-16,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-17,CV3-17,Private export always supported; upload only after correct credentials/policy. Studio dubbing manual handoff.,T-CV3-17,SPECIFIED_NOT_IMPLEMENTED
+V3-REQ-18,CV3-18,"Use actual owner observations only, compare matched cohorts with uncertainty.",T-CV3-18,SPECIFIED_NOT_IMPLEMENTED

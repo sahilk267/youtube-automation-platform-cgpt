@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "technology",
+  "director_document": "creative/directors/technology.md",
+  "allowed_format_ids": [
+    "DEMO_REVIEW",
+    "STEP_LESSON",
+    "SHORT_EXPLAINER",
+    "LONG_DOCUMENTARY"
+  ],
+  "distinct_visual_methods": [
+    "Authentic screen recording with secret redaction and cursor focus",
+    "Split-screen test outputs with exact versions and elapsed time measured",
+    "Terminal/code overlays only from actual execution",
+    "Diagram data flow and actual benchmark chart"
+  ],
+  "distinct_audio_methods": [
+    "Instructional voice with pauses while menus/commands visible",
+    "Pronounce version names, units and tool acronyms consistently"
+  ],
+  "factual_visual_review_rules": [
+    "Never claim a product was hands-on tested when it was not",
+    "Protect keys, credentials, personal data and licenses in screencast"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

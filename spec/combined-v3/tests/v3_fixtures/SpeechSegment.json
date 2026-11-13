@@ -1,0 +1,17 @@
+{
+  "contract_version": "3.0.0",
+  "speech_id": "speech-one",
+  "story_id": "test-story",
+  "locale": "hi-IN",
+  "voice_profile_id": "voice-test",
+  "spoken_text": "Yeh ek hypothetical field placement hai.",
+  "voice_rights_id": "test-rights",
+  "start_ms": 0,
+  "end_ms": 5000,
+  "audio_asset_id": "fake-audio-fixture",
+  "audio_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "style": "CONVERSATIONAL",
+  "alignment_method": "UNVERIFIED",
+  "word_alignment": [],
+  "pronunciation_review": "PENDING"
+}

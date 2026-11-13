@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/PublicationIntent.schema.json",
+  "title": "PublicationIntent",
+  "description": "Content-locked publication intent. Missing explicit approved policy => no public upload.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "publication_intent_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "channel_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "approved_project_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "video_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "privacy": {
+      "enum": [
+        "PRIVATE",
+        "UNLISTED",
+        "PUBLIC"
+      ]
+    },
+    "scheduled_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "made_for_kids_reviewed": {
+      "type": "boolean"
+    },
+    "contains_synthetic_media": {
+      "type": "boolean"
+    },
+    "rights_gate": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "REVIEW_REQUIRED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "editorial_gate": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "REVIEW_REQUIRED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "explicit_owner_approval_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "READY",
+        "UPLOADING",
+        "RECONCILING",
+        "UPLOADED",
+        "BLOCKED",
+        "CANCELLED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "publication_intent_id",
+    "project_id",
+    "channel_id",
+    "approved_project_revision",
+    "video_sha256",
+    "title",
+    "description",
+    "privacy",
+    "made_for_kids_reviewed",
+    "contains_synthetic_media",
+    "rights_gate",
+    "editorial_gate",
+    "status"
+  ]
+}

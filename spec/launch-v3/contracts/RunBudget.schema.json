@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viral-os.local/contracts/RunBudget.schema.json",
+  "title": "RunBudget",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_version",
+    "job_id",
+    "max_wall_seconds",
+    "max_cpu_seconds",
+    "max_ram_bytes",
+    "max_disk_temp_bytes",
+    "max_external_calls",
+    "max_llm_tokens",
+    "stop_on_exhaustion"
+  ],
+  "properties": {
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "job_id": {
+      "type": "string"
+    },
+    "max_wall_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_cpu_seconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_ram_bytes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_disk_temp_bytes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_external_calls": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_llm_tokens": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "stop_on_exhaustion": {
+      "type": "boolean"
+    },
+    "max_gpu_vram_bytes": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    }
+  }
+}

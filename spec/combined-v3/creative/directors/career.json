@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "career",
+  "director_document": "creative/directors/career.md",
+  "allowed_format_ids": [
+    "STEP_LESSON",
+    "SHORT_EXPLAINER",
+    "CASE_STUDY",
+    "DEMO_REVIEW"
+  ],
+  "distinct_visual_methods": [
+    "Source-linked skill demand matrix",
+    "Original roadmap graph, interview structure and portfolio sample",
+    "Dated salary distributions with sample-method note",
+    "Checklist progression without guaranteed job outcomes"
+  ],
+  "distinct_audio_methods": [
+    "Supportive and specific, not exaggerated income rhetoric",
+    "Pronounce credentials and region-specific terms accurately"
+  ],
+  "factual_visual_review_rules": [
+    "Do not invent salary ranges or guarantee jobs",
+    "Personal job applications, documents and identifiable employer data protected"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

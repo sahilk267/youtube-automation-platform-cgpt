@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/ModelManifest.schema.json",
+  "title": "ModelManifest",
+  "description": "Installed model provenance and capability, not an automatic download directive.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "version_tag": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "local_relpath": {
+      "type": "string"
+    },
+    "source_uri": {
+      "type": "string"
+    },
+    "license_name": {
+      "type": "string"
+    },
+    "commercial_status": {
+      "enum": [
+        "PERMITTED",
+        "RESTRICTED",
+        "UNKNOWN"
+      ]
+    },
+    "allowed_uses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "supported_tasks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "backend": {
+      "type": "string"
+    },
+    "precision": {
+      "type": "string"
+    },
+    "required_runtime": {
+      "type": "string"
+    },
+    "estimated_ram_mb": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "estimated_vram_mb": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "benchmark_status": {
+      "enum": [
+        "UNTESTED",
+        "TESTED_CPU",
+        "TESTED_GPU",
+        "FAILED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "model_id",
+    "version_tag",
+    "sha256",
+    "local_relpath",
+    "source_uri",
+    "license_name",
+    "commercial_status",
+    "allowed_uses",
+    "supported_tasks",
+    "backend",
+    "precision",
+    "required_runtime",
+    "estimated_ram_mb",
+    "estimated_vram_mb",
+    "benchmark_status"
+  ]
+}

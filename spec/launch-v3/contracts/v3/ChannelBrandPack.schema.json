@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/ChannelBrandPack.schema.json",
+  "title": "ChannelBrandPack",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "brand_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "channel_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locale_default": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})+$"
+    },
+    "voice_profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "logo_asset_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "palette_hex": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^#[0-9A-Fa-f]{6}$"
+      },
+      "minItems": 2
+    },
+    "font_families": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "intro_policy": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "BRIEF_CONTEXTUAL"
+      ]
+    },
+    "outro_policy": {
+      "type": "string",
+      "enum": [
+        "PAYOFF_THEN_CTA",
+        "PAYOFF_ONLY"
+      ]
+    },
+    "risk_policy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "required": [
+    "contract_version",
+    "brand_id",
+    "channel_id",
+    "locale_default",
+    "voice_profile_id",
+    "logo_asset_id",
+    "palette_hex",
+    "font_families",
+    "intro_policy",
+    "outro_policy",
+    "risk_policy_id",
+    "version"
+  ]
+}

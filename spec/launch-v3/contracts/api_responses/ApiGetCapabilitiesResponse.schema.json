@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ApiGetCapabilitiesResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "request_id",
+    "contract_version",
+    "data"
+  ],
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_version": {
+      "const": "2.0.0"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "../WorkerCapabilities.schema.json"
+      }
+    },
+    "pagination": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "has_more"
+      ],
+      "properties": {
+        "next_cursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "has_more": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

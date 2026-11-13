@@ -1,0 +1,108 @@
+{
+  "contract_version": "2.0.0",
+  "domains": [
+    {
+      "domain_id": "newsroom",
+      "dossier": "domains/newsroom.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "science",
+      "dossier": "domains/science.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "technology",
+      "dossier": "domains/technology.md",
+      "owner_module": "domain_router",
+      "launch_status": "OPTIONAL",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "business",
+      "dossier": "domains/business.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "gaming",
+      "dossier": "domains/gaming.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "history",
+      "dossier": "domains/history.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "space",
+      "dossier": "domains/space.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "learning",
+      "dossier": "domains/learning.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "sports",
+      "dossier": "domains/sports.md",
+      "owner_module": "domain_router",
+      "launch_status": "ENABLED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "career",
+      "dossier": "domains/career.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "productivity",
+      "dossier": "domains/productivity.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    },
+    {
+      "domain_id": "culture",
+      "dossier": "domains/culture.md",
+      "owner_module": "domain_router",
+      "launch_status": "DEFERRED",
+      "ultimate_status": "PLANNED",
+      "specialization_required": true
+    }
+  ],
+  "sports_subadapters": [
+    "cricket",
+    "nfl",
+    "mlb",
+    "nba",
+    "soccer"
+  ]
+}

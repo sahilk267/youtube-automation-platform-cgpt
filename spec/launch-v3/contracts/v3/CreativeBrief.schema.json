@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/CreativeBrief.schema.json",
+  "title": "CreativeBrief",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "brief_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain_id": {
+      "type": "string",
+      "enum": [
+        "sports",
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "career",
+        "productivity",
+        "culture"
+      ]
+    },
+    "sport_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "cricket",
+            "nfl",
+            "mlb",
+            "nba",
+            "soccer"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "format_id": {
+      "type": "string",
+      "enum": [
+        "SHORT_EXPLAINER",
+        "LONG_DOCUMENTARY",
+        "TACTICAL_ANALYSIS",
+        "BREAKING_BRIEF",
+        "DEMO_REVIEW",
+        "STEP_LESSON",
+        "REACTION_REVIEW",
+        "CASE_STUDY",
+        "GAMEPLAY_ANALYSIS"
+      ]
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})+$"
+    },
+    "channel_brand_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "audience_intent": {
+      "type": "string",
+      "enum": [
+        "NEWS_UPDATE",
+        "ANALYSIS",
+        "LEARN",
+        "ENTERTAIN",
+        "SOLVE_PROBLEM",
+        "REVIEW"
+      ]
+    },
+    "viewer_question": {
+      "type": "string",
+      "minLength": 5
+    },
+    "viewer_promise": {
+      "type": "string",
+      "minLength": 8
+    },
+    "original_value": {
+      "type": "string",
+      "minLength": 12
+    },
+    "fact_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "rights_strategy": {
+      "type": "string",
+      "enum": [
+        "ORIGINAL_ONLY",
+        "OWNED_OR_LICENSED",
+        "NATIVE_PLATFORM_REMIX_REVIEW",
+        "LEGAL_REVIEW"
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "target_duration_ms": {
+      "type": "integer",
+      "minimum": 1000
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "EVIDENCE_LOCKED",
+        "BLOCKED",
+        "APPROVED_FOR_STORY"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "brief_id",
+    "project_id",
+    "domain_id",
+    "sport_id",
+    "format_id",
+    "locale",
+    "channel_brand_id",
+    "audience_intent",
+    "viewer_question",
+    "viewer_promise",
+    "original_value",
+    "fact_claim_ids",
+    "rights_strategy",
+    "risk_level",
+    "target_duration_ms",
+    "status"
+  ]
+}

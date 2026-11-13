@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spec.viral-os.local/v3/LocalizationVariant.schema.json",
+  "title": "LocalizationVariant",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "const": "3.0.0"
+    },
+    "variant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "story_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "master_claim_set_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})+$"
+    },
+    "target_locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})+$"
+    },
+    "target_market": {
+      "type": "string",
+      "minLength": 1
+    },
+    "translated_script_asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "voice_profile_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locale_glossary_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "overlay_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "caption_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeline_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "claim_semantics_review": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "proper_name_review": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "regional_visual_review": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "BLOCKED",
+        "QC_REQUIRED",
+        "APPROVED"
+      ]
+    }
+  },
+  "required": [
+    "contract_version",
+    "variant_id",
+    "story_id",
+    "master_claim_set_sha256",
+    "source_locale",
+    "target_locale",
+    "target_market",
+    "translated_script_asset_id",
+    "voice_profile_id",
+    "locale_glossary_revision",
+    "overlay_revision",
+    "caption_revision",
+    "timeline_id",
+    "claim_semantics_review",
+    "proper_name_review",
+    "regional_visual_review",
+    "status"
+  ]
+}

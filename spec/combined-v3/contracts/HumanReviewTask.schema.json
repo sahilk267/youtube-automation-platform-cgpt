@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/HumanReviewTask.schema.json",
+  "title": "HumanReviewTask",
+  "description": "No fake reviewer action or unsigned approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "review_task_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_version_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review_kind": {
+      "enum": [
+        "SOURCE_ACCESS",
+        "EVIDENCE_CONFLICT",
+        "RIGHTS_UNRESOLVED",
+        "ALLEGATION_OR_PRIVACY",
+        "SYNTHETIC_MEDIA",
+        "MODEL_LICENSE",
+        "PUBLICATION",
+        "CORRECTION",
+        "GPU_PROFILE",
+        "EXTERNAL_POLICY_CHANGE"
+      ]
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "risk_summary": {
+      "type": "string"
+    },
+    "required_actor": {
+      "enum": [
+        "OWNER",
+        "AUTHORIZED_HUMAN_REVIEWER"
+      ]
+    },
+    "state": {
+      "enum": [
+        "OPEN",
+        "APPROVED",
+        "REJECTED",
+        "REQUEST_CHANGES",
+        "EXPIRED"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "resolved_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "review_task_id",
+    "review_kind",
+    "reason_code",
+    "risk_summary",
+    "required_actor",
+    "state",
+    "created_at"
+  ]
+}

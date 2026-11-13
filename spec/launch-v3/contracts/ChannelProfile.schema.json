@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/ChannelProfile.schema.json",
+  "title": "ChannelProfile",
+  "description": "Owner-controlled channel settings; sport_id valid only under sports.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "channel_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "domain_id": {
+      "enum": [
+        "newsroom",
+        "science",
+        "technology",
+        "business",
+        "gaming",
+        "history",
+        "space",
+        "learning",
+        "sports",
+        "career",
+        "productivity",
+        "culture"
+      ]
+    },
+    "sport_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "cricket",
+        "nfl",
+        "mlb",
+        "nba",
+        "soccer",
+        null
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "market": {
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "youtube_channel_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approval_mode": {
+      "enum": [
+        "MANUAL",
+        "TRUSTED_LOW_RISK"
+      ]
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "ACTIVE",
+        "PAUSED"
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "voice_profile_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "content_formats": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "SHORT",
+          "LONG"
+        ]
+      }
+    },
+    "risk_policy_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "channel_id",
+    "domain_id",
+    "name",
+    "locale",
+    "market",
+    "timezone",
+    "approval_mode",
+    "status",
+    "revision",
+    "content_formats",
+    "risk_policy_id",
+    "created_at"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "contract_version": "3.0.0",
+  "domain_id": "culture",
+  "director_document": "creative/directors/culture.md",
+  "allowed_format_ids": [
+    "SHORT_EXPLAINER",
+    "LONG_DOCUMENTARY",
+    "REACTION_REVIEW",
+    "CASE_STUDY"
+  ],
+  "distinct_visual_methods": [
+    "Timeline/map of public post diffusion using sourced dates",
+    "Attributed examples and original reenacted diagrams where rights are unclear",
+    "Caption cards distinguishing rumor and verified origin",
+    "Context comparisons with creator permissions where required"
+  ],
+  "distinct_audio_methods": [
+    "Contextual conversational tone, avoid harassment or group stereotypes",
+    "Respect cultural pronunciation and explicit slang caveats"
+  ],
+  "factual_visual_review_rules": [
+    "Harassment, privacy, creator rights, cultural stereotyping and source deletion",
+    "Remix popularity is not evidence of who originated a meme"
+  ],
+  "required_golden_outputs": [
+    "SHORT",
+    "LONG"
+  ],
+  "implementation_status": "SPECIFIED_NOT_IMPLEMENTED"
+}

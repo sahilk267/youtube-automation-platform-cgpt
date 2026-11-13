@@ -1,0 +1,21 @@
+test_id,scenario,expected_result,status
+N-001,Cricket 17.3 overs to legal balls,17.3 -> 105; not decimal 17.3,SPEC_DEFINED
+N-002,Twenty duplicate news stories,"1 provenance family, no 20 independent corroborations",SPEC_DEFINED
+N-003,Viral fake sports score,No verified score without official observed source and timestamp,SPEC_DEFINED
+N-004,Clip vs full speech context,"Out-of-context or NEEDS_REVIEW, not auto liar label",SPEC_DEFINED
+N-005,Broadcast replay with face overlay,Unknown rights still block; YouTube reused-content audit separate,SPEC_DEFINED
+N-006,Model says test succeeded,No technical result accepted without actual test log,SPEC_DEFINED
+N-007,AI image of political event,Clearly labeled synthetic reconstruction and human review,SPEC_DEFINED
+N-008,No GPU selected CUDA_ONLY,WAITING_FOR_CAPABILITY; baseline CPU job unaffected,SPEC_DEFINED
+N-009,Revoked YouTube access,"Upload blocked, no upload success fake",SPEC_DEFINED
+N-010,Unknown retention percentage metric,"Display unavailable, not 0 or fabricated",SPEC_DEFINED
+N-011,Corrupt source capture,Integrity error; no cited verified claim,SPEC_DEFINED
+N-012,Post-approval changed source claim,"Invalidate approval, stop scheduled public upload",SPEC_DEFINED
+N-013,Same YouTube retry after timeout,Reconcile remote before resend; no duplicate,SPEC_DEFINED
+N-014,Research page prompt injection,"Never execute instructions, treat as untrusted webpage",SPEC_DEFINED
+N-015,Backup missing asset file,Restore test fails rather than passes,SPEC_DEFINED
+N-016,Cross-channel analytics leakage,Unauthorized channel metrics inaccessible,SPEC_DEFINED
+N-017,Source says preprint is peer-reviewed,"Paper status checked, claim corrected",SPEC_DEFINED
+N-018,BCE date conversion,"No year zero, correct timeline",SPEC_DEFINED
+N-019,Company thousands vs millions,Unit normalization flags mismatch,SPEC_DEFINED
+N-020,Job needs unavailable secret/paid API,"Explicit blocker, no invented credential or API response",SPEC_DEFINED

@@ -1,0 +1,2997 @@
+{
+  "spec_revision": "2.1",
+  "contract_version": "2.0.0",
+  "profile": "LAUNCH",
+  "engine_count": 62,
+  "engines": [
+    {
+      "engine_id": "shared.connector_registry",
+      "owner_module": "connector_registry",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "source connectors and permitted provider quotas",
+      "source_dossier": "core/11_CONNECTORS_AND_INTEGRATIONS.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for connector_registry; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: source connectors and permitted provider quotas.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/11_CONNECTORS_AND_INTEGRATIONS.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-001"
+    },
+    {
+      "engine_id": "shared.trend_observatory",
+      "owner_module": "trend_engine",
+      "domain_id": null,
+      "phase": "LEARNING",
+      "purpose": "topic time series, source coverage and lifecycle",
+      "source_dossier": "core/04_TREND_DISCOVERY_AND_OPPORTUNITY.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "AnalyticsObservation",
+        "ContentProject"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for trend_observatory; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: topic time series, source coverage and lifecycle.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-004",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/04_TREND_DISCOVERY_AND_OPPORTUNITY.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-002"
+    },
+    {
+      "engine_id": "shared.opportunity_score",
+      "owner_module": "trend_engine",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "source-backed explainable recommendation score",
+      "source_dossier": "core/04_TREND_DISCOVERY_AND_OPPORTUNITY.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for opportunity_score; reject stale, missing, unauthorized or cross-channel references.",
+        "Verify structured event/result semantics and provider correction revision, source time and season. Specific objective: source-backed explainable recommendation score.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-004",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/04_TREND_DISCOVERY_AND_OPPORTUNITY.md",
+      "engine_rule_family": "score",
+      "required_negative_checks": [
+        "official_score_revision",
+        "sport_state_machine"
+      ],
+      "case_id": "V21-ENG-003"
+    },
+    {
+      "engine_id": "shared.research_planner",
+      "owner_module": "research_engine",
+      "domain_id": null,
+      "phase": "PRODUCTION",
+      "purpose": "research questions, stopping criteria and budget",
+      "source_dossier": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for research_planner; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: research questions, stopping criteria and budget.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-019",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-004"
+    },
+    {
+      "engine_id": "shared.source_version_store",
+      "owner_module": "evidence_service",
+      "domain_id": null,
+      "phase": "INVESTIGATE",
+      "purpose": "immutable evidence captures and hashes",
+      "source_dossier": "core/02_STORAGE_AND_DATA_LIFECYCLE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "SourceVersion",
+        "ContentProject"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for source_version_store; reject stale, missing, unauthorized or cross-channel references.",
+        "Fetch versioned source/terms/capture time; store source hash; never transform inaccessible content into quotation. Specific objective: immutable evidence captures and hashes.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-005",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/02_STORAGE_AND_DATA_LIFECYCLE.md",
+      "engine_rule_family": "source",
+      "required_negative_checks": [
+        "permission_and_provenance",
+        "version_immutability"
+      ],
+      "case_id": "V21-ENG-005"
+    },
+    {
+      "engine_id": "shared.evidence_graph",
+      "owner_module": "evidence_service",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "atomic claims and source passage edges",
+      "source_dossier": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for evidence_graph; reject stale, missing, unauthorized or cross-channel references.",
+        "Extract atomic claims and span offsets, compare independent evidence groups, persist relation and uncertainty. Specific objective: atomic claims and source passage edges.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-005",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "engine_rule_family": "evidence",
+      "required_negative_checks": [
+        "span_belongs_to_source_version",
+        "independence_is_not_syndication"
+      ],
+      "case_id": "V21-ENG-006"
+    },
+    {
+      "engine_id": "shared.source_independence",
+      "owner_module": "evidence_service",
+      "domain_id": null,
+      "phase": "INVESTIGATE",
+      "purpose": "syndication groups and provenance relations",
+      "source_dossier": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "SourceVersion",
+        "ContentProject"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for source_independence; reject stale, missing, unauthorized or cross-channel references.",
+        "Fetch versioned source/terms/capture time; store source hash; never transform inaccessible content into quotation. Specific objective: syndication groups and provenance relations.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-005",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "engine_rule_family": "source",
+      "required_negative_checks": [
+        "permission_and_provenance",
+        "version_immutability"
+      ],
+      "case_id": "V21-ENG-007"
+    },
+    {
+      "engine_id": "shared.adversarial_challenger",
+      "owner_module": "research_engine",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "strongest opposing evidence and open questions",
+      "source_dossier": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for adversarial_challenger; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: strongest opposing evidence and open questions.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-019",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-008"
+    },
+    {
+      "engine_id": "shared.research_completeness",
+      "owner_module": "research_engine",
+      "domain_id": null,
+      "phase": "INVESTIGATE",
+      "purpose": "unanswered question and coverage auditor",
+      "source_dossier": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "SourceVersion",
+        "ContentProject"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for research_completeness; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: unanswered question and coverage auditor.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-019",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/05_EVIDENCE_RESEARCH_AND_VERIFICATION.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-009"
+    },
+    {
+      "engine_id": "shared.domain_router",
+      "owner_module": "domain_router",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "domain plugin selection, relevance and different angles",
+      "source_dossier": "core/00_SYSTEM_ARCHITECTURE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for domain_router; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: domain plugin selection, relevance and different angles.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/00_SYSTEM_ARCHITECTURE.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-010"
+    },
+    {
+      "engine_id": "shared.editorial_decision_council",
+      "owner_module": "editorial_council",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "risk policy, resource allocation and human gate",
+      "source_dossier": "core/03_WORKFLOWS_AND_ERRORS.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for editorial_decision_council; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: risk policy, resource allocation and human gate.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-009",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/03_WORKFLOWS_AND_ERRORS.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-011"
+    },
+    {
+      "engine_id": "shared.narrative_director",
+      "owner_module": "creator_studio",
+      "domain_id": null,
+      "phase": "PRODUCTION",
+      "purpose": "honest hooks, intent and original source-backed story",
+      "source_dossier": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for narrative_director; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: honest hooks, intent and original source-backed story.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-017",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-012"
+    },
+    {
+      "engine_id": "shared.portfolio_optimizer",
+      "owner_module": "creator_studio",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "content balance, fatigue and duplicate prevention",
+      "source_dossier": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for portfolio_optimizer; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: content balance, fatigue and duplicate prevention.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-017",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-013"
+    },
+    {
+      "engine_id": "shared.creator_strategy_analyzer",
+      "owner_module": "creator_studio",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "public technique analysis without copying",
+      "source_dossier": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for creator_strategy_analyzer; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: public technique analysis without copying.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-017",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-014"
+    },
+    {
+      "engine_id": "shared.script_to_scene_planner",
+      "owner_module": "creator_studio",
+      "domain_id": null,
+      "phase": "PRODUCTION",
+      "purpose": "structured SceneSpecs sourced to script and claims",
+      "source_dossier": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for script_to_scene_planner; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: structured SceneSpecs sourced to script and claims.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-020",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-015"
+    },
+    {
+      "engine_id": "shared.rights_and_originality",
+      "owner_module": "asset_rights",
+      "domain_id": null,
+      "phase": "VERIFICATION",
+      "purpose": "license, original value and reused media gates",
+      "source_dossier": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "Claim",
+        "EvidenceEdge",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "owner_rights_policy",
+        "human_review_if_high_risk"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for rights_and_originality; reject stale, missing, unauthorized or cross-channel references.",
+        "Inspect asset ownership license allowed uses, extent of transformation and platform monetization separately; hold unknown. Specific objective: license, original value and reused media gates.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-008",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+      "engine_rule_family": "rights",
+      "required_negative_checks": [
+        "third_party_footage_rights",
+        "license_expiry"
+      ],
+      "case_id": "V21-ENG-016"
+    },
+    {
+      "engine_id": "shared.cpu_media_renderer",
+      "owner_module": "media_pipeline",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "diagrams, TTS, subtitles, FFmpeg CPU outputs",
+      "source_dossier": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "scene_spec",
+        "model_or_renderer_capabilities"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for cpu_media_renderer; reject stale, missing, unauthorized or cross-channel references.",
+        "Generate source-controlled graphics and FFmpeg timelines from validated scene/media manifest; persist codec and checksum. Specific objective: diagrams, TTS, subtitles, FFmpeg CPU outputs.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-007",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "engine_rule_family": "render",
+      "required_negative_checks": [
+        "playability",
+        "audio_captions",
+        "rights_manifest"
+      ],
+      "case_id": "V21-ENG-017"
+    },
+    {
+      "engine_id": "shared.cinematic_prompt_compiler",
+      "owner_module": "creator_studio",
+      "domain_id": null,
+      "phase": "PRODUCTION",
+      "purpose": "model-specific shot prompt with model evidence",
+      "source_dossier": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "scene_spec",
+        "model_or_renderer_capabilities"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for cinematic_prompt_compiler; reject stale, missing, unauthorized or cross-channel references.",
+        "Compile verified scene semantics into exact backend parameters, references and seed; retain model/version and disclosure labels. Specific objective: model-specific shot prompt with model evidence.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-007",
+      "release_state": "DEFERRED_GPU_OR_ULTIMATE",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "engine_rule_family": "prompt",
+      "required_negative_checks": [
+        "scene_claim_alignment",
+        "model_compatibility"
+      ],
+      "case_id": "V21-ENG-018"
+    },
+    {
+      "engine_id": "shared.motion_continuity",
+      "owner_module": "creator_studio",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "character, prop, location and motion reference control",
+      "source_dossier": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "scene_spec",
+        "model_or_renderer_capabilities"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for motion_continuity; reject stale, missing, unauthorized or cross-channel references.",
+        "Preserve shot bible, visible continuity references and time-coherent movement; compare frame artifacts against intended timeline. Specific objective: character, prop, location and motion reference control.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-007",
+      "release_state": "DEFERRED_GPU_OR_ULTIMATE",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "engine_rule_family": "motion",
+      "required_negative_checks": [
+        "temporal_consistency",
+        "no_fake_primary_footage"
+      ],
+      "case_id": "V21-ENG-019"
+    },
+    {
+      "engine_id": "shared.temporal_visual_qa",
+      "owner_module": "media_pipeline",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "flicker, identity drift, scientific and factual scene checks",
+      "source_dossier": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "scene_spec",
+        "model_or_renderer_capabilities"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for temporal_visual_qa; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: flicker, identity drift, scientific and factual scene checks.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-007",
+      "release_state": "DEFERRED_GPU_OR_ULTIMATE",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/07_CREATIVE_MEDIA_AND_PROMPT_ENGINE.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-020"
+    },
+    {
+      "engine_id": "shared.compute_scheduler",
+      "owner_module": "compute_scheduler",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "CPU/CUDA/hybrid/remote admission and reservations",
+      "source_dossier": "core/08_COMPUTE_MODELS_AND_SCALE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for compute_scheduler; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: CPU/CUDA/hybrid/remote admission and reservations.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-013",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/08_COMPUTE_MODELS_AND_SCALE.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-021"
+    },
+    {
+      "engine_id": "shared.model_registry",
+      "owner_module": "compute_scheduler",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "model digest, license, hardware and capabilities",
+      "source_dossier": "core/08_COMPUTE_MODELS_AND_SCALE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for model_registry; reject stale, missing, unauthorized or cross-channel references.",
+        "Check local model provenance hash, task capability, precision, runtime/driver and allowed commercial uses before inference. Specific objective: model digest, license, hardware and capabilities.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-013",
+      "release_state": "DEFERRED_GPU_OR_ULTIMATE",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/08_COMPUTE_MODELS_AND_SCALE.md",
+      "engine_rule_family": "model",
+      "required_negative_checks": [
+        "no_unlicensed_model",
+        "actual_hardware_benchmark"
+      ],
+      "case_id": "V21-ENG-022"
+    },
+    {
+      "engine_id": "shared.publishing_director",
+      "owner_module": "publication_service",
+      "domain_id": null,
+      "phase": "PRODUCTION",
+      "purpose": "metadata, approval and official authorized publishing",
+      "source_dossier": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "owner_rights_policy",
+        "human_review_if_high_risk"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for publishing_director; reject stale, missing, unauthorized or cross-channel references.",
+        "Require matching approved revision, OAuth account, rights/disclosure and remote reconciliation after timeout. Specific objective: metadata, approval and official authorized publishing.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-021",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+      "engine_rule_family": "publish",
+      "required_negative_checks": [
+        "approval_binding",
+        "no_duplicate_upload"
+      ],
+      "case_id": "V21-ENG-023"
+    },
+    {
+      "engine_id": "shared.analytics_learning",
+      "owner_module": "analytics_service",
+      "domain_id": null,
+      "phase": "LEARNING",
+      "purpose": "authentic analytics, experiments and corrections",
+      "source_dossier": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "AnalyticsObservation",
+        "ContentProject"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for analytics_learning; reject stale, missing, unauthorized or cross-channel references.",
+        "Import only owner-authorized observations by publication/time window; keep unavailable separate from zero. Specific objective: authentic analytics, experiments and corrections.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-011",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/06_AUDIENCE_CREATOR_AND_LEARNING.md",
+      "engine_rule_family": "analytics",
+      "required_negative_checks": [
+        "observed_not_estimate",
+        "authorized_channel"
+      ],
+      "case_id": "V21-ENG-024"
+    },
+    {
+      "engine_id": "shared.revenue_gpu_fund",
+      "owner_module": "revenue_ledger",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "actual earnings minus costs and savings towards GPU",
+      "source_dossier": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for revenue_gpu_fund; reject stale, missing, unauthorized or cross-channel references.",
+        "Reconcile earnings/expense currency in minor units, source evidence and accounting period; estimate scenarios separately. Specific objective: actual earnings minus costs and savings towards GPU.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-012",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/09_YOUTUBE_COMPLIANCE_PUBLISHING_REVENUE.md",
+      "engine_rule_family": "revenue",
+      "required_negative_checks": [
+        "actual_not_prediction",
+        "no_negative_unjustified_revenue"
+      ],
+      "case_id": "V21-ENG-025"
+    },
+    {
+      "engine_id": "shared.job_recovery",
+      "owner_module": "audit_backup",
+      "domain_id": null,
+      "phase": "RESEARCH",
+      "purpose": "state transitions, retries, checkpoint, backup and diagnostics",
+      "source_dossier": "core/03_WORKFLOWS_AND_ERRORS.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "versioned_shared_artifact",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for job_recovery; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: state transitions, retries, checkpoint, backup and diagnostics.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-014",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "core/03_WORKFLOWS_AND_ERRORS.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-026"
+    },
+    {
+      "engine_id": "technology.release_monitor",
+      "owner_module": "domain_router",
+      "domain_id": "technology",
+      "phase": "DISCOVERY",
+      "purpose": "release monitor",
+      "source_dossier": "domains/technology.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "SourceFetchRequest",
+        "ChannelProfile"
+      ],
+      "result_artifact_type": "benchmark_or_tech_report",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "version_label",
+        "observed_vs_vendor_claim"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for release_monitor; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: release monitor.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/technology.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-027"
+    },
+    {
+      "engine_id": "technology.vendor_claims_extractor",
+      "owner_module": "domain_router",
+      "domain_id": "technology",
+      "phase": "RESEARCH",
+      "purpose": "vendor claims extractor",
+      "source_dossier": "domains/technology.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "benchmark_or_tech_report",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "version_label",
+        "observed_vs_vendor_claim"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for vendor_claims_extractor; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: vendor claims extractor.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/technology.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-028"
+    },
+    {
+      "engine_id": "technology.reproducible_test_harness",
+      "owner_module": "domain_router",
+      "domain_id": "technology",
+      "phase": "RESEARCH",
+      "purpose": "reproducible test harness",
+      "source_dossier": "domains/technology.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "benchmark_or_tech_report",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "version_label",
+        "observed_vs_vendor_claim"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for reproducible_test_harness; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: reproducible test harness.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/technology.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-029"
+    },
+    {
+      "engine_id": "technology.benchmark_normalizer",
+      "owner_module": "domain_router",
+      "domain_id": "technology",
+      "phase": "RESEARCH",
+      "purpose": "benchmark normalizer",
+      "source_dossier": "domains/technology.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "benchmark_or_tech_report",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "version_label",
+        "observed_vs_vendor_claim"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for benchmark_normalizer; reject stale, missing, unauthorized or cross-channel references.",
+        "Execute a pinned repeatable workload; capture raw logs/time/OS/model version; label unrun as not tested. Specific objective: benchmark normalizer.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/technology.md",
+      "engine_rule_family": "benchmark",
+      "required_negative_checks": [
+        "reproducibility",
+        "actual_log_digest"
+      ],
+      "case_id": "V21-ENG-030"
+    },
+    {
+      "engine_id": "technology.security_privacy_examiner",
+      "owner_module": "domain_router",
+      "domain_id": "technology",
+      "phase": "VERIFICATION",
+      "purpose": "security privacy examiner",
+      "source_dossier": "domains/technology.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "Claim",
+        "EvidenceEdge",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "benchmark_or_tech_report",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "version_label",
+        "observed_vs_vendor_claim"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for security_privacy_examiner; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: security privacy examiner.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/technology.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-031"
+    },
+    {
+      "engine_id": "technology.cost_license_analyzer",
+      "owner_module": "domain_router",
+      "domain_id": "technology",
+      "phase": "RESEARCH",
+      "purpose": "cost license analyzer",
+      "source_dossier": "domains/technology.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "benchmark_or_tech_report",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "version_label",
+        "observed_vs_vendor_claim"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for cost_license_analyzer; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: cost license analyzer.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/technology.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-032"
+    },
+    {
+      "engine_id": "technology.tutorial_compiler",
+      "owner_module": "domain_router",
+      "domain_id": "technology",
+      "phase": "PRODUCTION",
+      "purpose": "tutorial compiler",
+      "source_dossier": "domains/technology.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "benchmark_or_tech_report",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "version_label",
+        "observed_vs_vendor_claim"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for tutorial_compiler; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: tutorial compiler.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/technology.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-033"
+    },
+    {
+      "engine_id": "technology.version_drift_monitor",
+      "owner_module": "domain_router",
+      "domain_id": "technology",
+      "phase": "DISCOVERY",
+      "purpose": "version drift monitor",
+      "source_dossier": "domains/technology.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "SourceFetchRequest",
+        "ChannelProfile"
+      ],
+      "result_artifact_type": "benchmark_or_tech_report",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "version_label",
+        "observed_vs_vendor_claim"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for version_drift_monitor; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: version drift monitor.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-006",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/technology.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-034"
+    },
+    {
+      "engine_id": "sports.event_calendar",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "DISCOVERY",
+      "purpose": "event calendar",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "SourceFetchRequest",
+        "ChannelProfile"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for event_calendar; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: event calendar.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-035"
+    },
+    {
+      "engine_id": "sports.entity_resolver",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "entity resolver",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for entity_resolver; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: entity resolver.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-036"
+    },
+    {
+      "engine_id": "sports.stat_validator",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "VERIFICATION",
+      "purpose": "stat validator",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "Claim",
+        "EvidenceEdge",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for stat_validator; reject stale, missing, unauthorized or cross-channel references.",
+        "Normalize league match formats, units, correction history, game state and source timestamp before calculation. Specific objective: stat validator.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "stat",
+      "required_negative_checks": [
+        "sport_units",
+        "no_stale_live_stat"
+      ],
+      "case_id": "V21-ENG-037"
+    },
+    {
+      "engine_id": "sports.performance_trend",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "LEARNING",
+      "purpose": "performance trend",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "AnalyticsObservation",
+        "ContentProject"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for performance_trend; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: performance trend.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-038"
+    },
+    {
+      "engine_id": "sports.tactics_board",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "tactics board",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for tactics_board; reject stale, missing, unauthorized or cross-channel references.",
+        "Build explanatory original sports diagrams from validated positions/formations, mark unobserved tactics as hypotheses. Specific objective: tactics board.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "tactics",
+      "required_negative_checks": [
+        "game_event_support",
+        "no_unlicensed_clip"
+      ],
+      "case_id": "V21-ENG-039"
+    },
+    {
+      "engine_id": "sports.injury_roster_monitor",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "DISCOVERY",
+      "purpose": "injury roster monitor",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "SourceFetchRequest",
+        "ChannelProfile"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for injury_roster_monitor; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: injury roster monitor.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-040"
+    },
+    {
+      "engine_id": "sports.match_storyline",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "PRODUCTION",
+      "purpose": "match storyline",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for match_storyline; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: match storyline.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-041"
+    },
+    {
+      "engine_id": "sports.rights_safe_footage_planner",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "VERIFICATION",
+      "purpose": "rights safe footage planner",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "Claim",
+        "EvidenceEdge",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for rights_safe_footage_planner; reject stale, missing, unauthorized or cross-channel references.",
+        "Inspect asset ownership license allowed uses, extent of transformation and platform monetization separately; hold unknown. Specific objective: rights safe footage planner.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "rights",
+      "required_negative_checks": [
+        "third_party_footage_rights",
+        "license_expiry"
+      ],
+      "case_id": "V21-ENG-042"
+    },
+    {
+      "engine_id": "sports.sports_community_questions",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "sports community questions",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for sports_community_questions; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: sports community questions.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-043"
+    },
+    {
+      "engine_id": "sports.seasonality_planner",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "PRODUCTION",
+      "purpose": "seasonality planner",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for seasonality_planner; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: seasonality planner.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-044"
+    },
+    {
+      "engine_id": "sports.cricket_fixture_score_intake",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "DISCOVERY",
+      "purpose": "cricket fixture score intake",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "SourceFetchRequest",
+        "ChannelProfile"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for cricket_fixture_score_intake; reject stale, missing, unauthorized or cross-channel references.",
+        "Verify structured event/result semantics and provider correction revision, source time and season. Specific objective: cricket fixture score intake.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "score",
+      "required_negative_checks": [
+        "official_score_revision",
+        "sport_state_machine"
+      ],
+      "case_id": "V21-ENG-045"
+    },
+    {
+      "engine_id": "sports.cricket_score_semantics",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "cricket score semantics",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for cricket_score_semantics; reject stale, missing, unauthorized or cross-channel references.",
+        "Verify structured event/result semantics and provider correction revision, source time and season. Specific objective: cricket score semantics.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "score",
+      "required_negative_checks": [
+        "official_score_revision",
+        "sport_state_machine"
+      ],
+      "case_id": "V21-ENG-046"
+    },
+    {
+      "engine_id": "sports.cricket_tactical_graphics",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "PRODUCTION",
+      "purpose": "cricket tactical graphics",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for cricket_tactical_graphics; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: cricket tactical graphics.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-047"
+    },
+    {
+      "engine_id": "sports.cricket_editorial_angles",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "cricket editorial angles",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for cricket_editorial_angles; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: cricket editorial angles.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-048"
+    },
+    {
+      "engine_id": "sports.cricket_rights",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "VERIFICATION",
+      "purpose": "cricket rights",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "Claim",
+        "EvidenceEdge",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable",
+        "owner_rights_policy",
+        "human_review_if_high_risk"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for cricket_rights; reject stale, missing, unauthorized or cross-channel references.",
+        "Inspect asset ownership license allowed uses, extent of transformation and platform monetization separately; hold unknown. Specific objective: cricket rights.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "rights",
+      "required_negative_checks": [
+        "third_party_footage_rights",
+        "license_expiry"
+      ],
+      "case_id": "V21-ENG-049"
+    },
+    {
+      "engine_id": "sports.nfl_schedule_status",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "nfl schedule status",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for nfl_schedule_status; reject stale, missing, unauthorized or cross-channel references.",
+        "Normalize league match formats, units, correction history, game state and source timestamp before calculation. Specific objective: nfl schedule status.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "stat",
+      "required_negative_checks": [
+        "sport_units",
+        "no_stale_live_stat"
+      ],
+      "case_id": "V21-ENG-050"
+    },
+    {
+      "engine_id": "sports.nfl_play_state_parser",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "nfl play state parser",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for nfl_play_state_parser; reject stale, missing, unauthorized or cross-channel references.",
+        "Normalize league match formats, units, correction history, game state and source timestamp before calculation. Specific objective: nfl play state parser.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "stat",
+      "required_negative_checks": [
+        "sport_units",
+        "no_stale_live_stat"
+      ],
+      "case_id": "V21-ENG-051"
+    },
+    {
+      "engine_id": "sports.nfl_tactics_animator",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "PRODUCTION",
+      "purpose": "nfl tactics animator",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for nfl_tactics_animator; reject stale, missing, unauthorized or cross-channel references.",
+        "Build explanatory original sports diagrams from validated positions/formations, mark unobserved tactics as hypotheses. Specific objective: nfl tactics animator.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "tactics",
+      "required_negative_checks": [
+        "game_event_support",
+        "no_unlicensed_clip"
+      ],
+      "case_id": "V21-ENG-052"
+    },
+    {
+      "engine_id": "sports.nfl_performance_analysis",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "LEARNING",
+      "purpose": "nfl performance analysis",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "AnalyticsObservation",
+        "ContentProject"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for nfl_performance_analysis; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: nfl performance analysis.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-053"
+    },
+    {
+      "engine_id": "sports.nfl_rights",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "VERIFICATION",
+      "purpose": "nfl rights",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "Claim",
+        "EvidenceEdge",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable",
+        "owner_rights_policy",
+        "human_review_if_high_risk"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for nfl_rights; reject stale, missing, unauthorized or cross-channel references.",
+        "Inspect asset ownership license allowed uses, extent of transformation and platform monetization separately; hold unknown. Specific objective: nfl rights.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "rights",
+      "required_negative_checks": [
+        "third_party_footage_rights",
+        "license_expiry"
+      ],
+      "case_id": "V21-ENG-054"
+    },
+    {
+      "engine_id": "sports.mlb_innings_stats",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "mlb innings stats",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for mlb_innings_stats; reject stale, missing, unauthorized or cross-channel references.",
+        "Normalize league match formats, units, correction history, game state and source timestamp before calculation. Specific objective: mlb innings stats.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "stat",
+      "required_negative_checks": [
+        "sport_units",
+        "no_stale_live_stat"
+      ],
+      "case_id": "V21-ENG-055"
+    },
+    {
+      "engine_id": "sports.mlb_pitcher_hitter",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "mlb pitcher hitter",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for mlb_pitcher_hitter; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: mlb pitcher hitter.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-056"
+    },
+    {
+      "engine_id": "sports.mlb_strike_zone_diagram",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "PRODUCTION",
+      "purpose": "mlb strike zone diagram",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for mlb_strike_zone_diagram; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: mlb strike zone diagram.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-057"
+    },
+    {
+      "engine_id": "sports.mlb_offseason_planner",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "PRODUCTION",
+      "purpose": "mlb offseason planner",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for mlb_offseason_planner; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: mlb offseason planner.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-058"
+    },
+    {
+      "engine_id": "sports.nba_possession_metrics",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "nba possession metrics",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for nba_possession_metrics; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: nba possession metrics.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-059"
+    },
+    {
+      "engine_id": "sports.nba_tactics_visualizer",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "PRODUCTION",
+      "purpose": "nba tactics visualizer",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ScriptVersion",
+        "SceneSpec",
+        "AssetRights"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for nba_tactics_visualizer; reject stale, missing, unauthorized or cross-channel references.",
+        "Build explanatory original sports diagrams from validated positions/formations, mark unobserved tactics as hypotheses. Specific objective: nba tactics visualizer.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "tactics",
+      "required_negative_checks": [
+        "game_event_support",
+        "no_unlicensed_clip"
+      ],
+      "case_id": "V21-ENG-060"
+    },
+    {
+      "engine_id": "sports.soccer_xg_provenance",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "VERIFICATION",
+      "purpose": "soccer xg provenance",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "Claim",
+        "EvidenceEdge",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for soccer_xg_provenance; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: soccer xg provenance.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-061"
+    },
+    {
+      "engine_id": "sports.soccer_formations",
+      "owner_module": "domain_router",
+      "domain_id": "sports",
+      "phase": "RESEARCH",
+      "purpose": "soccer formations",
+      "source_dossier": "domains/sports.md",
+      "input_contract": "ExecutionRequest.schema.json",
+      "output_contract": "ExecutionResult.schema.json",
+      "mandatory_artifact_types": [
+        "ResearchPlan",
+        "SourceVersion"
+      ],
+      "result_artifact_type": "sports_evidence_or_tactical_plan",
+      "preconditions": [
+        "enabled_domain_or_shared_service",
+        "valid_context",
+        "input_schema_version",
+        "bounded_budget",
+        "source_or_asset_provenance",
+        "sport_id",
+        "league_season",
+        "event_state_if_applicable"
+      ],
+      "execution_steps": [
+        "Validate and resolve required sources/artifacts for soccer_formations; reject stale, missing, unauthorized or cross-channel references.",
+        "Apply domain dossier verification/calculation rules to observable inputs; write typed result and uncertainty, or block. Specific objective: soccer formations.",
+        "Run source/rights/claim policy gates; append provenance, uncertainty, revision digest and bounded completeness report.",
+        "Persist immutable result or return typed failure/review with precise cause and operator recovery; never create external side effect unless privileged owner."
+      ],
+      "forbidden_behavior": [
+        "invent_missing_source",
+        "claim_model_output_is_independent_proof",
+        "bypass_hard_gate",
+        "mutate_other_domain_state"
+      ],
+      "on_missing_input": "BLOCKED_WITH_EXPLICIT_REASON",
+      "retry_policy": "ONLY_TRANSIENT_WITH_BUDGET",
+      "evaluation_test_ref": "T-L-003",
+      "release_state": "ENABLED_FOR_SPEC",
+      "implementation_status": "NOT_IMPLEMENTED_IN_SPEC_PACK",
+      "domain_procedure_ref": "playbooks/sports.md",
+      "engine_rule_family": "default",
+      "required_negative_checks": [
+        "source_and_scope_present",
+        "output_provenance"
+      ],
+      "case_id": "V21-ENG-062"
+    }
+  ]
+}

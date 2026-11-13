@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://viralos.local/contracts/RenderManifest.schema.json",
+  "title": "RenderManifest",
+  "description": "Reproducible render attempt metadata, no fake successful output hash.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "render_attempt_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "project_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "scene_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "input_sha256": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "output_relpath": {
+      "type": "string"
+    },
+    "output_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "compute_mode": {
+      "enum": [
+        "AUTO",
+        "CPU_ONLY",
+        "CUDA_ONLY",
+        "HYBRID",
+        "REMOTE_WORKER"
+      ]
+    },
+    "worker_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "model_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ffmpeg_version": {
+      "type": "string"
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "qa_status": {
+      "enum": [
+        "NOT_RUN",
+        "PASS",
+        "FAIL",
+        "REVIEW_REQUIRED"
+      ]
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finished_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "contract_version",
+    "render_attempt_id",
+    "project_id",
+    "project_revision",
+    "scene_ids",
+    "input_sha256",
+    "output_relpath",
+    "compute_mode",
+    "worker_id",
+    "model_ids",
+    "ffmpeg_version",
+    "width",
+    "height",
+    "fps",
+    "duration_ms",
+    "qa_status",
+    "started_at"
+  ]
+}

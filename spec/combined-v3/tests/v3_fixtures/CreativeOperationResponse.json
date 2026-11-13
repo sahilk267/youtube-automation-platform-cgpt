@@ -1,0 +1,13 @@
+{
+  "contract_version": "3.0.0",
+  "request_id": "request-test",
+  "job_id": "job-test",
+  "operation_id": "CV3-01",
+  "status": "BLOCKED",
+  "artifact_id": null,
+  "artifact_schema": null,
+  "blocker_code": "EVIDENCE_UNAVAILABLE",
+  "operator_action": "Provide source",
+  "side_effect_intent_id": null,
+  "implementation_note": "Only a synthetic fixture"
+}
