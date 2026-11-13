@@ -33,3 +33,8 @@ Clone repository, inspect current main/PRs, run tests, open `docs/START_HERE.md`
 ## Offline Windows/backup acceptance tool (Issue #4)
 
 `tools/owner_acceptance.py` and `docs/WINDOWS_CPU_ACCEPTANCE.md` define environment, CPU FFmpeg benchmark, consistent SQLite-only backups and clean-profile recovery. Do not bypass restore-time final-export invalidation, auto-retry remote-unknown uploads, overwrite an existing DB, or put private backups/owner reports in Git. Windows GitHub runner CI **is not** acceptance on owner's actual i7/32GB PC.
+
+
+## M2.5 voice alignment evidence contract
+
+For real voice-model claims, read `docs/M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md`. `tools/audio_acceptance.py` is a **metrics evaluator** of a privately supplied WAV, transcript reference and candidate timestamps; it never runs or verifies a model or listener. `tools/create_voice_manifest.py` creates **unapproved** template, not an accepted voice. Synthetic fixtures can pass metric-code tests, but **cannot** be counted as a real Piper/WhisperX sample or a professional voice approval. No automatic publishing. Preserve user/WAV/model SHA binding and redacted private reports outside Git.
