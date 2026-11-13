@@ -36,3 +36,8 @@ First 3 pilot videos: Cricket Hindi Short, NFL English long-form/analysis, pract
 ### Issue #4 checkpoint — offline tools implemented; real Windows owner gate OPEN
 
 Preflight, two original synthetic FFmpeg renders, SQLite WAL-safe backup/verify/clean-profile restore, invalidation of earlier final approvals, and cross-platform safety tests are now in `tools/owner_acceptance.py` + `tests/test_owner_acceptance.py`. GitHub CI adds Windows-runner recovery tests. **Not accepted yet:** real owner 8th-gen i7 32GB benchmark, Hindi font and audio checks, restored media paths/rights, complete video watch-through, installed model license/quality checks and local encrypted backups. Follow [operator procedure](WINDOWS_CPU_ACCEPTANCE.md).
+
+
+### M2.5 checkpoint — evaluation mechanism implemented, actual voice models still blocked
+
+Offline input/quality and word-alignment acceptance harness exists: `tools/audio_acceptance.py`; safe private manifest initializer `tools/create_voice_manifest.py`; Windows helper, cross-platform negative tests and [protocol](M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md). The harness records SHA-bound WAV/voice model/aligner provenance, human correction, word errors/phonetic code-switch and owner voice rating without downloading or running models. **Next real acceptance gates:** obtain owner-reviewed/licensed hi-IN and en-US model files, run actual local TTS+WhisperX (or licensed alternative) on owner's i7/32GB CPU, capture wall-time/peak RAM, ground-truth word errors, human listen-pronunciation scores, 30–60s original pilot videos and retained local evidence. Only then consider M2.5 complete. Issue #2 stays open.

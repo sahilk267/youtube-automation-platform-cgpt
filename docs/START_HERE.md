@@ -46,3 +46,8 @@ Prior chat had milestone ZIPs and generated demonstration MP4s. Those MP4s are t
 ### Windows acceptance and clean-profile recovery
 
 Run the [Windows CPU & private SQLite recovery checklist](WINDOWS_CPU_ACCEPTANCE.md). The DB-only backup excludes media and OS credentials, restore refuses overwrites and invalidates old final exports, and a Windows GitHub CI runner does **not** prove the owner's PC performance. Preserve local private media separately.
+
+
+### Offline M2.5 voice and alignment acceptance (partial)
+
+The optional [M2.5 operator guide](M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md) explains how to create a **private unapproved manifest** for an existing Hindi/English narration WAV and how to compare real local aligner output with human-reviewed word timings. Code: `tools/create_voice_manifest.py`, `tools/audio_acceptance.py`, `tools/voice_accept_windows.ps1`. Do not upload real WAVs, token-level word transcripts, proprietary model files or audio/metadata reports to this public repository. No real model inference or naturalness validation has happened on the owner's PC.

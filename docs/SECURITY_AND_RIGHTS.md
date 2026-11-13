@@ -25,3 +25,8 @@
 ## Repo governance
 
 Run CI, human code review for external actions, source rights review and protected main branch where available. Limit collaborators to necessary access. All releases specify what was tested and where.
+
+
+### Owner voice/alignment data (M2.5)
+
+Voice/model weights, identity, owner source transcripts, reviewed reference-word timings, local audio, licence evidence and WAV/provenance manifests belong in the owner's **private** folder, never this public Git repository. The M2.5 audio evaluator writes only redacted metrics/cryptographic digests outside the tree; it cannot independently verify licences or listener testimony. No voice cloning, external downloads, YouTube actions or automatic publication are enabled. Use `docs/M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md`.

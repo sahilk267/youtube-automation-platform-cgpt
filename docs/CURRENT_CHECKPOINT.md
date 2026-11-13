@@ -66,3 +66,8 @@
 ### Next implementation — Issue #4 offline owner acceptance & recovery
 
 Branch `feature/windows-offline-acceptance-and-private-recovery` adds CPU benchmark and private SQLite recovery tools, 12 new tests, plus a final-export invalidation bypass regression test. Local staged code passed **95/95 pytest tests on Linux**. GitHub Actions Linux and Windows-runner checks must be read on the linked PR before merging. Actual owner i7/32GB Windows acceptance, professional quality and Google live tests remain pending. Use `docs/WINDOWS_CPU_ACCEPTANCE.md` on the owner's device; keep sensitive local reports/data outside Git.
+
+
+### Next partial checkpoint — M2.5 offline voice evidence and alignment protocol (2026-11-13)
+
+Branch `feature/m25-offline-voice-alignment-evidence` adds `tools/audio_acceptance.py`, `tools/create_voice_manifest.py`, `tools/voice_accept_windows.ps1`, an explicit [owner protocol](M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md) and 17 synthetic-fixture/negative tests. **Local focus tests: 17 passed** on Linux; the PR's fresh GitHub Linux + Windows CI results must be consulted before merging. The full external-model quality goal remains **OPEN** (#2): no locally installed real Hindi or English TTS/aligner, no measured human quality, no owner Windows CPU results, and no YouTube login was tested. Tests do not demonstrate actual TTS or alignment; report records owner-supplied evidence only.
