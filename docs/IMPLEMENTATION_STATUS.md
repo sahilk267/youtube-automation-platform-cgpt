@@ -39,3 +39,8 @@
 ### Never report as completed
 
 Full web fact verification; professional natural voice; autonomous Hindi/English dubbing; accurate model-backed forced alignment; professional all-12 directors; licensed sports broadcast footage workflow; public publishing; live account success; guaranteed fair use or monetization; hardware/GPU benchmark; real revenue.
+
+
+### Issue #4: offline Windows-acceptance tooling (software implementation)
+
+`tools/owner_acceptance.py` now supports offline preflight, real original FFmpeg 9:16+16:9 wall-time benchmarks, SHA-256 bound private SQLite online backup, verification, and **clean-profile** restore with invalidated prior final exports and in-flight upload recovery to `REMOTE_UNKNOWN`. `tools/accept_windows.ps1` stores local reports outside Git. The `creative_m22` routes now reject reusing/downloading invalidated exports. New automated safety tests exercise corrupted snapshots, migration tampering, WAL snapshots and restore blockers. [Operator guide](WINDOWS_CPU_ACCEPTANCE.md). **Owner Windows i7/32GB hardware and media watch-through remain PENDING**; GitHub Windows runner is not the owner's device. Database snapshots exclude media and credential-store secrets; backups may contain private research data and must not be committed.
