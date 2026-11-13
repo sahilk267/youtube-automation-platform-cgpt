@@ -17,6 +17,7 @@ import sqlite3
 import subprocess
 import sys
 import tempfile
+from contextlib import closing
 import time
 from datetime import datetime, timezone
 
@@ -57,7 +58,7 @@ def database_checks(database: Path, *, expect_project_schema: bool = True) -> di
     if not database.is_file() or database.stat().st_size == 0:
         raise ValueError('Database missing or empty; initialize the local app first')
     try:
-        with sqlite3.connect(database.as_uri() + '?mode=ro', uri=True) as connection:
+        with closing(sqlite3.connect(database.as_uri() + '?mode=ro', uri=True)) as connection:
             integrity = connection.execute('PRAGMA integrity_check').fetchone()[0]
             if integrity != 'ok':
                 raise ValueError('SQLite integrity_check failed: ' + str(integrity)[:100])
@@ -103,7 +104,8 @@ def make_backup(source: Path, destination_folder: Path) -> dict:
     temp = destination_folder / (database.name + '.incomplete')
     manifest = destination_folder / (database.name + '.manifest.json')
     try:
-        with sqlite3.connect(source.as_uri() + '?mode=ro', uri=True) as src, sqlite3.connect(temp) as dst:
+        with closing(sqlite3.connect(source.as_uri() + '?mode=ro', uri=True)) as src, \
+                closing(sqlite3.connect(temp)) as dst:
             src.backup(dst, pages=128)
         os.chmod(temp, 0o600)
         database_checks(temp)
@@ -182,7 +184,8 @@ def restore_backup(manifest_file: Path, target_file: Path) -> dict:
     temp = target.with_name(target.name + '.restore-incomplete-' + secrets.token_hex(5))
     try:
         # Use a fresh SQLite file, not a raw copy into a running WAL database.
-        with sqlite3.connect(database.as_uri() + '?mode=ro', uri=True) as src, sqlite3.connect(temp) as dst:
+        with closing(sqlite3.connect(database.as_uri() + '?mode=ro', uri=True)) as src, \
+                closing(sqlite3.connect(temp)) as dst:
             src.backup(dst)
             dst.execute('BEGIN IMMEDIATE')
             try:
