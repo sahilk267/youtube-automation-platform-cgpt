@@ -65,7 +65,7 @@ def test_tampered_audio_hash_fails_closed(tmp_path):
 def test_wrong_hindi_transliteration_not_accepted(tmp_path):
     path, m, _ = fixture(tmp_path)
     m["alignment"]["candidate_words"][0]["text"] = "cricket"
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     outcome = v.evaluate(path)
     assert "TRANSCRIPT_WORDS_DO_NOT_MATCH_HUMAN_REFERENCE" in outcome["blockers"]
     assert outcome["word_boundary_mae_ms"] is None
@@ -74,7 +74,7 @@ def test_wrong_hindi_transliteration_not_accepted(tmp_path):
 def test_missing_or_added_word_blocks(tmp_path):
     path, m, _ = fixture(tmp_path)
     m["alignment"]["candidate_words"].pop()
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     result = v.evaluate(path)
     assert "WORD_COUNT_MISMATCH" in result["blockers"]
 
@@ -84,7 +84,7 @@ def test_large_timing_drift_blocks(tmp_path):
     for word in m["alignment"]["candidate_words"]:
         word["start_ms"] += 290
         word["end_ms"] += 290
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     result = v.evaluate(path)
     assert "WORD_BOUNDARY_ERROR_EXCEEDS_ACCEPTANCE_THRESHOLD" in result["blockers"]
     assert result["word_boundary_p95_ms"] == 320
@@ -96,7 +96,7 @@ def test_missing_license_and_owner_reviews_block(tmp_path):
     m["review"]["full_audio_listened"] = False
     m["review"]["pronunciation_checks"][0]["correct"] = False
     m["alignment"]["candidate_source"] = "MANUAL_FIXTURE"
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     blockers = v.evaluate(path)["blockers"]
     assert "MODEL_LICENSE_NOT_OWNER_APPROVED" in blockers
     assert "FULL_AUDIO_NOT_LISTENED" in blockers
@@ -107,16 +107,16 @@ def test_missing_license_and_owner_reviews_block(tmp_path):
 def test_invalid_timestamps_overlap_and_duration_are_rejected(tmp_path):
     path, m, _ = fixture(tmp_path)
     m["alignment"]["reference_words"][1]["start_ms"] = -1
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     with pytest.raises(v.EvidenceError, match="bounds"):
         v.evaluate(path)
     m["alignment"]["reference_words"][1]["start_ms"] = 100
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     with pytest.raises(v.EvidenceError, match="overlapping"):
         v.evaluate(path)
     m["alignment"]["reference_words"][1]["start_ms"] = 500
     m["alignment"]["reference_words"][1]["end_ms"] = 2500
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     with pytest.raises(v.EvidenceError, match="bounds"):
         v.evaluate(path)
 
@@ -127,20 +127,20 @@ def test_no_silence_or_clipped_audio_acceptance(tmp_path):
         f.setnchannels(1); f.setsampwidth(2); f.setframerate(16000)
         f.writeframes(b"\x00\x00" * 32000)
     m["audio_sha256"] = v._hash_file(wav)
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     assert "SILENT_OR_NEAR_SILENT_AUDIO" in v.evaluate(path)["blockers"]
     with wave.open(str(wav), 'wb') as f:
         f.setnchannels(1); f.setsampwidth(2); f.setframerate(16000)
         f.writeframes(struct.pack('<h', 32767) * 32000)
     m["audio_sha256"] = v._hash_file(wav)
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     assert "EXCESSIVE_CLIPPING" in v.evaluate(path)["blockers"]
 
 
 def test_bogus_boolean_time_not_accepted(tmp_path):
     path, m, _ = fixture(tmp_path)
     m["alignment"]["reference_words"][0]["start_ms"] = True
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     with pytest.raises(v.EvidenceError, match="integer"):
         v.evaluate(path)
 
@@ -161,7 +161,7 @@ def test_private_report_refuses_git_tree(tmp_path):
 def test_cli_blocked_returns_nonzero_and_private_report(tmp_path, capsys):
     path, m, _ = fixture(tmp_path)
     m["review"]["naturalness_1_to_5"] = 1
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     result_path = tmp_path / "result.json"
     assert v.main([str(path), "--report", str(result_path)]) == 2
     assert json.loads(result_path.read_text())["status"] == "BLOCKED"
@@ -171,7 +171,7 @@ def test_cli_blocked_returns_nonzero_and_private_report(tmp_path, capsys):
 def test_manifest_rejects_missing_invalid_locale_and_big_file(tmp_path):
     path, m, _ = fixture(tmp_path)
     m["locale"] = "unsupported"
-    path.write_text(json.dumps(m, ensure_ascii=False))
+    path.write_text(json.dumps(m, ensure_ascii=False), encoding='utf-8')
     with pytest.raises(v.EvidenceError, match="hi-IN"):
         v.evaluate(path)
     path.write_bytes(b"0" * (300 * 1024 + 1))
