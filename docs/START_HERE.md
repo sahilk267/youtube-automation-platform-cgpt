@@ -41,3 +41,8 @@ This GitHub repo was PUBLIC when initialized. Do not commit API keys, personally
 ## What is known only outside Git
 
 Prior chat had milestone ZIPs and generated demonstration MP4s. Those MP4s are technical examples (sometimes fictional inputs and eSpeak voices), not definitive training/evaluation targets. Git includes reproducible demo scripts where possible; do not rely on temporary sandbox links. If local DB, owner OAuth or proprietary footage/model assets are lost, they cannot be recreated from the public repo.
+
+
+### Windows acceptance and clean-profile recovery
+
+Run the [Windows CPU & private SQLite recovery checklist](WINDOWS_CPU_ACCEPTANCE.md). The DB-only backup excludes media and OS credentials, restore refuses overwrites and invalidates old final exports, and a Windows GitHub CI runner does **not** prove the owner's PC performance. Preserve local private media separately.
