@@ -38,3 +38,7 @@ Clone repository, inspect current main/PRs, run tests, open `docs/START_HERE.md`
 ## M2.5 voice alignment evidence contract
 
 For real voice-model claims, read `docs/M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md`. `tools/audio_acceptance.py` is a **metrics evaluator** of a privately supplied WAV, transcript reference and candidate timestamps; it never runs or verifies a model or listener. `tools/create_voice_manifest.py` creates **unapproved** template, not an accepted voice. Synthetic fixtures can pass metric-code tests, but **cannot** be counted as a real Piper/WhisperX sample or a professional voice approval. No automatic publishing. Preserve user/WAV/model SHA binding and redacted private reports outside Git.
+
+## M2.5 local Piper execution handoff
+
+`tools/run_local_piper.py` is an **optional owner-executed subprocess wrapper** around an already installed, licence-reviewed local Piper binary and matching on-device `hi_IN`/`en_US` model. It does not download models, prove model output or rights, generate automatic word alignment or approve publication; see `docs/M2_5_LOCAL_PIPER_RUNNER.md`. Synthetic CLI shims and tones in `tests/test_run_local_piper.py` verify code paths only, **never** a real neural voice. Real inference, professional audio, word-timing and CPU/RAM acceptance remain owner gates. Do not weaken Git-private storage, no-overwrite, language checks or licence opt-in. An owner-specified binary is not sandboxed; trust its source.
