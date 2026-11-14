@@ -14,3 +14,9 @@
 - No extra fork of runtime, no real voice/YouTube account acceptance and no professional finished-video claim.
 
 **Following changes** must update both implementation status and applicable test/hardware/rights gates. Recover from main branch, read [START_HERE](START_HERE.md), [AGENTS](../AGENTS.md), [ROADMAP](ROADMAP.md), and Issues.
+
+### 2026-11-14 — M2.5 opt-in local Piper execution (partial, owner acceptance pending)
+
+- Added `tools/run_local_piper.py` and Windows PowerShell helper: owner-selected trusted local Piper executable + language-matched hi_IN/en_US model + private UTF-8 script -> raw audio, FFmpeg 16-kHz WAV, SHA/provenance, wall-clock time and **UNAPPROVED** evaluation manifest.
+- Added synthetic executable/FFmpeg and negative tests; no model weights or owner media committed. Guide: `docs/M2_5_LOCAL_PIPER_RUNNER.md`.
+- GitHub PR/CI and final commit are recorded in `docs/CURRENT_CHECKPOINT.md`. This is *not* independent trained-model inference, voice quality, real alignment, Windows owner-device acceptance or YouTube publishing. Issue #2 remains OPEN.
