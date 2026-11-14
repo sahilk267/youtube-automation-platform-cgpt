@@ -48,3 +48,7 @@ Audio gates: mono PCM16/16-kHz, maximum 120 seconds/40 MB, RMS ≥0.007, clippin
 The report must be on a **private owner folder**; it cannot include raw research, WAVs, OAuth credentials, licensed weights or private source text. GitHub Actions tests exercise **synthetic sine-wave fixtures only**, with hard-coded fictitious model IDs used *solely to verify the scoring algorithm*. Do not count them as live Piper, WhisperX, third-party licensing, Google integration or natural human voice evidence.
 
 To fully close Issue #2, still implement/validate real licensed voice model acquisition and dependency management (owner opt-in), run actual hi-IN/en-US TTS/aligner, measure owner hardware latency and RAM, full naturalness and code-switch pronunciation, real 30–60-second localized exports, and expert watch-through. Document model/version/licences in a **sanitized** public acceptance summary, while leaving private media/logs outside Git.
+
+## Opt-in installed-model execution helper (additional partial checkpoint)
+
+The separate [local Piper runner guide](M2_5_LOCAL_PIPER_RUNNER.md) now describes an owner-triggered command that checks local model sidecar locale, invokes the trusted installed Piper binary, measures wall-clock time, creates private raw + 16-kHz WAV and automatically initializes an **UNAPPROVED** manifest. Continue human full-audio listening and genuine aligner/reference timestamp review using this document's process. GitHub CI only simulates the executable/model and must **not** be counted as a genuine model, voice naturalness or alignment run.
