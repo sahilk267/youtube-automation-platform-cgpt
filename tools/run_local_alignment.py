@@ -1,0 +1,414 @@
+"""M2.5 supervised, owner-run local WhisperX alignment proposal and QA handoff.
+
+No model downloads, no publication, no claims of validated word timing. Model files,
+Piper voice sample, transcript and outputs are kept outside the public Git repo.
+The worker uses the existing optional app.alignment_m24 CPU adapter; installed
+third-party code is NOT sandboxed and must be trusted/offline-firewalled by owner.
+"""
+from __future__ import annotations
+
+import argparse
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import secrets
+import signal
+import subprocess
+import sys
+import time
+
+from tools.audio_acceptance import EvidenceError, _hash_file, _inside_repo, _token, _words, inspect_wave
+
+MAX_SCRIPT_BYTES = 8192
+MAX_MODEL_FILES = 2000
+MAX_MODEL_BYTES = 12 * 1024 ** 3
+RESULT_NAME = 'alignment-proposal-UNREVIEWED.json'
+MANIFEST_NAME = 'voice-evaluation-WITH-PROPOSAL-UNAPPROVED.json'
+REPORT_NAME = 'alignment-run-TECHNICAL.json'
+
+
+def _private_file(path: Path, label: str, max_bytes: int) -> Path:
+    path = path.expanduser().resolve()
+    if _inside_repo(path) or not path.is_file() or not 0 < path.stat().st_size <= max_bytes:
+        raise EvidenceError(f'{label} missing, oversized, or under the public Git repository')
+    return path
+
+
+def _private_dir(path: Path, label: str) -> Path:
+    if path.is_symlink():
+        raise EvidenceError(f'{label}: symlinked directory refused')
+    path = path.expanduser().resolve()
+    if _inside_repo(path) or not path.is_dir():
+        raise EvidenceError(f'{label} must be an existing private directory outside Git')
+    return path
+
+
+def _script(path: Path) -> str:
+    path = _private_file(path, 'Private exact-spoken transcript', MAX_SCRIPT_BYTES)
+    try:
+        value = path.read_text(encoding='utf-8').strip()
+    except UnicodeError as exc:
+        raise EvidenceError('Transcript must be UTF-8 text') from exc
+    if not 12 <= len(value) <= 1400 or any((ord(c) < 32 and c not in '\r\n\t') or ord(c) == 127 for c in value):
+        raise EvidenceError('Transcript must be 12-1400 printable characters')
+    words = value.split()
+    if not 1 <= len(words) <= 1500:
+        raise EvidenceError('Transcript word count outside supported range')
+    for i, word in enumerate(words):
+        _token(word, f'transcript[{i}]')
+    return value
+
+
+def _model_fingerprint(model_dir: Path, locale: str) -> tuple[str, int]:
+    """Hash every ordinary model file, plus its relative path; no symlinks."""
+    if not (model_dir / 'config.json').is_file():
+        raise EvidenceError('Local WhisperX model directory must contain config.json')
+    try:
+        cfg = json.loads((model_dir / 'config.json').read_text(encoding='utf-8'))
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        raise EvidenceError('Local aligner config.json is invalid') from exc
+    if not isinstance(cfg, dict):
+        raise EvidenceError('Local aligner config must be an object')
+    declared = cfg.get('language') or cfg.get('language_code')
+    if isinstance(declared, str) and declared.lower().replace('_', '-').split('-')[0] != locale[:2]:
+        raise EvidenceError('Aligner model config declares a different language')
+    files = sorted(model_dir.rglob('*'), key=lambda p: p.relative_to(model_dir).as_posix())
+    if not 1 <= len(files) <= MAX_MODEL_FILES:
+        raise EvidenceError('Local aligner model directory file limit exceeded')
+    digest = hashlib.sha256()
+    total = 0
+    count = 0
+    for path in files:
+        if path.is_symlink() or not path.is_file():
+            raise EvidenceError('Aligner model directory may contain regular files only')
+        rel = path.relative_to(model_dir).as_posix()
+        size = path.stat().st_size
+        total += size
+        if total > MAX_MODEL_BYTES:
+            raise EvidenceError('Aligner model directory exceeds 12 GiB')
+        digest.update(rel.encode('utf-8') + b'\0' + str(size).encode('ascii') + b'\0')
+        digest.update(_hash_file(path).encode('ascii') + b'\n')
+        count += 1
+    return digest.hexdigest(), count
+
+
+def _input_manifest(sample_dir: Path, script_text: str, audio_path: Path) -> tuple[dict, str]:
+    file = _private_file(sample_dir / 'voice-evaluation-UNAPPROVED.json', 'Original unapproved Piper manifest', 500 * 1024)
+    try:
+        m = json.loads(file.read_text(encoding='utf-8'))
+    except (UnicodeError, json.JSONDecodeError) as exc:
+        raise EvidenceError('Original Piper manifest is invalid') from exc
+    if not isinstance(m, dict) or m.get('schema_version') != 1 or m.get('locale') not in ('hi-IN', 'en-US'):
+        raise EvidenceError('Original manifest must have a supported M2.5 locale/schema')
+    provenance = m.get('local_run_provenance')
+    if not isinstance(provenance, dict) or provenance.get('producer') != 'OWNER_SUPPLIED_LOCAL_PIPER':
+        raise EvidenceError('This runner requires an existing Piper sample generated by the local runner')
+    script_sha = hashlib.sha256(script_text.encode('utf-8')).hexdigest()
+    if provenance.get('input_text_sha256') != script_sha:
+        raise EvidenceError('Script content does not match the original generated voice input')
+    if m.get('audio_sha256') != _hash_file(audio_path):
+        raise EvidenceError('Narration WAV hash changed since its original Piper sample')
+    original_audio = m.get('audio_path')
+    if not isinstance(original_audio, str) or Path(original_audio).resolve() != audio_path:
+        raise EvidenceError('Manifest narration audio path does not match this sample')
+    alignment = m.get('alignment')
+    if not isinstance(alignment, dict) or not isinstance(alignment.get('candidate_words'), list) or not isinstance(alignment.get('reference_words'), list):
+        raise EvidenceError('Original Piper manifest alignment structure is invalid')
+    if alignment['candidate_words'] or alignment['reference_words']:
+        raise EvidenceError('Original unapproved Piper manifest has unexpected pre-existing word data')
+    return m, script_sha
+
+
+def _offline_env() -> dict:
+    env = os.environ.copy()
+    env.update({
+        'HF_HUB_OFFLINE': '1', 'TRANSFORMERS_OFFLINE': '1',
+        'HF_DATASETS_OFFLINE': '1', 'HF_HUB_DISABLE_TELEMETRY': '1',
+        'TOKENIZERS_PARALLELISM': 'false', 'NO_COLOR': '1',
+    })
+    return env
+
+
+def _worker_model_align(wav: Path, script: str, model: Path, locale: str, duration_ms: int) -> list[dict]:
+    """Actual adapter call, independently mockable in unit tests.
+
+    WhisperX is imported ONLY inside app.alignment_m24 upon an owner-run model job.
+    Both audio and model are user-provided and local, no download code here.
+    """
+    _offline_env_values = _offline_env()
+    for key in ('HF_HUB_OFFLINE', 'TRANSFORMERS_OFFLINE', 'HF_DATASETS_OFFLINE',
+                'HF_HUB_DISABLE_TELEMETRY', 'TOKENIZERS_PARALLELISM'):
+        os.environ[key] = _offline_env_values[key]
+    os.environ['VIRALOS_WHISPERX_ALIGN_MODEL_DIR'] = str(model)
+    os.environ['VIRALOS_WHISPERX_MODEL_RIGHTS_OK'] = '1'
+    os.environ['VIRALOS_OFFLINE_FORCED_ALIGN_OPT_IN'] = '1'
+    from app.alignment_m24 import align_transcript
+    return align_transcript(wav, {'locale': locale,
+                                  'captions': [{'text': script, 'start_ms': 0, 'end_ms': duration_ms}]})
+
+
+def _write_worker_result(*, model: Path, wav: Path, script_file: Path, locale: str,
+                         destination: Path) -> None:
+    """Separate CPU child writes only unreviewed candidates; no reviewer claims."""
+    if destination.exists():
+        raise EvidenceError('Worker output destination already exists')
+    script = _script(script_file)
+    wave_info = inspect_wave(wav)
+    if wave_info['blockers']:
+        raise EvidenceError('Narration audio has quality blockers')
+    candidates = _worker_model_align(wav, script, model, locale, wave_info['duration_ms'])
+    if not isinstance(candidates, list):
+        raise EvidenceError('Local aligner returned malformed word segments')
+    normalized = []
+    for word in candidates:
+        if not isinstance(word, dict):
+            raise EvidenceError('Local aligner produced malformed word entry')
+        normalized.append({'text': word.get('token'),
+                           'start_ms': word.get('start_ms'), 'end_ms': word.get('end_ms')})
+    _verify_candidates(script, normalized, wave_info['duration_ms'])
+    with destination.open('x', encoding='utf-8') as output:
+        json.dump({'schema_version': 1, 'worker': 'OWNER_OPTED_IN_LOCAL_WHISPERX_CPU',
+                   'candidate_words': normalized}, output, ensure_ascii=False)
+        output.write('\n')
+
+
+def _verify_candidates(script: str, candidates: list[dict], duration_ms: int) -> None:
+    """NO padded, interpolated or guessed words can be accepted here."""
+    expected_tokens = [_token(word, 'script') for word in script.split()]
+    if len(expected_tokens) != len(candidates):
+        raise EvidenceError('Aligner omitted or added words; requires human investigation')
+    checked = _words(candidates, 'candidate_words', duration_ms)
+    actual_tokens = [word[0] for word in checked]
+    if expected_tokens != actual_tokens:
+        raise EvidenceError('Aligner word text does not match exact private script; no inferred translations')
+
+
+def _stop_process_tree(process: subprocess.Popen) -> None:
+    if process.poll() is not None:
+        return
+    if os.name == 'nt':
+        try:
+            subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                           stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                           stderr=subprocess.DEVNULL, timeout=10, check=False)
+        except (OSError, subprocess.TimeoutExpired):
+            process.kill()
+    else:
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except (ProcessLookupError, PermissionError):
+            process.kill()
+    try:
+        process.wait(timeout=10)
+    except subprocess.TimeoutExpired:
+        pass
+
+
+def _invoke_worker(*, sample_dir: Path, script_file: Path, wav: Path, model_dir: Path,
+                   locale: str, staging: Path, timeout_seconds: int) -> dict:
+    cmd = [sys.executable, '-m', 'tools.run_local_alignment', '--_worker',
+           '--wav', str(wav), '--script-file', str(script_file),
+           '--model-dir', str(model_dir), '--locale', locale, '--out', str(staging)]
+    begin = time.perf_counter()
+    try:
+        process = subprocess.Popen(cmd, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                                   stderr=subprocess.DEVNULL, env=_offline_env(),
+                                   cwd=str(Path(__file__).resolve().parents[1]),
+                                   start_new_session=os.name != 'nt')
+    except OSError as exc:
+        raise EvidenceError('Could not start offline local model worker') from exc
+    peak_rss = None
+    monitor_method = 'UNAVAILABLE_PSUTIL_NOT_INSTALLED'
+    try:
+        try:
+            import psutil
+            watched = psutil.Process(process.pid)
+            monitor_method = 'SAMPLED_PROCESS_TREE_RSS_WITH_PSUTIL'
+        except ImportError:
+            watched = None
+        while process.poll() is None:
+            if watched is not None:
+                try:
+                    samples = [watched] + watched.children(recursive=True)
+                    rss = sum(p.memory_info().rss for p in samples if p.is_running())
+                    peak_rss = max(rss, peak_rss or 0)
+                except (psutil.Error, OSError):
+                    pass
+            if time.perf_counter() - begin > timeout_seconds:
+                raise EvidenceError('Offline aligner exceeded operator-selected timeout; no proposal saved')
+            time.sleep(0.08)
+        elapsed = time.perf_counter() - begin
+        if process.returncode != 0:
+            raise EvidenceError('Offline alignment failed; check model installation and script locale privately')
+        if not staging.is_file() or staging.stat().st_size > 300 * 1024:
+            raise EvidenceError('Offline aligner did not create a bounded word proposal')
+        return {'alignment_wall_seconds': round(elapsed, 3),
+                'peak_worker_tree_rss_mb': round(peak_rss / 1024**2, 2) if peak_rss is not None else None,
+                'memory_measurement': monitor_method}
+    finally:
+        _stop_process_tree(process)
+
+
+def run_alignment(*, sample_dir: Path, script_file: Path, model_dir: Path,
+                  locale: str, license_name: str, license_reviewed: bool,
+                  timeout_seconds: int = 600) -> dict:
+    """Supervised new proposal; retains original manifest and always needs human review."""
+    if locale not in ('hi-IN', 'en-US'):
+        raise EvidenceError('Only hi-IN and en-US alignment is supported')
+    if license_reviewed is not True:
+        raise EvidenceError('Explicit owner review of the local aligner model licence is required')
+    if not isinstance(license_name, str) or not 3 <= len(license_name.strip()) <= 128 or \
+            license_name.strip().lower() in {'unknown', 'tbd', 'placeholder', 'none'}:
+        raise EvidenceError('Supply actual reviewed local aligner licence label')
+    if type(timeout_seconds) is not int or not 30 <= timeout_seconds <= 1800:
+        raise EvidenceError('Alignment timeout must be 30..1800 seconds')
+    sample_dir = _private_dir(sample_dir, 'Piper sample folder')
+    model_dir = _private_dir(model_dir, 'WhisperX aligner model directory')
+    script_file = _private_file(script_file, 'Exact private narration script', MAX_SCRIPT_BYTES)
+    text = _script(script_file)
+    audio_path = _private_file(sample_dir / 'voice-16k.wav', 'Piper normalized WAV', 40 * 1024**2)
+    info = inspect_wave(audio_path)
+    if info['blockers']:
+        raise EvidenceError('Normalized narration failed audio QC; alignment cannot proceed')
+    manifest, script_sha = _input_manifest(sample_dir, text, audio_path)
+    if manifest['locale'] != locale:
+        raise EvidenceError('Sample language differs from requested alignment locale')
+    model_sha, file_count = _model_fingerprint(model_dir, locale)
+    filenames = (RESULT_NAME, MANIFEST_NAME, REPORT_NAME)
+    for name in filenames:
+        p = sample_dir / name
+        if p.exists() or p.is_symlink():
+            raise EvidenceError('Prior alignment attempt output exists; no overwrite or automatic retry')
+    stage = sample_dir / ('.alignment-' + secrets.token_hex(8) + '.stage.json')
+    created = []
+    try:
+        metrics = _invoke_worker(sample_dir=sample_dir, script_file=script_file,
+                                 wav=audio_path, model_dir=model_dir, locale=locale,
+                                 staging=stage, timeout_seconds=timeout_seconds)
+        raw = json.loads(stage.read_text(encoding='utf-8'))
+        if raw.get('worker') != 'OWNER_OPTED_IN_LOCAL_WHISPERX_CPU':
+            raise EvidenceError('Worker evidence type not recognized')
+        candidate_words = raw.get('candidate_words')
+        _verify_candidates(text, candidate_words, info['duration_ms'])
+        if _hash_file(audio_path) != manifest['audio_sha256'] or \
+                hashlib.sha256(_script(script_file).encode('utf-8')).hexdigest() != script_sha:
+            raise EvidenceError('Piper audio or script changed during alignment; invalidate proposal')
+        new_model_sha, _ = _model_fingerprint(model_dir, locale)
+        if new_model_sha != model_sha:
+            raise EvidenceError('Local aligner model files changed during inference')
+        now = datetime.now(timezone.utc).isoformat()
+        proposal = {'schema_version': 1, 'status': 'MODEL_PROPOSAL_UNREVIEWED',
+                    'locale': locale, 'sample_id': manifest['sample_id'],
+                    'audio_sha256': manifest['audio_sha256'],
+                    'script_sha256': script_sha,
+                    'aligner_model_tree_sha256': model_sha,
+                    'candidate_source': 'LOCAL_MODEL_OUTPUT',
+                    'candidate_words': candidate_words,
+                    'owner_human_word_review_complete': False,
+                    'model_licence_independently_verified': False,
+                    'publish_ready': False}
+        draft = json.loads(json.dumps(manifest))
+        draft['alignment']['candidate_source'] = 'LOCAL_MODEL_OUTPUT'
+        draft['alignment']['candidate_words'] = candidate_words
+        draft['model']['aligner_name'] = 'OWNER_INSTALLED_WHISPERX_CPU_LOCAL_DIR'
+        draft['model']['aligner_weights_sha256'] = model_sha
+        draft['local_alignment_provenance'] = {
+            'status': 'UNREVIEWED_REAL_OWNER_RUN_NOT_CI_VALIDATED',
+            'model_tree_sha256': model_sha,
+            'model_files_count': file_count,
+            'owner_entered_license_name': license_name.strip(),
+            'owner_license_review_attested': True,
+            'worker_evidence': 'OWNER_OPTED_IN_LOCAL_WHISPERX_CPU',
+            **metrics,
+            'model_license_independently_verified': False,
+            'human_reference_timings_verified': False,
+            'publishing_authorized': False,
+        }
+        report = {'schema_version': 1, 'status': 'PENDING_HUMAN_REFERENCE_TIMINGS_AND_PRONUNCIATION',
+                  'sample_id': manifest['sample_id'], 'locale': locale,
+                  'recorded_at_utc': now,
+                  'audio_sha256': manifest['audio_sha256'],
+                  'script_sha256': script_sha,
+                  'aligner_model_tree_sha256': model_sha,
+                  'word_proposals_count': len(candidate_words),
+                  **metrics,
+                  'actual_model_licence_independently_verified': False,
+                  'human_word_reference_review_complete': False,
+                  'owner_windows_hardware_independently_verified': False,
+                  'youtube_upload_performed': False,
+                  'publish_ready': False}
+        for path, obj in ((sample_dir / RESULT_NAME, proposal),
+                          (sample_dir / MANIFEST_NAME, draft),
+                          (sample_dir / REPORT_NAME, report)):
+            with path.open('x', encoding='utf-8') as stream:
+                created.append(path)
+                json.dump(obj, stream, ensure_ascii=False, indent=2)
+                stream.write('\n')
+            if os.name != 'nt':
+                path.chmod(0o600)
+        return {'status': report['status'], 'word_proposals_count': len(candidate_words),
+                'private_proposal': str(sample_dir / RESULT_NAME),
+                'private_manifest': str(sample_dir / MANIFEST_NAME),
+                'private_report': str(sample_dir / REPORT_NAME),
+                'publishing_authorized': False,
+                'memory_peak_rss_measured': metrics['peak_worker_tree_rss_mb'] is not None}
+    except Exception:
+        for file in created:
+            file.unlink(missing_ok=True)
+        raise
+    finally:
+        stage.unlink(missing_ok=True)
+
+
+def _worker_main(argv: list[str]) -> int:
+    p = argparse.ArgumentParser(add_help=False)
+    p.add_argument('--wav', type=Path, required=True)
+    p.add_argument('--script-file', type=Path, required=True)
+    p.add_argument('--model-dir', type=Path, required=True)
+    p.add_argument('--locale', choices=('hi-IN', 'en-US'), required=True)
+    p.add_argument('--out', type=Path, required=True)
+    a = p.parse_args(argv)
+    try:
+        _write_worker_result(model=_private_dir(a.model_dir, 'Aligner model'),
+                             wav=_private_file(a.wav, 'WAV', 40 * 1024**2),
+                             script_file=a.script_file, locale=a.locale,
+                             destination=a.out)
+        return 0
+    except Exception:
+        return 3
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = sys.argv[1:] if argv is None else argv
+    if args and args[0] == '--_worker':
+        return _worker_main(args[1:])
+    p = argparse.ArgumentParser(description='Owner-opted-in local WhisperX CPU word proposal (never auto-approved)')
+    p.add_argument('--sample-dir', type=Path, required=True,
+                   help='Private Piper sample directory with voice-evaluation-UNAPPROVED.json')
+    p.add_argument('--script-file', type=Path, required=True,
+                   help='Same private exact-spoken UTF-8 script used for Piper generation')
+    p.add_argument('--model-dir', type=Path, required=True,
+                   help='Owner-installed local WhisperX-compatible align model directory')
+    p.add_argument('--locale', choices=('hi-IN', 'en-US'), required=True)
+    p.add_argument('--license-name', required=True)
+    p.add_argument('--license-reviewed', action='store_true')
+    p.add_argument('--timeout', type=int, default=600)
+    a = p.parse_args(args)
+    try:
+        result = run_alignment(sample_dir=a.sample_dir, script_file=a.script_file,
+                               model_dir=a.model_dir, locale=a.locale,
+                               license_name=a.license_name, license_reviewed=a.license_reviewed,
+                               timeout_seconds=a.timeout)
+        print(json.dumps(result, ensure_ascii=False))
+        return 0
+    except (EvidenceError, OSError, ValueError) as exc:
+        print(json.dumps({'status': 'NOT_EXECUTED_OR_UNREVIEWED', 'reason': str(exc),
+                          'publishing_authorized': False}, ensure_ascii=False), file=sys.stderr)
+        return 3
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

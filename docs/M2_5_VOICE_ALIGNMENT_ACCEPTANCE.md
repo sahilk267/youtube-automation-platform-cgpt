@@ -52,3 +52,7 @@ To fully close Issue #2, still implement/validate real licensed voice model acqu
 ## Opt-in installed-model execution helper (additional partial checkpoint)
 
 The separate [local Piper runner guide](M2_5_LOCAL_PIPER_RUNNER.md) now describes an owner-triggered command that checks local model sidecar locale, invokes the trusted installed Piper binary, measures wall-clock time, creates private raw + 16-kHz WAV and automatically initializes an **UNAPPROVED** manifest. Continue human full-audio listening and genuine aligner/reference timestamp review using this document's process. GitHub CI only simulates the executable/model and must **not** be counted as a genuine model, voice naturalness or alignment run.
+
+## Next-stage model execution and human-reference separation
+
+[Local supervised WhisperX CPU runner](M2_5_LOCAL_ALIGNMENT_RUNNER.md) can now take an existing private Piper WAV, its exact SHA-bound private input transcript and a separately licensed owner-installed local aligner to generate candidate words and an **UNAPPROVED** copied evaluation manifest. It does not generate human reference words or prove model accuracy. Continue to label ground truth independently and score MAE/p95 here. A synthetic CI subprocess or matching candidate transcript is **not** real owner Windows/model acceptance.

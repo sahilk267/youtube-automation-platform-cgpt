@@ -63,3 +63,7 @@ On Unix private files are mode `0600`; Windows file privacy depends on your user
 Unit/negative tests in `tests/test_run_local_piper.py` use **fake executable and model-file fixtures** and one real FFmpeg conversion of a synthetic tone (on Linux). They verify command arguments, private file boundaries, offline flags, locale metadata, SHA provenance, audio normalization, silent-audio blocking and fail-closed cases. **No trained Piper voice, real Hindi pronunciation, WhisperX model, real owner PC or YouTube channel has been validated in CI.**
 
 **Tracking:** [Issue #2](https://github.com/sahilk267/youtube-automation-platform-cgpt/issues/2), `docs/IMPLEMENTATION_STATUS.md`, `docs/ROADMAP.md`, `docs/CURRENT_CHECKPOINT.md`.
+
+## Next integration: local word-alignment proposal
+
+Once the owner has a real **Piper output WAV and original text** in a private sample folder, use [the M2.5 local CPU WhisperX alignment runner](M2_5_LOCAL_ALIGNMENT_RUNNER.md) to obtain *unreviewed* model candidate boundaries. An optional installed aligner is required; no model downloads occur. The original voice manifest is untouched. The runner creates a separate manifest that still needs human reference timings and full audio review before `tools.audio_acceptance` can evaluate evidence.
