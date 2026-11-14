@@ -58,7 +58,7 @@ jobs:
           cache-dependency-path: requirements.txt
       - name: Install app dependencies
         run: python -m pip install -r requirements.txt
-      - name: Compile Windows recovery and M2.5 evaluator tools
-        run: python -m compileall -q tools/owner_acceptance.py tools/audio_acceptance.py tools/create_voice_manifest.py tests/test_owner_acceptance.py tests/test_audio_acceptance.py tests/test_voice_manifest_template.py
+      - name: Compile Windows recovery, M2.5 evaluator and local Piper-runner tools
+        run: python -m compileall -q tools/owner_acceptance.py tools/audio_acceptance.py tools/create_voice_manifest.py tools/run_local_piper.py tests/test_owner_acceptance.py tests/test_audio_acceptance.py tests/test_voice_manifest_template.py tests/test_run_local_piper.py
       - name: Run Windows recovery and synthetic M2.5 negative tests
-        run: python -m pytest -q tests/test_owner_acceptance.py tests/test_audio_acceptance.py tests/test_voice_manifest_template.py -k "not benchmark"
+        run: python -m pytest -q tests/test_owner_acceptance.py tests/test_audio_acceptance.py tests/test_voice_manifest_template.py tests/test_run_local_piper.py -k "not benchmark"
