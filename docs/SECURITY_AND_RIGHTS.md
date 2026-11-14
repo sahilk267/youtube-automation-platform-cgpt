@@ -30,3 +30,7 @@ Run CI, human code review for external actions, source rights review and protect
 ### Owner voice/alignment data (M2.5)
 
 Voice/model weights, identity, owner source transcripts, reviewed reference-word timings, local audio, licence evidence and WAV/provenance manifests belong in the owner's **private** folder, never this public Git repository. The M2.5 audio evaluator writes only redacted metrics/cryptographic digests outside the tree; it cannot independently verify licences or listener testimony. No voice cloning, external downloads, YouTube actions or automatic publication are enabled. Use `docs/M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md`.
+
+### Installed Piper executable trust and private audio (M2.5)
+
+The optional `tools/run_local_piper.py` uses a **user-selected native executable**. It passes arguments without a shell and intentionally performs no download, but **cannot guarantee that an arbitrary executable never accesses the internet**. Install only trusted verified Piper binaries and use OS firewall isolation if strict offline operation is required. Keep private script, voice weights/config, raw and normalized WAV, model/executable hashes, identity/licence notes, reviewer and aligned word-level evidence **outside this public repository**. Attestation flags are not independent legal permission or voice consent validation. No publication is authorized. See `docs/M2_5_LOCAL_PIPER_RUNNER.md`.

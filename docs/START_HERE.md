@@ -51,3 +51,7 @@ Run the [Windows CPU & private SQLite recovery checklist](WINDOWS_CPU_ACCEPTANCE
 ### Offline M2.5 voice and alignment acceptance (partial)
 
 The optional [M2.5 operator guide](M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md) explains how to create a **private unapproved manifest** for an existing Hindi/English narration WAV and how to compare real local aligner output with human-reviewed word timings. Code: `tools/create_voice_manifest.py`, `tools/audio_acceptance.py`, `tools/voice_accept_windows.ps1`. Do not upload real WAVs, token-level word transcripts, proprietary model files or audio/metadata reports to this public repository. No real model inference or naturalness validation has happened on the owner's PC.
+
+### Next owner action — local Piper live model acceptance
+
+After the M2.5 evaluator, the new opt-in [Piper CLI runner](M2_5_LOCAL_PIPER_RUNNER.md) bridges an **owner-installed/licensed** Hindi/English voice model to SHA-bound private audio, wall-time and an unapproved manifest. Start with `tools/run_voice_local_windows.ps1`, keep all voice weights and media outside the public Git repo. The GitHub synthetic audio test is **not** proof of a neural voice model, naturalness, forced alignment, genuine owner Windows performance or publication readiness. [M2.5 acceptance protocol](M2_5_VOICE_ALIGNMENT_ACCEPTANCE.md).
