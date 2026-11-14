@@ -20,3 +20,9 @@
 - Added `tools/run_local_piper.py` and Windows PowerShell helper: owner-selected trusted local Piper executable + language-matched hi_IN/en_US model + private UTF-8 script -> raw audio, FFmpeg 16-kHz WAV, SHA/provenance, wall-clock time and **UNAPPROVED** evaluation manifest.
 - Added synthetic executable/FFmpeg and negative tests; no model weights or owner media committed. Guide: `docs/M2_5_LOCAL_PIPER_RUNNER.md`.
 - [PR #15](https://github.com/sahilk267/youtube-automation-platform-cgpt/pull/15) merged with commit `80e84d58a736ca1b957a1343648ffa40eff9cdbd`; [CI run](https://github.com/sahilk267/youtube-automation-platform-cgpt/actions/runs/43570844894) verified 127 Linux tests and 41 Windows focused tests (one skipped, one deselected). Details in `docs/CURRENT_CHECKPOINT.md`. This is *not* independent trained-model inference, voice quality, real alignment, Windows owner-device acceptance or YouTube publishing. Issue #2 remains OPEN.
+
+### 2026-11-14 — M2.5 supervised local alignment operator, partial milestone
+
+- Added optional separate CPU worker around the existing WhisperX adapter: exact-script binding to owner Piper WAV, local model-tree SHA verification, offline environment, fail-closed missing/mismatched Hindi/English words, timeout, optional sampled process memory and three PRIVATE unreviewed outputs.
+- Added Windows wrapper, [operator guide](M2_5_LOCAL_ALIGNMENT_RUNNER.md) and 20 synthetic tests (one real child process with a *synthetic* library shim).
+- Real Hindi/English models, independent model licence checks, ground-truth alignment accuracy, owner Windows CPU/RAM, human video quality and Google publishing remain **unverified**. See Issue #2 and `docs/CURRENT_CHECKPOINT.md` for exact PR/CI/merge info.
